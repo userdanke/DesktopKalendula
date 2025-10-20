@@ -52,9 +52,10 @@
     <Compile Include="Calendar.Designer.cs">
       <DependentUpon>Calendar.cs</DependentUpon>
     </Compile>
-    <Compile Include="DiseñoForms.cs">
+    <Compile Include="Diseño\DiseñoForms.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Diseño\Fuentes.cs" />
     <Compile Include="FirstLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +124,21 @@
     <EmbeddedResource Include="Tasks.resx">
       <DependentUpon>Tasks.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Diseño\Calistoga-Regular.ttf" />
+    <None Include="Diseño\Rubik-Black.ttf" />
+    <None Include="Diseño\Rubik-BlackItalic.ttf" />
+    <None Include="Diseño\Rubik-Bold.ttf" />
+    <None Include="Diseño\Rubik-BoldItalic.ttf" />
+    <None Include="Diseño\Rubik-ExtraBold.ttf" />
+    <None Include="Diseño\Rubik-ExtraBoldItalic.ttf" />
+    <None Include="Diseño\Rubik-Italic.ttf" />
+    <None Include="Diseño\Rubik-Light.ttf" />
+    <None Include="Diseño\Rubik-LightItalic.ttf" />
+    <None Include="Diseño\Rubik-Medium.ttf" />
+    <None Include="Diseño\Rubik-MediumItalic.ttf" />
+    <None Include="Diseño\Rubik-Regular.ttf" />
+    <None Include="Diseño\Rubik-SemiBold.ttf" />
+    <None Include="Diseño\Rubik-SemiBoldItalic.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DesktopKalendula.Diseño;
 
 namespace DesktopKalendula
 {
@@ -19,8 +22,6 @@ namespace DesktopKalendula
         Color.FromArgb(204, 163, 193),
         Color.FromArgb(228, 235, 241) };
 
-
-
         public DiseñoForms()
         {
  
@@ -33,7 +34,6 @@ namespace DesktopKalendula
             btnCerrar.FlatStyle = FlatStyle.Flat;
             btnCerrar.BackColor = Color.Transparent;
             btnCerrar.ForeColor = Color.FromArgb(61, 23, 0);
-            btnCerrar.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
             btnCerrar.FlatAppearance.BorderSize = 0;
             btnCerrar.Size = new Size(30, 30);
             btnCerrar.Click += (s, e) => Application.Exit(); 
@@ -72,5 +72,6 @@ namespace DesktopKalendula
                 }
             }
         }
+
     }
 }
