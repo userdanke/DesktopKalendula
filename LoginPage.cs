@@ -26,11 +26,15 @@ namespace DesktopKalendula
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void lblKalendula_Click(object sender, EventArgs e)
         {
 
         }
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
