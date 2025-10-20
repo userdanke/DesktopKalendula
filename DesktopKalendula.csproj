@@ -52,6 +52,9 @@
     <Compile Include="Calendar.Designer.cs">
       <DependentUpon>Calendar.cs</DependentUpon>
     </Compile>
+    <Compile Include="DiseñoForms.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FirstLogin.cs">
       <SubType>Form</SubType>
     </Compile>
