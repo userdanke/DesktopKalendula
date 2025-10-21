@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DesktopKalendula.Diseño;
 
 namespace DesktopKalendula
 {
@@ -14,16 +17,14 @@ namespace DesktopKalendula
         private Button btnCerrar;
         private Button btnMinimizar;
         private Color[] colores = {
-        Color.FromArgb(211, 145, 109),
-        Color.FromArgb(229, 122, 122),
-        Color.FromArgb(204, 163, 193),
-        Color.FromArgb(228, 235, 241) };
-
-
+        Color.FromArgb(211, 145, 109), //Color marron pastel
+        Color.FromArgb(229, 122, 122), //Color rojo pastel
+        Color.FromArgb(204, 163, 193), //Color lila pastel
+        Color.FromArgb(228, 235, 241) }; //Color azul pastel
 
         public DiseñoForms()
         {
- 
+
             this.Dock = DockStyle.Top;
             this.Height = 40;
             this.Paint += BarraColores_Paint; ;
@@ -32,8 +33,8 @@ namespace DesktopKalendula
             btnCerrar.Text = "✕";
             btnCerrar.FlatStyle = FlatStyle.Flat;
             btnCerrar.BackColor = Color.Transparent;
-            btnCerrar.ForeColor = Color.FromArgb(61, 23, 0);
-            btnCerrar.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+            btnCerrar.ForeColor = Color.FromArgb(61, 23, 0); //Color marron oscuro para el texto
+            btnCerrar.Font = Fuentes.RubikBold(15);
             btnCerrar.FlatAppearance.BorderSize = 0;
             btnCerrar.Size = new Size(30, 30);
             btnCerrar.Click += (s, e) => Application.Exit(); 
@@ -42,9 +43,10 @@ namespace DesktopKalendula
             btnMinimizar.Text = "⎯";
             btnMinimizar.FlatStyle = FlatStyle.Flat;
             btnMinimizar.BackColor = Color.Transparent;
-            btnMinimizar.ForeColor = Color.FromArgb(61, 23, 0);
+            btnMinimizar.ForeColor = Color.FromArgb(61, 23, 0); //Color marron oscuro para el texto
+            btnMinimizar.Font = Fuentes.RubikBold(15);
             btnMinimizar.FlatAppearance.BorderSize = 0;
-            btnMinimizar.Size = new Size(30, 30);
+            btnMinimizar.Size = new Size(80, 30);
             btnMinimizar.Click += (s, e) => this.FindForm().WindowState = FormWindowState.Minimized;
 
             this.Controls.Add(btnCerrar);
@@ -72,5 +74,6 @@ namespace DesktopKalendula
                 }
             }
         }
+
     }
 }
