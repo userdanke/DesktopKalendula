@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DesktopKalendula.Diseño;
 
 namespace DesktopKalendula
 {
@@ -16,6 +17,10 @@ namespace DesktopKalendula
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            string rutaFuentes = @"C:\Users\CEP-TARDA\Source\Repos\DesktopKalendula\Diseño";
+            Fuentes.CargarDesdeDirectorio(rutaFuentes);
+
             Application.Run(new LoginPage());
         }
     }
