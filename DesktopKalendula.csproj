@@ -124,21 +124,51 @@
     <EmbeddedResource Include="Tasks.resx">
       <DependentUpon>Tasks.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Diseño\Calistoga-Regular.ttf" />
-    <None Include="Diseño\Rubik-Black.ttf" />
-    <None Include="Diseño\Rubik-BlackItalic.ttf" />
-    <None Include="Diseño\Rubik-Bold.ttf" />
-    <None Include="Diseño\Rubik-BoldItalic.ttf" />
-    <None Include="Diseño\Rubik-ExtraBold.ttf" />
-    <None Include="Diseño\Rubik-ExtraBoldItalic.ttf" />
-    <None Include="Diseño\Rubik-Italic.ttf" />
-    <None Include="Diseño\Rubik-Light.ttf" />
-    <None Include="Diseño\Rubik-LightItalic.ttf" />
-    <None Include="Diseño\Rubik-Medium.ttf" />
-    <None Include="Diseño\Rubik-MediumItalic.ttf" />
-    <None Include="Diseño\Rubik-Regular.ttf" />
-    <None Include="Diseño\Rubik-SemiBold.ttf" />
-    <None Include="Diseño\Rubik-SemiBoldItalic.ttf" />
+    <Content Include="Diseño\Calistoga-Regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Diseño\Rubik-Black.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Diseño\Rubik-BlackItalic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Diseño\Rubik-Bold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Diseño\Rubik-BoldItalic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Diseño\Rubik-ExtraBold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Diseño\Rubik-ExtraBoldItalic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Diseño\Rubik-Italic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Diseño\Rubik-Light.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Diseño\Rubik-LightItalic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Diseño\Rubik-Medium.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Diseño\Rubik-MediumItalic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Diseño\Rubik-Regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Diseño\Rubik-SemiBold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Diseño\Rubik-SemiBoldItalic.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

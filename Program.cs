@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,7 +19,7 @@ namespace DesktopKalendula
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            string rutaFuentes = @"C:\Users\CEP-TARDA\Source\Repos\DesktopKalendula\Diseño";
+            string rutaFuentes = Path.Combine(Application.StartupPath, "Diseño");
             Fuentes.CargarDesdeDirectorio(rutaFuentes);
 
             Application.Run(new LoginPage());
