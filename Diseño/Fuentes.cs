@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DesktopKalendula.Diseño
 {
@@ -25,13 +26,25 @@ namespace DesktopKalendula.Diseño
         // Cargar todas las fuentes de una carpeta
         public static void CargarDesdeDirectorio(string rutaCarpeta)
         {
-            if (Directory.Exists(rutaCarpeta))
+            if (!Directory.Exists(rutaCarpeta))
             {
-                string[] archivos = Directory.GetFiles(rutaCarpeta, "*.ttf");
-                foreach (string archivo in archivos)
-                {
-                    Cargar(archivo);
-                }
+                MessageBox.Show($"No se encontró la carpeta de fuentes: {rutaCarpeta}",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string[] archivos = Directory.GetFiles(rutaCarpeta, "*.ttf");
+
+            if (archivos.Length == 0)
+            {
+                MessageBox.Show($"No se encontraron archivos .ttf en: {rutaCarpeta}",
+                                "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            foreach (string archivo in archivos)
+            {
+                Cargar(archivo);
             }
         }
 
