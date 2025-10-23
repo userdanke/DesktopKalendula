@@ -15,7 +15,7 @@ namespace DesktopKalendula
     {
         public LoginPage()
         {
-            Fuentes.Cargar(@"C:\Users\CEP-TARDA\Source\Repos\DesktopKalendula\Diseño\Rubik-Italic.ttf");
+
             InitializeComponent();
 
             DiseñoForms diseño = new DiseñoForms();
@@ -26,6 +26,7 @@ namespace DesktopKalendula
         private void LoginPage_Load(object sender, EventArgs e)
         {
             label1.Font = Fuentes.Calistoga(54);
+
         }
 
     }
