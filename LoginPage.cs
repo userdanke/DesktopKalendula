@@ -25,12 +25,7 @@ namespace DesktopKalendula
 
         private void LoginPage_Load(object sender, EventArgs e)
         {
-            Label lblCalistoga = new Label();
-            lblCalistoga.Text = "Kalendulá";
-            lblCalistoga.Font = Fuentes.Calistoga(100);
-            lblCalistoga.Location = new Point(50, 50);
-            lblCalistoga.AutoSize = true;
-            this.Controls.Add(lblCalistoga);
+            label1.Font = Fuentes.Calistoga(54);
         }
 
     }
