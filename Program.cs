@@ -22,7 +22,7 @@ namespace DesktopKalendula
             string rutaFuentes = Path.Combine(Application.StartupPath, "Diseño");
             Fuentes.CargarDesdeDirectorio(rutaFuentes);
 
-            Application.Run(new LoginPage());
+            Application.Run(new FirstLogin());
         }
     }
 }
