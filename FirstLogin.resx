@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>362, 86</value>
+    <value>8, 17</value>
   </data>
   <data name="lblk.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 13</value>
@@ -144,12 +144,12 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblk.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="Logo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAJ8AAADQCAYAAAAZFbNZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAC9tJREFUeF7tnV9u20gSxucIvsHmCDmCj6AbxI+LiZToZQCJerBvQCa778xanmcd
+        DgAACw4BQL7hQQAAC9tJREFUeF7tnV9u20gSxucIvsHmCDmCj6AbxI+LiZToZQCJerBvQCa778xanmcd
         gXayiwVieYmJjX0lEEv2jO1Bx86+Z1FN0pZblERJ/FPV/H7ABwwytuVWf66qru6mfvoJAAAAAAAAAEC1
         RN3uzuSXX15Oer29Sb/vTgcD/8pxRleDQZCK/u3ScQ7oay57vV3zZwCwFhPHeZkYS00d58e6ou8ls8KM
         YG2mjhOZhtpC9LN8iqDm6wDwjInj7GUYqBDpiOg4e+ZrAqApOOotUgQTgmdQjZZhlDIVfe33W+bvARoI
@@ -208,10 +208,13 @@
     <value>NoControl</value>
   </data>
   <data name="Logo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>422, 44</value>
+    <value>68, 12</value>
   </data>
   <data name="Logo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 211</value>
+    <value>300, 250</value>
+  </data>
+  <data name="Logo.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
   </data>
   <data name="Logo.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -226,33 +229,103 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Logo.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
-  <data name="button1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnsignup.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>296, 177</value>
+  <data name="btnsignup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>380, 12</value>
   </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="btnsignup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 50</value>
   </data>
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnsignup.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="button1.Text" xml:space="preserve">
-    <value>button1</value>
+  <data name="btnsignup.Text" xml:space="preserve">
+    <value>Sign Up</value>
   </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
+  <data name="&gt;&gt;btnsignup.Name" xml:space="preserve">
+    <value>btnsignup</value>
   </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnsignup.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnsignup.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnsignup.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnsignin.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnsignin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnsignin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>380, 68</value>
+  </data>
+  <data name="btnsignin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 50</value>
+  </data>
+  <data name="btnsignin.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnsignin.Text" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="&gt;&gt;btnsignin.Name" xml:space="preserve">
+    <value>btnsignin</value>
+  </data>
+  <data name="&gt;&gt;btnsignin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnsignin.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnsignin.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="acento.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADgAAAAyCAYAAAAJHRh4AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAAjdJREFUaEPVWtFRwzAMZQRG6AiMwAhsABuQT0v+oBvABmED2KAjdITc0STlLyOU
+        kxs4TnGbpJFs9d29r7bR01l+suLe3BjE3rlV4/22QTwEet+13m9qgKJybsW/f3VoEMu/5OIsrzbRGvEp
+        klCMFX2X/948SHgkmZPcI77wZ5gFieUJTGTJn2UOwViGwifT/EpOMJZRtgAFf64JzDCWMXbm3LUqitu5
+        xnKOLcCGx8iK1vtXLnIpzZTqzrl7Lk6IHVUGj5cUvWuKlSbnDnHNYyaFhGuOcMtjJsM34nNEkDhpC/DY
+        6lja0Odw59wbj68K7X03IEDaMqV9MRChy45rUINGv5tCrkMFC6aEpdRfwYzJHRrnPrkeUWRNDvFQO6c3
+        8edOrgGouCYxZE9Oc/UsJKfW4C0kR6WpMknk6nOM8hN9P5FrTwaTKH647pNLffyKUvwlcPKD8xmKJ1cj
+        3tGFCA+Ug+LJpRpWp1A8ORNt4MhO1FDITOh+LhIoBzvaIlzjxbBkJqGJS/a5vfePVsyE2pFockZOJoE1
+        wLvY8asvSRPNmyj6AvcL4MFQSXakh2u8CL1LmilJ0f3WX4DYcEmNWY4HyEaASrR5/8LA6nVkJGIuyUEW
+        HAmaivp/6FG8hDzJ2vuNSjmeAt1rcxEqBKjU3nadQ5jvuBhJ5krsP0jAQNhCJi/FMYSTDMBSVz26orZ5
+        XAo6iwZnnZFoWCnEtanVmgISTMIb7+m14Eeg9yWdNujPqfS5Wv8Swg+A1mGF54rxtwAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <data name="acento.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="acento.Location" type="System.Drawing.Point, System.Drawing">
+    <value>652, 12</value>
+  </data>
+  <data name="acento.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 62</value>
+  </data>
+  <data name="acento.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;acento.Name" xml:space="preserve">
+    <value>acento</value>
+  </data>
+  <data name="&gt;&gt;acento.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;acento.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;acento.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
