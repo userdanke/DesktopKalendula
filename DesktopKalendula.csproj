@@ -56,6 +56,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Diseño\Fuentes.cs" />
+    <Compile Include="Diseño\MenuColorTable.cs" />
+    <Compile Include="Diseño\MenuLateral.cs" />
     <Compile Include="FirstLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +96,8 @@
     <Compile Include="Tasks.Designer.cs">
       <DependentUpon>Tasks.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\Logo.png" />
+    <None Include="Resources\menu.png" />
     <EmbeddedResource Include="Calendar.resx">
       <DependentUpon>Calendar.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +118,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="RegisterPage.resx">
       <DependentUpon>RegisterPage.cs</DependentUpon>
@@ -127,6 +132,7 @@
     <Content Include="Diseño\Calistoga-Regular.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Diseño\Img\menu.png" />
     <Content Include="Diseño\Rubik-Black.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

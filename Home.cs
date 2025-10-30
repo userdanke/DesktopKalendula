@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DesktopKalendula.Diseño;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DesktopKalendula
 {
     public partial class Home : Form
     {
+        private MenuLateral menu;
+
         public Home()
         {
             InitializeComponent();
@@ -22,51 +25,84 @@ namespace DesktopKalendula
             DiseñoForms diseño = new DiseñoForms();
             this.Controls.Add(diseño);
 
+            ConfigurarMenu();
+
         }
 
         private void Home_Load(object sender, EventArgs e)
         {
-            Logo.Location = new Point(900, 60);
-            textBoxBuscar.Location = new Point(800, 110);
-            textBoxBuscar.Height = textBoxBuscar.Font.Height + 10;
-            textBoxBuscar.Font = Fuentes.RubikRegular(15);
-            textBoxBuscar.Multiline = true;
-            placeHolder(textBoxBuscar, "Buscar...");
+            Logo.Location = new Point(865, 60);
+            Logo.Size = new Size(250, 85);
+
+            panelPrincipalMenu.Location = new Point(250, 150);
+            panelPrincipalMenu.Size = new Size(1000, 800);
+
 
         }
 
-        private void placeHolder(TextBox tb, string placeHolder)
+        private void ConfigurarMenu()
         {
-            tb.Text = placeHolder;
-            tb.ForeColor = Color.FromArgb(148,172,192);
+            menu = new MenuLateral(this);
 
-            tb.Enter += (s, e) =>
-            {
-                if (tb.Text == placeHolder)
-                {
-                    tb.Text = "";
-                    tb.ForeColor = Color.FromArgb(61, 23, 0);
-                }
-            };
+            menu.ColorFondo = Color.FromArgb(211, 145, 109);
+            menu.ColorTexto = Color.FromArgb(61, 23, 0);
+            menu.ColorHover = Color.FromArgb(190, 125, 90);
 
-            tb.Leave += (s, e) =>
-            {
-                if (string.IsNullOrWhiteSpace(tb.Text))
-                {
-                    tb.Text = placeHolder;
-                    tb.ForeColor = Color.FromArgb(148, 172, 192);
-                }
-            };
+            menu.NombreUsuario = "Tu Nombre";
+            menu.CorreoUsuario = "tu@correo.com";
 
-            tb.TextChanged += (s, e) =>
-            {
-                if (tb.Text != placeHolder)
-                {
-                    tb.ForeColor = Color.FromArgb(148, 172, 192);
-                }
-            };
+            menu.AgregarOpcion("🏠", "Perfil", () => IrAInicio());
+            menu.AgregarOpcion("👥", "Usuarios", () => IrAUsuarios());
+            menu.AgregarOpcion("⚙️", "Configuración", () => IrAConfiguracion());
+            menu.AgregarOpcion("🚪", "Cerrar Sesión", () => CerrarSesion());
 
+            btnMenu.Text = "☰";
+            btnMenu.Size = new Size(50, 1200);
+            btnMenu.Location = new Point(0, 40);
+            btnMenu.Font = Fuentes.RubikBold(40);
+            btnMenu.FlatStyle = FlatStyle.Flat;
+            btnMenu.FlatAppearance.BorderSize = 0;
+            btnMenu.BackColor = Color.FromArgb(228, 235, 241);
+            btnMenu.ForeColor = Color.FromArgb(252, 250, 249);
+            btnMenu.Cursor = Cursors.Hand;
+            btnMenu.Click += (s, e) => menu.Toggle();
+            this.Controls.Add(btnMenu);
+            btnMenu.BringToFront();
         }
 
+        private void IrAInicio()
+        {
+            MessageBox.Show("Navegando a Inicio");
+        }
+
+        private void IrAReportes()
+        {
+            MessageBox.Show("Navegando a Reportes");
+        }
+
+        private void IrAUsuarios()
+        {
+            MessageBox.Show("Navegando a Usuarios");
+        }
+
+        private void IrAConfiguracion()
+        {
+            MessageBox.Show("Abriendo Configuración");
+        }
+
+        private void CerrarSesion()
+        {
+            DialogResult resultado = MessageBox.Show(
+                "¿Seguro que quieres cerrar sesión?",
+                "Confirmar",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

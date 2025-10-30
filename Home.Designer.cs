@@ -28,38 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
+            this.panelPrincipalMenu = new System.Windows.Forms.Panel();
             this.Logo = new System.Windows.Forms.PictureBox();
-            this.textBoxBuscar = new System.Windows.Forms.TextBox();
+            this.btnMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
             // 
+            // panelPrincipalMenu
+            // 
+            this.panelPrincipalMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
+            this.panelPrincipalMenu.Location = new System.Drawing.Point(135, 247);
+            this.panelPrincipalMenu.Name = "panelPrincipalMenu";
+            this.panelPrincipalMenu.Size = new System.Drawing.Size(349, 263);
+            this.panelPrincipalMenu.TabIndex = 1;
+            // 
             // Logo
             // 
-            this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
-            this.Logo.Location = new System.Drawing.Point(80, 100);
+            this.Logo.Image = global::DesktopKalendula.Properties.Resources.Logo;
+            this.Logo.Location = new System.Drawing.Point(12, 12);
             this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(137, 43);
-            this.Logo.TabIndex = 0;
+            this.Logo.Size = new System.Drawing.Size(365, 119);
+            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Logo.TabIndex = 3;
             this.Logo.TabStop = false;
             // 
-            // textBoxBuscar
+            // btnMenu
             // 
-            this.textBoxBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(235)))), ((int)(((byte)(241)))));
-            this.textBoxBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxBuscar.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBoxBuscar.Location = new System.Drawing.Point(224, 248);
-            this.textBoxBuscar.Name = "textBoxBuscar";
-            this.textBoxBuscar.Size = new System.Drawing.Size(345, 13);
-            this.textBoxBuscar.TabIndex = 1;
+            this.btnMenu.Location = new System.Drawing.Point(779, 237);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(101, 33);
+            this.btnMenu.TabIndex = 4;
+            this.btnMenu.Text = "button1";
+            this.btnMenu.UseVisualStyleBackColor = true;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1000, 700);
-            this.Controls.Add(this.textBoxBuscar);
+            this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.Logo);
+            this.Controls.Add(this.panelPrincipalMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -68,13 +78,12 @@
             this.Load += new System.EventHandler(this.Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
+        private System.Windows.Forms.Panel panelPrincipalMenu;
         private System.Windows.Forms.PictureBox Logo;
-        private System.Windows.Forms.TextBox textBoxBuscar;
+        private System.Windows.Forms.Button btnMenu;
     }
 }
