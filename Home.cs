@@ -37,6 +37,36 @@ namespace DesktopKalendula
             panelPrincipalMenu.Location = new Point(250, 150);
             panelPrincipalMenu.Size = new Size(1000, 800);
 
+            labelHome.Font = Fuentes.Calistoga(35);
+            labelHome.Location = new Point(85, 20);
+            labelHome.ForeColor = Color.FromArgb(61, 23, 0);
+
+            buttonNewProject.Font = Fuentes.RubikRegular(15);
+            buttonNewProject.ForeColor = Color.FromArgb(255, 251, 249);
+            buttonNewProject.Location = new Point(100, 100);
+            buttonNewProject.Size = new Size(250, 40);
+
+            buttonOpenProject.Font = Fuentes.RubikRegular(15);
+            buttonOpenProject.ForeColor = Color.FromArgb(255, 251, 249);
+            buttonOpenProject.Location = new Point(370, 100);
+            buttonOpenProject.Size = new Size(250, 40);
+
+            buttonTask.Font = Fuentes.RubikRegular(15);
+            buttonTask.ForeColor = Color.FromArgb(255, 251, 249);
+            buttonTask.Location = new Point(640, 100);
+            buttonTask.Size = new Size(250, 40);
+
+            panelSecundario.Location = new Point(1320, 150);
+            panelSecundario.Size = new Size(500, 800);
+
+            labelCalendar.Font = Fuentes.Calistoga(35);
+            labelCalendar.Location = new Point(150, 20);
+            labelCalendar.ForeColor = Color.FromArgb(61, 23, 0);
+
+            monthCalendar1.Location = new Point(170, 100);
+            monthCalendar1.Size = new Size(300, 300);
+            monthCalendar1.BackColor = Color.FromArgb(252, 250, 249);
+
 
         }
 
@@ -104,5 +134,6 @@ namespace DesktopKalendula
                 this.Close();
             }
         }
+
     }
 }
