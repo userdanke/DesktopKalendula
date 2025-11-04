@@ -29,21 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirstLogin));
-            this.lblk = new System.Windows.Forms.Label();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.btnsignup = new System.Windows.Forms.Button();
             this.btnsignin = new System.Windows.Forms.Button();
-            this.acento = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.acento)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblk
-            // 
-            resources.ApplyResources(this.lblk, "lblk");
-            this.lblk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(23)))), ((int)(((byte)(0)))));
-            this.lblk.Name = "lblk";
-            this.lblk.Click += new System.EventHandler(this.lblk_Click);
             // 
             // Logo
             // 
@@ -68,39 +58,26 @@
             this.btnsignin.Name = "btnsignin";
             this.btnsignin.UseVisualStyleBackColor = false;
             // 
-            // acento
-            // 
-            resources.ApplyResources(this.acento, "acento");
-            this.acento.Name = "acento";
-            this.acento.TabStop = false;
-            // 
             // FirstLogin
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
-            this.Controls.Add(this.acento);
             this.Controls.Add(this.btnsignin);
             this.Controls.Add(this.btnsignup);
             this.Controls.Add(this.Logo);
-            this.Controls.Add(this.lblk);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FirstLogin";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FirstLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.acento)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblk;
         private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.Button btnsignup;
         private System.Windows.Forms.Button btnsignin;
-        private System.Windows.Forms.PictureBox acento;
     }
 }
