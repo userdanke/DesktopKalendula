@@ -49,6 +49,7 @@
             this.btnsignup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.btnsignup.Name = "btnsignup";
             this.btnsignup.UseVisualStyleBackColor = false;
+            this.btnsignup.Click += new System.EventHandler(this.btnsignup_Click);
             // 
             // btnsignin
             // 

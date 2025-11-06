@@ -2097,10 +2097,13 @@
     <value>NoControl</value>
   </data>
   <data name="Logo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 186</value>
+    <value>16, 229</value>
+  </data>
+  <data name="Logo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="Logo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1000, 300</value>
+    <value>1333, 369</value>
   </data>
   <data name="Logo.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -2125,10 +2128,13 @@
     <value>Flat</value>
   </data>
   <data name="btnsignup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>380, 12</value>
+    <value>507, 15</value>
+  </data>
+  <data name="btnsignup.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="btnsignup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 50</value>
+    <value>333, 62</value>
   </data>
   <data name="btnsignup.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2155,10 +2161,13 @@
     <value>NoControl</value>
   </data>
   <data name="btnsignin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>380, 68</value>
+    <value>507, 84</value>
+  </data>
+  <data name="btnsignin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="btnsignin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 50</value>
+    <value>333, 62</value>
   </data>
   <data name="btnsignin.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2182,10 +2191,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 450</value>
+    <value>1067, 554</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>FirstLogin</value>
