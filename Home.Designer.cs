@@ -29,18 +29,22 @@
         private void InitializeComponent()
         {
             this.panelPrincipalMenu = new System.Windows.Forms.Panel();
-            this.Logo = new System.Windows.Forms.PictureBox();
-            this.labelHome = new System.Windows.Forms.Label();
-            this.buttonNewProject = new System.Windows.Forms.Button();
-            this.buttonOpenProject = new System.Windows.Forms.Button();
             this.buttonTask = new System.Windows.Forms.Button();
+            this.buttonOpenProject = new System.Windows.Forms.Button();
+            this.buttonNewProject = new System.Windows.Forms.Button();
+            this.labelHome = new System.Windows.Forms.Label();
+            this.Logo = new System.Windows.Forms.PictureBox();
             this.panelSecundario = new System.Windows.Forms.Panel();
-            this.btnMenu = new System.Windows.Forms.Button();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.labelCalendar = new System.Windows.Forms.Label();
+            this.btnMenu = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lblMesAnio = new System.Windows.Forms.Label();
+            this.buttonAnterior = new System.Windows.Forms.Button();
+            this.buttonSiguiente = new System.Windows.Forms.Button();
             this.panelPrincipalMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.panelSecundario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelPrincipalMenu
@@ -55,35 +59,16 @@
             this.panelPrincipalMenu.Size = new System.Drawing.Size(349, 263);
             this.panelPrincipalMenu.TabIndex = 1;
             // 
-            // Logo
+            // buttonTask
             // 
-            this.Logo.Image = global::DesktopKalendula.Properties.Resources.Logo;
-            this.Logo.Location = new System.Drawing.Point(12, 12);
-            this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(365, 119);
-            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Logo.TabIndex = 3;
-            this.Logo.TabStop = false;
-            // 
-            // labelHome
-            // 
-            this.labelHome.AutoSize = true;
-            this.labelHome.Location = new System.Drawing.Point(94, 93);
-            this.labelHome.Name = "labelHome";
-            this.labelHome.Size = new System.Drawing.Size(39, 13);
-            this.labelHome.TabIndex = 0;
-            this.labelHome.Text = "HOME";
-            // 
-            // buttonNewProject
-            // 
-            this.buttonNewProject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(145)))), ((int)(((byte)(109)))));
-            this.buttonNewProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNewProject.Location = new System.Drawing.Point(20, 120);
-            this.buttonNewProject.Name = "buttonNewProject";
-            this.buttonNewProject.Size = new System.Drawing.Size(127, 33);
-            this.buttonNewProject.TabIndex = 1;
-            this.buttonNewProject.Text = "New project";
-            this.buttonNewProject.UseVisualStyleBackColor = false;
+            this.buttonTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(145)))), ((int)(((byte)(109)))));
+            this.buttonTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTask.Location = new System.Drawing.Point(20, 198);
+            this.buttonTask.Name = "buttonTask";
+            this.buttonTask.Size = new System.Drawing.Size(127, 33);
+            this.buttonTask.TabIndex = 3;
+            this.buttonTask.Text = "Task Management";
+            this.buttonTask.UseVisualStyleBackColor = false;
             // 
             // buttonOpenProject
             // 
@@ -96,26 +81,57 @@
             this.buttonOpenProject.Text = "Open a project";
             this.buttonOpenProject.UseVisualStyleBackColor = false;
             // 
-            // buttonTask
+            // buttonNewProject
             // 
-            this.buttonTask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(145)))), ((int)(((byte)(109)))));
-            this.buttonTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTask.Location = new System.Drawing.Point(20, 198);
-            this.buttonTask.Name = "buttonTask";
-            this.buttonTask.Size = new System.Drawing.Size(127, 33);
-            this.buttonTask.TabIndex = 3;
-            this.buttonTask.Text = "Task Management";
-            this.buttonTask.UseVisualStyleBackColor = false;
+            this.buttonNewProject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(145)))), ((int)(((byte)(109)))));
+            this.buttonNewProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNewProject.Location = new System.Drawing.Point(20, 120);
+            this.buttonNewProject.Name = "buttonNewProject";
+            this.buttonNewProject.Size = new System.Drawing.Size(127, 33);
+            this.buttonNewProject.TabIndex = 1;
+            this.buttonNewProject.Text = "New project";
+            this.buttonNewProject.UseVisualStyleBackColor = false;
+            // 
+            // labelHome
+            // 
+            this.labelHome.AutoSize = true;
+            this.labelHome.Location = new System.Drawing.Point(94, 93);
+            this.labelHome.Name = "labelHome";
+            this.labelHome.Size = new System.Drawing.Size(39, 13);
+            this.labelHome.TabIndex = 0;
+            this.labelHome.Text = "HOME";
+            // 
+            // Logo
+            // 
+            this.Logo.Image = global::DesktopKalendula.Properties.Resources.Logo;
+            this.Logo.Location = new System.Drawing.Point(12, 12);
+            this.Logo.Name = "Logo";
+            this.Logo.Size = new System.Drawing.Size(365, 119);
+            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Logo.TabIndex = 3;
+            this.Logo.TabStop = false;
             // 
             // panelSecundario
             // 
             this.panelSecundario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
-            this.panelSecundario.Controls.Add(this.monthCalendar1);
+            this.panelSecundario.Controls.Add(this.buttonSiguiente);
+            this.panelSecundario.Controls.Add(this.buttonAnterior);
+            this.panelSecundario.Controls.Add(this.lblMesAnio);
+            this.panelSecundario.Controls.Add(this.dataGridView1);
             this.panelSecundario.Controls.Add(this.labelCalendar);
             this.panelSecundario.Location = new System.Drawing.Point(517, 282);
             this.panelSecundario.Name = "panelSecundario";
             this.panelSecundario.Size = new System.Drawing.Size(304, 312);
             this.panelSecundario.TabIndex = 5;
+            // 
+            // labelCalendar
+            // 
+            this.labelCalendar.AutoSize = true;
+            this.labelCalendar.Location = new System.Drawing.Point(89, 100);
+            this.labelCalendar.Name = "labelCalendar";
+            this.labelCalendar.Size = new System.Drawing.Size(49, 13);
+            this.labelCalendar.TabIndex = 0;
+            this.labelCalendar.Text = "Calendar";
             // 
             // btnMenu
             // 
@@ -126,22 +142,47 @@
             this.btnMenu.Text = "button1";
             this.btnMenu.UseVisualStyleBackColor = true;
             // 
-            // monthCalendar1
+            // dataGridView1
             // 
-            this.monthCalendar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
-            this.monthCalendar1.Location = new System.Drawing.Point(51, 124);
-            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(15);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 6;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(37, 145);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // labelCalendar
+            // lblMesAnio
             // 
-            this.labelCalendar.AutoSize = true;
-            this.labelCalendar.Location = new System.Drawing.Point(89, 100);
-            this.labelCalendar.Name = "labelCalendar";
-            this.labelCalendar.Size = new System.Drawing.Size(49, 13);
-            this.labelCalendar.TabIndex = 0;
-            this.labelCalendar.Text = "Calendar";
+            this.lblMesAnio.AutoSize = true;
+            this.lblMesAnio.Location = new System.Drawing.Point(139, 124);
+            this.lblMesAnio.Name = "lblMesAnio";
+            this.lblMesAnio.Size = new System.Drawing.Size(29, 13);
+            this.lblMesAnio.TabIndex = 6;
+            this.lblMesAnio.Text = "label";
+            // 
+            // buttonAnterior
+            // 
+            this.buttonAnterior.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAnterior.Location = new System.Drawing.Point(37, 119);
+            this.buttonAnterior.Name = "buttonAnterior";
+            this.buttonAnterior.Size = new System.Drawing.Size(75, 38);
+            this.buttonAnterior.TabIndex = 6;
+            this.buttonAnterior.Text = "<";
+            this.buttonAnterior.UseVisualStyleBackColor = false;
+            this.buttonAnterior.Click += new System.EventHandler(this.buttonAnterior_Click);
+            // 
+            // buttonSiguiente
+            // 
+            this.buttonSiguiente.BackColor = System.Drawing.Color.Transparent;
+            this.buttonSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSiguiente.Location = new System.Drawing.Point(174, 119);
+            this.buttonSiguiente.Name = "buttonSiguiente";
+            this.buttonSiguiente.Size = new System.Drawing.Size(75, 38);
+            this.buttonSiguiente.TabIndex = 7;
+            this.buttonSiguiente.Text = ">";
+            this.buttonSiguiente.UseVisualStyleBackColor = false;
+            this.buttonSiguiente.Click += new System.EventHandler(this.buttonSiguiente_Click);
             // 
             // Home
             // 
@@ -164,6 +205,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.panelSecundario.ResumeLayout(false);
             this.panelSecundario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -177,7 +219,10 @@
         private System.Windows.Forms.Button buttonNewProject;
         private System.Windows.Forms.Panel panelSecundario;
         private System.Windows.Forms.Button btnMenu;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Label labelCalendar;
+        private System.Windows.Forms.Label lblMesAnio;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button buttonSiguiente;
+        private System.Windows.Forms.Button buttonAnterior;
     }
 }

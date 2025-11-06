@@ -15,6 +15,7 @@ namespace DesktopKalendula
     public partial class Home : Form
     {
         private MenuLateral menu;
+        DateTime fechaActual = DateTime.Now;
 
         public Home()
         {
@@ -26,6 +27,8 @@ namespace DesktopKalendula
             this.Controls.Add(diseño);
 
             ConfigurarMenu();
+            ConfigurarGrid();
+            MostrarMes();
 
         }
 
@@ -62,10 +65,6 @@ namespace DesktopKalendula
             labelCalendar.Font = Fuentes.Calistoga(35);
             labelCalendar.Location = new Point(150, 20);
             labelCalendar.ForeColor = Color.FromArgb(61, 23, 0);
-
-            monthCalendar1.Location = new Point(170, 100);
-            monthCalendar1.Size = new Size(300, 300);
-            monthCalendar1.BackColor = Color.FromArgb(252, 250, 249);
 
 
         }
@@ -135,5 +134,118 @@ namespace DesktopKalendula
             }
         }
 
+        private void ConfigurarGrid()
+        {
+            dataGridView1.Width = 354;
+            dataGridView1.Height = 325;
+
+            lblMesAnio.Font = Fuentes.RubikBold(15);
+            lblMesAnio.ForeColor = Color.FromArgb(125, 85, 114);
+            lblMesAnio.Location = new Point(175, 100);
+
+            buttonAnterior.Font = Fuentes.RubikBold(12);
+            buttonAnterior.ForeColor = Color.FromArgb(125, 85, 114);
+
+            buttonSiguiente.Font = Fuentes.RubikBold(12);
+            buttonSiguiente.ForeColor = Color.FromArgb(125, 85, 114);
+
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.ReadOnly = true;
+
+            dataGridView1.ColumnHeadersHeight = 20;
+
+            dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.DefaultCellStyle.Font = Fuentes.RubikRegular(10);
+
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
+
+            dataGridView1.Columns.Add("Dom", "Dom");
+            dataGridView1.Columns.Add("Lun", "Lun");
+            dataGridView1.Columns.Add("Mar", "Mar");
+            dataGridView1.Columns.Add("Mie", "Mié");
+            dataGridView1.Columns.Add("Jue", "Jue");
+            dataGridView1.Columns.Add("Vie", "Vie");
+            dataGridView1.Columns.Add("Sab", "Sáb");
+
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                col.Width = 50;
+            }
+        }
+
+        private void MostrarMes()
+        {
+            dataGridView1.Rows.Clear();
+
+            lblMesAnio.Text = fechaActual.ToString("MMMM yyyy");
+
+            DateTime primerDia = new DateTime(fechaActual.Year, fechaActual.Month, 1);
+
+            int diaSemana = (int)primerDia.DayOfWeek;
+
+            int diasDelMes = DateTime.DaysInMonth(fechaActual.Year, fechaActual.Month);
+
+            int diaActual = 1;
+
+            for (int fila = 0; fila < 6; fila++)
+            {
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[fila].Height = 50;
+
+                for (int columna = 0; columna < 7; columna++)
+                {
+                    int posicion = (fila * 7) + columna;
+
+                    if (posicion >= diaSemana && diaActual <= diasDelMes)
+                    {
+
+                        dataGridView1.Rows[fila].Cells[columna].Value = diaActual;
+
+                        DateTime estaFecha = new DateTime(fechaActual.Year, fechaActual.Month, diaActual);
+                        if (estaFecha.Date == DateTime.Now.Date)
+                        {
+                            dataGridView1.Rows[fila].Cells[columna].Style.BackColor = Color.Yellow;
+                        }
+
+                        diaActual++;
+                    }
+                    else
+                    {
+
+                        dataGridView1.Rows[fila].Cells[columna].Value = "";
+                    }
+                }
+            }
+
+        }
+
+        private void buttonAnterior_Click(object sender, EventArgs e)
+        {
+            fechaActual = fechaActual.AddMonths(-1);
+            MostrarMes();
+        }
+
+        private void buttonSiguiente_Click(object sender, EventArgs e)
+        {
+            fechaActual = fechaActual.AddMonths(1);
+            MostrarMes();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                var valor = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+                if (valor != null && valor.ToString() != "")
+                {
+                    int dia = Convert.ToInt32(valor);
+                    DateTime fechaSeleccionada = new DateTime(fechaActual.Year, fechaActual.Month, dia);
+
+                    MessageBox.Show("Seleccionaste: " + fechaSeleccionada.ToShortDateString());
+                }
+            }
+        }
     }
 }
