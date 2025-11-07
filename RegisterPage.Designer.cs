@@ -95,7 +95,7 @@
             // 
             // txtConfirm
             // 
-            this.txtConfirm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtConfirm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtConfirm.Location = new System.Drawing.Point(14, 186);
             this.txtConfirm.Multiline = true;
             this.txtConfirm.Name = "txtConfirm";
@@ -105,7 +105,7 @@
             // 
             // txtContrasenya
             // 
-            this.txtContrasenya.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtContrasenya.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtContrasenya.Location = new System.Drawing.Point(14, 126);
             this.txtContrasenya.Multiline = true;
             this.txtContrasenya.Name = "txtContrasenya";
@@ -115,7 +115,7 @@
             // 
             // txtCorreo
             // 
-            this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCorreo.Location = new System.Drawing.Point(14, 243);
             this.txtCorreo.Multiline = true;
             this.txtCorreo.Name = "txtCorreo";
@@ -125,7 +125,7 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtApellido.Location = new System.Drawing.Point(14, 67);
             this.txtApellido.Multiline = true;
             this.txtApellido.Name = "txtApellido";
@@ -135,7 +135,7 @@
             // 
             // txtName
             // 
-            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtName.Location = new System.Drawing.Point(14, 12);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
