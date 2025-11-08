@@ -51,6 +51,8 @@ namespace DesktopKalendula
 
 
 
+
+
             panelformulario .Controls.Add(txtnombre);
             this.Controls.Add(panelformulario);
             panelformulario.BringToFront();

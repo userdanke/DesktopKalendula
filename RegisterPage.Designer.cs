@@ -85,9 +85,9 @@
             this.btnSignUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(235)))), ((int)(((byte)(241)))));
             this.btnSignUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSignUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
-            this.btnSignUp.Location = new System.Drawing.Point(302, 301);
+            this.btnSignUp.Location = new System.Drawing.Point(252, 331);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(150, 50);
+            this.btnSignUp.Size = new System.Drawing.Size(190, 70);
             this.btnSignUp.TabIndex = 5;
             this.btnSignUp.Text = "Sign Up";
             this.btnSignUp.UseVisualStyleBackColor = false;
@@ -95,60 +95,67 @@
             // 
             // txtConfirm
             // 
+            this.txtConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.txtConfirm.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtConfirm.Location = new System.Drawing.Point(14, 186);
             this.txtConfirm.Multiline = true;
             this.txtConfirm.Name = "txtConfirm";
-            this.txtConfirm.Size = new System.Drawing.Size(650, 40);
+            this.txtConfirm.Size = new System.Drawing.Size(650, 50);
             this.txtConfirm.TabIndex = 4;
-            this.txtConfirm.Text = "Password";
+            this.txtConfirm.TabStop = false;
+            this.txtConfirm.UseSystemPasswordChar = true;
             // 
             // txtContrasenya
             // 
+            this.txtContrasenya.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.txtContrasenya.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtContrasenya.Location = new System.Drawing.Point(14, 126);
             this.txtContrasenya.Multiline = true;
             this.txtContrasenya.Name = "txtContrasenya";
-            this.txtContrasenya.Size = new System.Drawing.Size(650, 40);
+            this.txtContrasenya.Size = new System.Drawing.Size(650, 50);
             this.txtContrasenya.TabIndex = 3;
-            this.txtContrasenya.Text = "Email";
+            this.txtContrasenya.TabStop = false;
             // 
             // txtCorreo
             // 
+            this.txtCorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCorreo.Location = new System.Drawing.Point(14, 243);
             this.txtCorreo.Multiline = true;
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(650, 40);
+            this.txtCorreo.Size = new System.Drawing.Size(650, 50);
             this.txtCorreo.TabIndex = 2;
-            this.txtCorreo.Text = "Confirm password";
+            this.txtCorreo.TabStop = false;
+            this.txtCorreo.UseSystemPasswordChar = true;
             // 
             // txtApellido
             // 
+            this.txtApellido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtApellido.Location = new System.Drawing.Point(14, 67);
             this.txtApellido.Multiline = true;
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(650, 40);
+            this.txtApellido.Size = new System.Drawing.Size(650, 50);
             this.txtApellido.TabIndex = 1;
-            this.txtApellido.Text = "Last Name";
+            this.txtApellido.TabStop = false;
             // 
             // txtName
             // 
+            this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtName.Location = new System.Drawing.Point(14, 12);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(650, 40);
+            this.txtName.Size = new System.Drawing.Size(650, 50);
             this.txtName.TabIndex = 0;
-            this.txtName.Text = "First Name";
+            this.txtName.TabStop = false;
             // 
             // RegisterPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(1180, 786);
             this.Controls.Add(this.panelrosa);
             this.Controls.Add(this.Logo);
             this.Controls.Add(this.lblsignup);
