@@ -66,6 +66,9 @@ namespace DesktopKalendula
             labelCalendar.Location = new Point(150, 20);
             labelCalendar.ForeColor = Color.FromArgb(61, 23, 0);
 
+            labelMessages.Font = Fuentes.Calistoga(25);
+            labelMessages.Location = new Point(155, 470);
+            labelMessages.ForeColor = Color.FromArgb(61, 23, 0);
 
         }
 
@@ -144,21 +147,33 @@ namespace DesktopKalendula
             lblMesAnio.Location = new Point(175, 100);
 
             buttonAnterior.Font = Fuentes.RubikBold(12);
-            buttonAnterior.ForeColor = Color.FromArgb(125, 85, 114);
+            buttonAnterior.BackColor = Color.FromArgb(125, 85, 114);
+            buttonAnterior.ForeColor = Color.FromArgb(252, 250, 249);
+            buttonAnterior.Location = new Point(130, 95);
 
             buttonSiguiente.Font = Fuentes.RubikBold(12);
-            buttonSiguiente.ForeColor = Color.FromArgb(125, 85, 114);
+            buttonSiguiente.BackColor = Color.FromArgb(125, 85, 114);
+            buttonSiguiente.ForeColor = Color.FromArgb(252, 250, 249);
+            buttonSiguiente.Location = new Point(350, 95);
 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.ReadOnly = true;
+            dataGridView1.Location = new Point(90, 150);
 
-            dataGridView1.ColumnHeadersHeight = 20;
+            dataGridView1.ColumnHeadersHeight = 10;
+
+            dataGridView1.EnableHeadersVisualStyles = false; 
+            dataGridView1.ColumnHeadersHeight = 45;
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(204, 163, 193);
+            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(252, 250, 249);
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = Fuentes.RubikRegular(10);
+            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.DefaultCellStyle.Font = Fuentes.RubikRegular(10);
 
-            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(204, 163, 193);
 
             dataGridView1.Columns.Add("Dom", "Dom");
             dataGridView1.Columns.Add("Lun", "Lun");
@@ -205,7 +220,8 @@ namespace DesktopKalendula
                         DateTime estaFecha = new DateTime(fechaActual.Year, fechaActual.Month, diaActual);
                         if (estaFecha.Date == DateTime.Now.Date)
                         {
-                            dataGridView1.Rows[fila].Cells[columna].Style.BackColor = Color.Yellow;
+                            dataGridView1.Rows[fila].Cells[columna].Style.BackColor = Color.FromArgb(125, 85, 114);
+                            dataGridView1.Rows[fila].Cells[columna].Style.ForeColor = Color.FromArgb(252, 250, 249);
                         }
 
                         diaActual++;
@@ -246,6 +262,12 @@ namespace DesktopKalendula
                     MessageBox.Show("Seleccionaste: " + fechaSeleccionada.ToShortDateString());
                 }
             }
+        }
+
+        private void buttonNewProject_Click(object sender, EventArgs e)
+        {
+            CreateProject crearProyecto = new CreateProject();
+            crearProyecto.ShowDialog();
         }
     }
 }

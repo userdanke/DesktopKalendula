@@ -52,6 +52,18 @@
     <Compile Include="Calendar.Designer.cs">
       <DependentUpon>Calendar.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateProject.Designer.cs">
+      <DependentUpon>CreateProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateTask.Designer.cs">
+      <DependentUpon>CreateTask.cs</DependentUpon>
+    </Compile>
     <Compile Include="Diseño\DiseñoForms.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -76,6 +88,18 @@
     <Compile Include="LoginPage.Designer.cs">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="OpenProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpenProject.Designer.cs">
+      <DependentUpon>OpenProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Perfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Perfil.Designer.cs">
+      <DependentUpon>Perfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterPage.cs">
@@ -83,6 +107,12 @@
     </Compile>
     <Compile Include="RegisterPage.Designer.cs">
       <DependentUpon>RegisterPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
     <Compile Include="SignIn.cs">
       <SubType>Form</SubType>
@@ -96,6 +126,21 @@
     <Compile Include="Tasks.Designer.cs">
       <DependentUpon>Tasks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CreateProject.resx">
+      <DependentUpon>CreateProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Resources\Logo.png" />
     <None Include="Resources\menu.png" />
     <EmbeddedResource Include="Calendar.resx">
@@ -109,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perfil.resx">
+      <DependentUpon>Perfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

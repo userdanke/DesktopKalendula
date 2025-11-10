@@ -1,6 +1,6 @@
 ﻿namespace DesktopKalendula
 {
-    partial class RegisterPage
+    partial class Users
     {
         /// <summary>
         /// Required designer variable.
@@ -30,16 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // RegisterPage
+            // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "RegisterPage";
-            this.Text = "RegisterPage";
+            this.Name = "Users";
+            this.Text = "Users";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.RegisterPage_Load);
             this.ResumeLayout(false);
 
         }

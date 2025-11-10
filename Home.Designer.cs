@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelPrincipalMenu = new System.Windows.Forms.Panel();
             this.buttonTask = new System.Windows.Forms.Button();
             this.buttonOpenProject = new System.Windows.Forms.Button();
@@ -35,12 +37,13 @@
             this.labelHome = new System.Windows.Forms.Label();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.panelSecundario = new System.Windows.Forms.Panel();
+            this.buttonSiguiente = new System.Windows.Forms.Button();
+            this.buttonAnterior = new System.Windows.Forms.Button();
+            this.lblMesAnio = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.labelCalendar = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lblMesAnio = new System.Windows.Forms.Label();
-            this.buttonAnterior = new System.Windows.Forms.Button();
-            this.buttonSiguiente = new System.Windows.Forms.Button();
+            this.labelMessages = new System.Windows.Forms.Label();
             this.panelPrincipalMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.panelSecundario.SuspendLayout();
@@ -91,6 +94,7 @@
             this.buttonNewProject.TabIndex = 1;
             this.buttonNewProject.Text = "New project";
             this.buttonNewProject.UseVisualStyleBackColor = false;
+            this.buttonNewProject.Click += new System.EventHandler(this.buttonNewProject_Click);
             // 
             // labelHome
             // 
@@ -114,6 +118,7 @@
             // panelSecundario
             // 
             this.panelSecundario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
+            this.panelSecundario.Controls.Add(this.labelMessages);
             this.panelSecundario.Controls.Add(this.buttonSiguiente);
             this.panelSecundario.Controls.Add(this.buttonAnterior);
             this.panelSecundario.Controls.Add(this.lblMesAnio);
@@ -123,6 +128,69 @@
             this.panelSecundario.Name = "panelSecundario";
             this.panelSecundario.Size = new System.Drawing.Size(304, 312);
             this.panelSecundario.TabIndex = 5;
+            // 
+            // buttonSiguiente
+            // 
+            this.buttonSiguiente.BackColor = System.Drawing.Color.Transparent;
+            this.buttonSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSiguiente.Location = new System.Drawing.Point(174, 119);
+            this.buttonSiguiente.Name = "buttonSiguiente";
+            this.buttonSiguiente.Size = new System.Drawing.Size(45, 38);
+            this.buttonSiguiente.TabIndex = 7;
+            this.buttonSiguiente.Text = ">";
+            this.buttonSiguiente.UseVisualStyleBackColor = false;
+            this.buttonSiguiente.Click += new System.EventHandler(this.buttonSiguiente_Click);
+            // 
+            // buttonAnterior
+            // 
+            this.buttonAnterior.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAnterior.Location = new System.Drawing.Point(88, 119);
+            this.buttonAnterior.Name = "buttonAnterior";
+            this.buttonAnterior.Size = new System.Drawing.Size(45, 38);
+            this.buttonAnterior.TabIndex = 6;
+            this.buttonAnterior.Text = "<";
+            this.buttonAnterior.UseVisualStyleBackColor = false;
+            this.buttonAnterior.Click += new System.EventHandler(this.buttonAnterior_Click);
+            // 
+            // lblMesAnio
+            // 
+            this.lblMesAnio.AutoSize = true;
+            this.lblMesAnio.Location = new System.Drawing.Point(139, 124);
+            this.lblMesAnio.Name = "lblMesAnio";
+            this.lblMesAnio.Size = new System.Drawing.Size(29, 13);
+            this.lblMesAnio.TabIndex = 6;
+            this.lblMesAnio.Text = "label";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("OCR A Extended", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(23)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(163)))), ((int)(((byte)(193)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridView1.Location = new System.Drawing.Point(37, 145);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("OCR A Extended", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(23)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(163)))), ((int)(((byte)(193)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // labelCalendar
             // 
@@ -142,47 +210,14 @@
             this.btnMenu.Text = "button1";
             this.btnMenu.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // labelMessages
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(37, 145);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 6;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // lblMesAnio
-            // 
-            this.lblMesAnio.AutoSize = true;
-            this.lblMesAnio.Location = new System.Drawing.Point(139, 124);
-            this.lblMesAnio.Name = "lblMesAnio";
-            this.lblMesAnio.Size = new System.Drawing.Size(29, 13);
-            this.lblMesAnio.TabIndex = 6;
-            this.lblMesAnio.Text = "label";
-            // 
-            // buttonAnterior
-            // 
-            this.buttonAnterior.BackColor = System.Drawing.Color.Transparent;
-            this.buttonAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAnterior.Location = new System.Drawing.Point(37, 119);
-            this.buttonAnterior.Name = "buttonAnterior";
-            this.buttonAnterior.Size = new System.Drawing.Size(75, 38);
-            this.buttonAnterior.TabIndex = 6;
-            this.buttonAnterior.Text = "<";
-            this.buttonAnterior.UseVisualStyleBackColor = false;
-            this.buttonAnterior.Click += new System.EventHandler(this.buttonAnterior_Click);
-            // 
-            // buttonSiguiente
-            // 
-            this.buttonSiguiente.BackColor = System.Drawing.Color.Transparent;
-            this.buttonSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSiguiente.Location = new System.Drawing.Point(174, 119);
-            this.buttonSiguiente.Name = "buttonSiguiente";
-            this.buttonSiguiente.Size = new System.Drawing.Size(75, 38);
-            this.buttonSiguiente.TabIndex = 7;
-            this.buttonSiguiente.Text = ">";
-            this.buttonSiguiente.UseVisualStyleBackColor = false;
-            this.buttonSiguiente.Click += new System.EventHandler(this.buttonSiguiente_Click);
+            this.labelMessages.AutoSize = true;
+            this.labelMessages.Location = new System.Drawing.Point(85, 183);
+            this.labelMessages.Name = "labelMessages";
+            this.labelMessages.Size = new System.Drawing.Size(65, 13);
+            this.labelMessages.TabIndex = 8;
+            this.labelMessages.Text = "Notifications";
             // 
             // Home
             // 
@@ -224,5 +259,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonSiguiente;
         private System.Windows.Forms.Button buttonAnterior;
+        private System.Windows.Forms.Label labelMessages;
     }
 }
