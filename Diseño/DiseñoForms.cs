@@ -17,10 +17,10 @@ namespace DesktopKalendula
         private Button btnCerrar;
         private Button btnMinimizar;
         private Color[] colores = {
-        Color.FromArgb(211, 145, 109), //Color marron pastel
+        Color.FromArgb(228, 235, 241), //Color azul pastel
         Color.FromArgb(229, 122, 122), //Color rojo pastel
         Color.FromArgb(204, 163, 193), //Color lila pastel
-        Color.FromArgb(228, 235, 241) }; //Color azul pastel
+        Color.FromArgb(211, 145, 109) };  //Color marron pastel
 
         public DiseñoForms()
         {

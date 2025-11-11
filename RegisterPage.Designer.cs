@@ -154,13 +154,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(1180, 786);
-            this.Controls.Add(this.panelrosa);
-            this.Controls.Add(this.Logo);
-            this.Controls.Add(this.lblsignup);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RegisterPage";
             this.Text = "RegisterPage";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -15,7 +15,7 @@ namespace DesktopKalendula
     {
         public LoginPage()
         {
-            Fuentes.Cargar(@"C:\Users\CEP-TARDA\Source\Repos\DesktopKalendula\Diseño\Rubik-Italic.ttf");
+
             InitializeComponent();
 
             DiseñoForms diseño = new DiseñoForms();
@@ -25,9 +25,22 @@ namespace DesktopKalendula
 
         private void LoginPage_Load(object sender, EventArgs e)
         {
-            label1.Font = Fuentes.Calistoga(54);
+            pictureBoxLogo.Location = new Point(
+                (this.ClientSize.Width - pictureBoxLogo.Width) / 2,
+                (this.ClientSize.Height - pictureBoxLogo.Height) / 2 );
+
+            buttonLogin.Font = Fuentes.RubikBold(40);
+            buttonLogin.BackColor = Color.FromArgb(204, 163, 193);
+            buttonLogin.ForeColor = Color.FromArgb(252, 250, 249);
+            buttonLogin.Location = new Point(770, 750);
+            buttonLogin.Size = new Size(350, 100);
         }
 
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            SignIn signIn = new SignIn();
+            signIn.Show();
+        }
     }
 
 }

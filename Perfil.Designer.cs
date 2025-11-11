@@ -1,6 +1,6 @@
 ﻿namespace DesktopKalendula
 {
-    partial class Tasks
+    partial class Perfil
     {
         /// <summary>
         /// Required designer variable.
@@ -30,16 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // Tasks
+            // Perfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Tasks";
-            this.Text = "Tasks";
+            this.Name = "Perfil";
+            this.Text = "Perfil";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Tasks_Load);
             this.ResumeLayout(false);
 
         }
