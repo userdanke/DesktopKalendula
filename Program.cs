@@ -23,7 +23,6 @@ namespace DesktopKalendula
             Fuentes.CargarDesdeDirectorio(rutaFuentes);
 
             Application.Run(new Home());
-            Application.Run(new usuarios());
         }
     }
 }
