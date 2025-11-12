@@ -28,20 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirstLogin));
+            this.Logo = new System.Windows.Forms.PictureBox();
+            this.btnsignup = new System.Windows.Forms.Button();
+            this.btnsignin = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
+            // 
+            // Logo
+            // 
+            resources.ApplyResources(this.Logo, "Logo");
+            this.Logo.Name = "Logo";
+            this.Logo.TabStop = false;
+            this.Logo.Click += new System.EventHandler(this.FirstLogin_Load);
+            // 
+            // btnsignup
+            // 
+            this.btnsignup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(145)))), ((int)(((byte)(109)))));
+            resources.ApplyResources(this.btnsignup, "btnsignup");
+            this.btnsignup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            this.btnsignup.Name = "btnsignup";
+            this.btnsignup.UseVisualStyleBackColor = false;
+            this.btnsignup.Click += new System.EventHandler(this.btnsignup_Click);
+            // 
+            // btnsignin
+            // 
+            this.btnsignin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(163)))), ((int)(((byte)(193)))));
+            resources.ApplyResources(this.btnsignin, "btnsignin");
+            this.btnsignin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            this.btnsignin.Name = "btnsignin";
+            this.btnsignin.UseVisualStyleBackColor = false;
             // 
             // FirstLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            this.Controls.Add(this.btnsignin);
+            this.Controls.Add(this.btnsignup);
+            this.Controls.Add(this.Logo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FirstLogin";
-            this.Text = "FirstLogin";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FirstLogin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+        private System.Windows.Forms.PictureBox Logo;
+        private System.Windows.Forms.Button btnsignup;
+        private System.Windows.Forms.Button btnsignin;
     }
 }
