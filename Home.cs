@@ -21,8 +21,6 @@ namespace DesktopKalendula
         {
             InitializeComponent();
 
-            this.WindowState = FormWindowState.Maximized;
-
             DiseñoForms diseño = new DiseñoForms();
             this.Controls.Add(diseño);
 
