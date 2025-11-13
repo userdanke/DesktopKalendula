@@ -28,22 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users));
+            this.btnMenu = new System.Windows.Forms.Button();
+            this.UsersLogo = new System.Windows.Forms.PictureBox();
+            this.btnadd = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.UsersLogo)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.Location = new System.Drawing.Point(12, 12);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(75, 23);
+            this.btnMenu.TabIndex = 0;
+            this.btnMenu.Text = "button1";
+            this.btnMenu.UseVisualStyleBackColor = true;
+            // 
+            // UsersLogo
+            // 
+            this.UsersLogo.Image = ((System.Drawing.Image)(resources.GetObject("UsersLogo.Image")));
+            this.UsersLogo.Location = new System.Drawing.Point(93, 12);
+            this.UsersLogo.Name = "UsersLogo";
+            this.UsersLogo.Size = new System.Drawing.Size(250, 125);
+            this.UsersLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.UsersLogo.TabIndex = 4;
+            this.UsersLogo.TabStop = false;
+            // 
+            // btnadd
+            // 
+            this.btnadd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(145)))), ((int)(((byte)(109)))));
+            this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnadd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            this.btnadd.Location = new System.Drawing.Point(349, 12);
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Size = new System.Drawing.Size(200, 40);
+            this.btnadd.TabIndex = 5;
+            this.btnadd.Text = "Add user";
+            this.btnadd.UseVisualStyleBackColor = false;
+            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
             // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnadd);
+            this.Controls.Add(this.UsersLogo);
+            this.Controls.Add(this.btnMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Users";
             this.Text = "Users";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Users_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.UsersLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.PictureBox UsersLogo;
+        private System.Windows.Forms.Button btnadd;
     }
 }
