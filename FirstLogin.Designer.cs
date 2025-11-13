@@ -58,6 +58,7 @@
             this.btnsignin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.btnsignin.Name = "btnsignin";
             this.btnsignin.UseVisualStyleBackColor = false;
+            this.btnsignin.Click += new System.EventHandler(this.btnsignin_Click);
             // 
             // FirstLogin
             // 

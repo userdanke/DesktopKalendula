@@ -132,6 +132,7 @@
     <Compile Include="Users.Designer.cs">
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\SignIn.png" />
     <EmbeddedResource Include="CreateProject.resx">
       <DependentUpon>CreateProject.cs</DependentUpon>
     </EmbeddedResource>

@@ -53,5 +53,11 @@ namespace DesktopKalendula
             RegisterPage nuevo = new RegisterPage();
             nuevo.ShowDialog();
         }
+
+        private void btnsignin_Click(object sender, EventArgs e)
+        {
+            SignIn signIn = new SignIn();
+            signIn.Show();
+        }
     }
 }

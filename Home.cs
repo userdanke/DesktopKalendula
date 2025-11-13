@@ -21,8 +21,6 @@ namespace DesktopKalendula
         {
             InitializeComponent();
 
-            this.WindowState = FormWindowState.Maximized;
-
             DiseñoForms diseño = new DiseñoForms();
             this.Controls.Add(diseño);
 
@@ -83,7 +81,7 @@ namespace DesktopKalendula
             menu.NombreUsuario = "Tu Nombre";
             menu.CorreoUsuario = "tu@correo.com";
 
-            menu.AgregarOpcion("🏠", "Perfil", () => IrAInicio());
+            menu.AgregarOpcion("🏠", "Home", () => IrAInicio());
             menu.AgregarOpcion("👥", "Usuarios", () => IrAUsuarios());
             menu.AgregarOpcion("⚙️", "Configuración", () => IrAConfiguracion());
             menu.AgregarOpcion("🚪", "Cerrar Sesión", () => CerrarSesion());
