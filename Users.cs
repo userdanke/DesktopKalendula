@@ -120,28 +120,31 @@ namespace DesktopKalendula
             lblTitulo.Left = (panelformulario.Width - lblTitulo.Width) / 2;
             lblTitulo.Top = 20;
 
-            string[] labels = { "Full Name", "Email", "Phone Number", "Password" };
-            int espacio = 20;
+            string[] labels = { "Full Name", "Email", "Password" };
+            int espacio = 90;
 
             for (int i = 0; i < labels.Length; i++)
             {
                 // Crear Label
                 Label lbl = new Label();
                 lbl.Text = labels[i];
-                lbl.Location = new Point(20, espacio);
+                lbl.Location = new Point(90, espacio);
                 lbl.AutoSize = true;
-                lbl.Font = new Font("Arial", 10, FontStyle.Regular);
+                lbl.Font = Fuentes.RubikRegular(10);
+                lbl.ForeColor = Color.FromArgb(92, 135, 153);
                 panelformulario.Controls.Add(lbl);
 
                 // Crear TextBox
                 TextBox txt = new TextBox();
-                txt.Location = new Point(20, espacio + 25);
+                txt.Location = new Point(90, espacio + 30);
                 txt.Width = 410;
                 txt.Height = 30;
-                txt.Font = new Font("Arial", 10);
+                txt.Font = Fuentes.RubikRegular(15);
+                txt.BorderStyle = BorderStyle.None;
+               
 
                 // Si es contraseña, ocultar caracteres
-                if (i == 2) // índice 2 es contraseña
+                if (i == 3)
                 {
                     txt.PasswordChar = '*';
                 }
@@ -151,9 +154,19 @@ namespace DesktopKalendula
                 espacio += 70;
             }
 
+            ComboBox combobox = new ComboBox();
 
 
-
+            Button btn = new Button();
+            btn.Text = "Añadir Usuario";
+            btn.Location = new Point(150, espacio + 60);
+            btn.Width = 250;
+            btn.Height = 50;
+            btn.BackColor = Color.FromArgb(204, 163, 193);
+            btn.Font = Fuentes.RubikRegular(15);
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.ForeColor = Color.FromArgb(252, 250, 249);
+            panelformulario.Controls.Add(btn);
 
 
 
