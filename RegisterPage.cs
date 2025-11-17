@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿// File: RegisterPage.cs
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DesktopKalendula.Diseño;
 
@@ -25,64 +20,59 @@ namespace DesktopKalendula
             lblsignup.Font = Fuentes.Calistoga(50);
             lblsignup.Left = (this.ClientSize.Width - lblsignup.Width) / 2;
             lblsignup.Top = 80;
+
             Logo.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
-            Logo.Location = new Point(505,55);
+            Logo.Location = new Point(505, 55);
+
             panelrosa.Left = (this.ClientSize.Width - panelrosa.Width) / 2;
             panelrosa.Top = 230;
+
             btnSignUp.Font = Fuentes.RubikBold(18);
             btnSignUp.Top = 470;
 
-            int topActual = 60;
+            int top = 50;
 
-            string[] hints = { "First Name", "Last Name", "Email", "Password", "Confirm Password" };
-            int indice = 0;
-            
-
-            foreach (Control control in panelrosa.Controls)
+            Label[] labels =
             {
-                if (control is TextBox tb)
-                {
-                    TextBox textBox = tb;
+                lblFirstName,
+                lblLastName,
+                lblEmail,
+                lblPassword,
+                lblConfirmPassword
+            };
 
-                    textBox.Left = (panelrosa.Width - textBox.Width) / 2;
-                    textBox.Top = topActual;
-                    textBox.Font = Fuentes.RubikRegular(12);
-                    textBox.ForeColor = Color.FromArgb(195, 182, 174);
+            TextBox[] inputs =
+            {
+                txtFirstName,
+                txtLastName,
+                txtEmail,
+                txtPassword,
+                txtConfirmPassword
+            };
 
-                    string hintText = hints[indice];
-                    textBox.Text = hintText;
-               
+            for (int i = 0; i < inputs.Length; i++)
+            {
+                Label label = labels[i];
+                TextBox txt = inputs[i];
 
-                    textBox.Enter += (s, args) =>
-                    {
-                        if (textBox.Text == hintText)
-                        {
-                            textBox.Text = "";
-                            textBox.ForeColor = Color.Black;
+                // Posicionar textbox
+                txt.Left = (panelrosa.Width - txt.Width) / 2;
+                txt.Top = top;
+                txt.Font = Fuentes.RubikRegular(15);
+                txt.ForeColor = Color.Black;
 
-                            if (indice == 3 || indice == 4)
-                                textBox.UseSystemPasswordChar = true;
+                // Activar PasswordChar solo a los necesarios
+                if (i >= 3)
+                    txt.UseSystemPasswordChar = true;
 
-                        }
-                    };
+                label.Left = txt.Left;                        
+                label.Top = txt.Top - label.Height - 15;
+                label.Font = Fuentes.RubikRegular(10);
+                label.ForeColor = Color.FromArgb(61, 23, 0);
+                label.Width = txt.Width;                      
+                label.TextAlign = ContentAlignment.MiddleLeft;
 
-                    textBox.Leave += (s, args) => 
-                    { 
-                        if (string.IsNullOrWhiteSpace(textBox.Text))
-                        {
-                            textBox.Text = hintText;
-                            textBox.ForeColor = Color.Gray;
-
-                            if (indice == 3 || indice == 4)
-                                textBox.UseSystemPasswordChar = false;
-
-                        }
-                    };
-
-                    topActual += control.Height + 20;
-                    indice++;
-                }
-                
+                top += txt.Height + 40;
             }
         }
 
@@ -90,5 +80,16 @@ namespace DesktopKalendula
         {
 
         }
+
+        private void panelrosa_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+

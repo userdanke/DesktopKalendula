@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirstLogin));
             this.Logo = new System.Windows.Forms.PictureBox();
             this.btnsignup = new System.Windows.Forms.Button();
             this.btnsignin = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,6 +62,11 @@
             this.btnsignin.UseVisualStyleBackColor = false;
             this.btnsignin.Click += new System.EventHandler(this.btnsignin_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
+            // 
             // FirstLogin
             // 
             resources.ApplyResources(this, "$this");
@@ -81,5 +88,6 @@
         private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.Button btnsignup;
         private System.Windows.Forms.Button btnsignin;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
