@@ -120,6 +120,7 @@
     <Compile Include="SignIn.Designer.cs">
       <DependentUpon>SignIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tarea.cs" />
     <Compile Include="Tasks.cs">
       <SubType>Form</SubType>
     </Compile>

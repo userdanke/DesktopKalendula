@@ -45,7 +45,7 @@ namespace DesktopKalendula
             textBoxEmail.Location = new Point(58, 80);
             textBoxEmail.ForeColor = Color.FromArgb(61, 23, 0);
             textBoxEmail.Multiline = true;
-            textBoxEmail.Height = 40;
+            textBoxEmail.Height = 35;
             textBoxEmail.KeyPress += (s, i) => {
                 if (i.KeyChar == (char)Keys.Enter)
                 {
@@ -63,7 +63,7 @@ namespace DesktopKalendula
             textBoxPassword.ForeColor = Color.FromArgb(61, 23, 0);
             textBoxPassword.PasswordChar = '●';
             textBoxPassword.Multiline = true;
-            textBoxPassword.Height = 40;
+            textBoxPassword.Height = 35;
             textBoxPassword.TextAlign = HorizontalAlignment.Left;
             textBoxPassword.KeyPress += (s, i) => {
                 if (i.KeyChar == (char)Keys.Enter)
@@ -71,7 +71,12 @@ namespace DesktopKalendula
                     i.Handled = true;
                 }
             };
-            textBoxPassword.Padding = new Padding(100, 12, 0, 0);
+        }
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
         }
     }
 }
