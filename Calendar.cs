@@ -161,7 +161,6 @@ namespace DesktopKalendula
         private void MostrarMes()
         {
             dataGridView1.Rows.Clear();
-
             lblMesAnio.Text = fechaActual.ToString("MMMM yyyy");
 
             DateTime primerDia = new DateTime(fechaActual.Year, fechaActual.Month, 1);
@@ -172,7 +171,7 @@ namespace DesktopKalendula
             for (int fila = 0; fila < 6; fila++)
             {
                 dataGridView1.Rows.Add();
-                dataGridView1.Rows[fila].Height = 80;
+                dataGridView1.Rows[fila].Height = 80; // espacio suficiente para varias tareas
 
                 for (int columna = 0; columna < 7; columna++)
                 {
@@ -180,21 +179,53 @@ namespace DesktopKalendula
 
                     if (posicion >= diaSemana && diaActual <= diasDelMes)
                     {
+                        DateTime fechaCelda = new DateTime(fechaActual.Year, fechaActual.Month, diaActual);
+                        var celda = dataGridView1.Rows[fila].Cells[columna];
 
-                        dataGridView1.Rows[fila].Cells[columna].Value = diaActual;
+                        // Mostrar número del día
+                        string textoCelda = diaActual.ToString();
 
-                        DateTime estaFecha = new DateTime(fechaActual.Year, fechaActual.Month, diaActual);
-                        if (estaFecha.Date == DateTime.Now.Date)
+                        // Obtener tareas del día
+                        List<Tarea> tareasDelDia = tareas.Where(t => t.estaActivaEn(fechaCelda)).ToList();
+
+                        if (tareasDelDia.Count > 0)
                         {
-                            dataGridView1.Rows[fila].Cells[columna].Style.BackColor = Color.FromArgb(125, 85, 114);
-                            dataGridView1.Rows[fila].Cells[columna].Style.ForeColor = Color.FromArgb(252, 250, 249);
+                            foreach (var tarea in tareasDelDia.Take(4)) // máximo 4 tareas visibles
+                            {
+                                string nombreCorto = tarea.Nombre.Length > 8 ? tarea.Nombre.Substring(0, 8) + "..." : tarea.Nombre;
+                                textoCelda += "\n" + nombreCorto;
+                            }
+
+                            if (tareasDelDia.Count > 4)
+                            {
+                                textoCelda += $"\n+{tareasDelDia.Count - 4}";
+                            }
+
+                            // Cambiar color de fondo de la celda según la primera tarea
+                            celda.Style.BackColor = tareasDelDia[0].color;
+                            celda.Style.ForeColor = Color.White;
                         }
+                        else
+                        {
+                            celda.Style.BackColor = Color.White;
+                            celda.Style.ForeColor = Color.Black;
+                        }
+
+                        // Resaltar día actual
+                        if (fechaCelda.Date == DateTime.Now.Date)
+                        {
+                            celda.Style.BackColor = Color.FromArgb(125, 85, 114);
+                            celda.Style.ForeColor = Color.White;
+                        }
+
+                        celda.Value = textoCelda;
+                        celda.Style.WrapMode = DataGridViewTriState.True; // permite múltiples líneas
+                        celda.Style.Alignment = DataGridViewContentAlignment.TopCenter;
 
                         diaActual++;
                     }
                     else
                     {
-
                         dataGridView1.Rows[fila].Cells[columna].Value = "";
                     }
                 }
