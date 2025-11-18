@@ -1,8 +1,9 @@
-﻿// File: RegisterPage.cs
+﻿using DesktopKalendula.Diseño;
 using System;
+using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
-using DesktopKalendula.Diseño;
 
 namespace DesktopKalendula
 {
@@ -17,6 +18,10 @@ namespace DesktopKalendula
 
         private void RegisterPage_Load(object sender, EventArgs e)
         {
+
+            // Mostrar la ruta completa
+            string rutaCompleta = Path.GetFullPath("Usuarios.json");
+            MessageBox.Show($"El archivo está en:\n{rutaCompleta}", "Ubicación");
             lblsignup.Font = Fuentes.Calistoga(50);
             lblsignup.Left = (this.ClientSize.Width - lblsignup.Width) / 2;
             lblsignup.Top = 80;
@@ -62,9 +67,10 @@ namespace DesktopKalendula
                 txt.ForeColor = Color.Black;
 
                 // Activar PasswordChar solo a los necesarios
-                if (i >= 3)
-                    txt.UseSystemPasswordChar = true;
-
+                if (i == 3)
+                {
+                    txt.PasswordChar = '*';
+                }
                 label.Left = txt.Left;                        
                 label.Top = txt.Top - label.Height - 15;
                 label.Font = Fuentes.RubikRegular(10);
@@ -78,7 +84,49 @@ namespace DesktopKalendula
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtFirstName.Text) || string.IsNullOrWhiteSpace(txtLastName.Text) ||
+                string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtPassword.Text) ||
+                string.IsNullOrWhiteSpace(txtConfirmPassword.Text))
+            {
+                MessageBox.Show("Please complete all fields.", "Empty fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+                if (txtPassword.Text != txtConfirmPassword.Text)
+                {
+                    MessageBox.Show("Passwords do not match.", "Password error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string fullName = $"{txtFirstName.Text}{txtLastName.Text}";
+
+                string rol = UsuarioManager.ExistenUsuarios() ? "User" : "Manager";
+
+                bool registroExistoso = UsuarioManager.RegistrarUsuario(
+                    fullName, txtPassword.Text, txtEmail.Text, rol
+                    );
+
+                MessageBox.Show($"Resultado del registro: {registroExistoso}", "Debug");
+
+                if (registroExistoso)
+                {
+                    MessageBox.Show($"User successfully registered as {rol}.", "Successful registration", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    txtFirstName.Clear();
+                    txtLastName.Clear();
+                    txtEmail.Clear();
+                    txtPassword.Clear();
+                    txtConfirmPassword.Clear();
+
+                    SignIn formsign = new SignIn();
+                    formsign.Show();
+                    this.Hide();
+                }
+                else { 
+                    MessageBox.Show("The email is already registered or there was an error.", "Registration error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
         }
 
         private void panelrosa_Paint(object sender, PaintEventArgs e)

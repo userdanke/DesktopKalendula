@@ -1,10 +1,11 @@
-﻿using System;
+﻿using DesktopKalendula.Diseño;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DesktopKalendula.Diseño;
 
 namespace DesktopKalendula
 {
@@ -22,7 +23,19 @@ namespace DesktopKalendula
             string rutaFuentes = Path.Combine(Application.StartupPath, "Diseño");
             Fuentes.CargarDesdeDirectorio(rutaFuentes);
 
-            Application.Run(new Calendario());
+            //if (UsuarioManager.ExisteMananger())
+            //{
+            //    Application.Run(new LoginPage());
+
+            //}
+            //else
+            //{
+            //    Application.Run(new FirstLogin());
+            //}
+
+            Application.Run(new Home());
+
+
         }
     }
 }
