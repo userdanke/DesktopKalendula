@@ -11,7 +11,8 @@ namespace DesktopKalendula
 {
     public static class UsuarioManager
     {
-        private static string rutaArchivo = "Usuarios.json";
+        private static string rutaArchivo = Path.Combine(Application.StartupPath, "Json", "Usuarios.json");
+
 
         public static bool ExistenUsuarios()
         {
@@ -47,6 +48,15 @@ namespace DesktopKalendula
         
         private static void GuardarUsuarios(List<InfoUser>usuarios)
         {
+            // Obtener la carpeta donde está el archivo
+            string directorio = Path.GetDirectoryName(rutaArchivo);
+
+            // Crear la carpeta si no existe
+            if (!Directory.Exists(directorio))
+            {
+                Directory.CreateDirectory(directorio);
+            }
+
             string json = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
             File.WriteAllText(rutaArchivo, json);
 

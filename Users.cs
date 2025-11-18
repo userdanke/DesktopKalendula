@@ -140,6 +140,7 @@ namespace DesktopKalendula
                 txt.Width = 410;
                 txt.Height = 30;
                 txt.Font = Fuentes.RubikRegular(15);
+                txt.ForeColor= Color.FromArgb(252,250, 249);
                 txt.BorderStyle = BorderStyle.None;
                
 
@@ -159,7 +160,7 @@ namespace DesktopKalendula
 
             Button btn = new Button();
             btn.Text = "Añadir Usuario";
-            btn.Location = new Point(150, espacio + 60);
+            btn.Location = new Point(150, espacio + 80);
             btn.Width = 250;
             btn.Height = 50;
             btn.BackColor = Color.FromArgb(204, 163, 193);
@@ -167,6 +168,25 @@ namespace DesktopKalendula
             btn.FlatStyle = FlatStyle.Flat;
             btn.ForeColor = Color.FromArgb(252, 250, 249);
             panelformulario.Controls.Add(btn);
+
+            Button btns = new Button();
+            btns.Text = "Cancelar";
+            btns.Location = new Point(150, espacio + 150);
+            btns.Width = 250;
+            btns.Height = 50;
+            btns.BackColor = Color.FromArgb(229, 122, 122);
+            btns.Font = Fuentes.RubikRegular(15);
+            btns.FlatStyle = FlatStyle.Flat;
+            btns.ForeColor = Color.FromArgb(252, 250, 249);
+
+            btns.Click += (s, args) =>
+            {
+                panelformulario.Visible = false;
+            };
+
+
+            panelformulario.Controls.Add(btns);
+
 
 
 
