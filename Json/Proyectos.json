@@ -1,0 +1,35 @@
+[
+    {
+        "name": "name",
+        "tasks": [
+            {
+                "name": "name",
+                "users": [
+                    "email",
+                    "email",
+                    "email"
+                ],
+                "description": "description",
+                "hoursDedicated": "hoursDedicated",
+                "startDate": "startDate",
+                "deadline": "deadline",
+                "state": "state",
+                "subTasks": [
+                    {
+                        "name": "name",
+                        "users": [
+                            "email",
+                            "email",
+                            "email"
+                        ],
+                        "description": "description",
+                        "hoursDedicated": "hoursDedicated",
+                        "startDate": "startDate",
+                        "deadline": "deadline",
+                        "state": "state"
+                    }
+                ]
+            }
+        ]
+    }
+]

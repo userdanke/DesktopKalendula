@@ -138,6 +138,7 @@
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
     <Compile Include="UsuarioManager.cs" />
+    <None Include="Json\Proyectos.json" />
     <None Include="packages.config" />
     <None Include="Resources\SignIn.png" />
     <EmbeddedResource Include="CreateProject.resx">
@@ -241,9 +242,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Usuarios.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Content Include="Json\Usuarios.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
