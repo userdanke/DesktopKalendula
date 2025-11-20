@@ -13,6 +13,7 @@ namespace DesktopKalendula
         public string username { get; set; }
         public string password { get; set; }
         public string email { get; set; }
+        public List<string> projects { get; set; }
 
         public InfoUser() { }
 
@@ -23,7 +24,7 @@ namespace DesktopKalendula
             this.password = contraseña;
             this.email = correo;
             this.role = rol;
-
+            this.projects = new List<string>(); ;
         }
     }
 }

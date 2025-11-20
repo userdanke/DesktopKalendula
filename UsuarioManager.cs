@@ -11,7 +11,37 @@ namespace DesktopKalendula
 {
     public static class UsuarioManager
     {
-        private static string rutaArchivo = Path.Combine(Application.StartupPath, "Json", "Usuarios.json");
+        private static readonly string folderPath;
+        private static readonly string rutaArchivo;
+
+        static UsuarioManager()
+        {
+            // 1. Obtener la ruta base de AppData Roaming
+            string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+            // 2. Definir la carpeta específica de la aplicación
+            const string nombreCarpetaApp = "KalendulaData";
+
+            // 3. Combinar la ruta base con el nombre de la carpeta
+            folderPath = Path.Combine(appData, nombreCarpetaApp);
+
+            // 4. Definir la ruta completa del archivo JSON
+            rutaArchivo = Path.Combine(folderPath, "Usuarios.json");
+
+            // 5. Crear la carpeta si no existe
+            try
+            {
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores si no se puede crear la carpeta (ej. permisos)
+                MessageBox.Show($"Error al crear la carpeta de datos: {ex.Message}", "Error Fatal");
+            }
+        }
 
 
         public static bool ExistenUsuarios()
@@ -27,7 +57,7 @@ namespace DesktopKalendula
 
             List<InfoUser> usuarios = LeerUsuarios();
 
-            return usuarios.Any(u => u.role.ToLower() == "manager");
+            return usuarios.Any(u => u.role.ToLower() == "anager");
 
         }
 
@@ -48,44 +78,44 @@ namespace DesktopKalendula
         
         private static void GuardarUsuarios(List<InfoUser>usuarios)
         {
-            // Obtener la carpeta donde está el archivo
-            string directorio = Path.GetDirectoryName(rutaArchivo);
-
-            // Crear la carpeta si no existe
-            if (!Directory.Exists(directorio))
-            {
-                Directory.CreateDirectory(directorio);
-            }
-
             string json = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
             File.WriteAllText(rutaArchivo, json);
 
         }
 
 
-        public static bool RegistrarUsuario(string nombre, string contraseña, string email, string rol)
+        public static InfoUser RegistrarUsuario(string nombre, string contraseña, string email, string rol)
         {
             try
             {
                 List<InfoUser> usuarios = LeerUsuarios();
 
-                if (usuarios.Any(u => u.email.ToLower() == email.ToLower()))
+                string rolFinal;
+                if(usuarios.Count == 0)
                 {
-                    return false;
+                    rolFinal = "Manager";
+                } 
+                else if (usuarios.Any(u => u.email.ToLower() == email.ToLower()))
+                {
+                    return null;
+                } 
+                else
+                {
+                    rolFinal = "Desarrollador";
                 }
 
-                InfoUser nuevoUsuario = new InfoUser(nombre, contraseña, email, rol);
+                InfoUser nuevoUsuario = new InfoUser(nombre, contraseña, email, rolFinal);
 
                 usuarios.Add(nuevoUsuario);
                 GuardarUsuarios(usuarios);
 
-                return true;
+                return nuevoUsuario;
             }
             catch (Exception ex)
             {
                 // Ver el error real
                 MessageBox.Show($"Error: {ex.Message}", "Error al registrar");
-                return false;
+                return null;
             }
         }
 
