@@ -16,17 +16,8 @@ namespace DesktopKalendula
 
         static UsuarioManager()
         {
-            // 1. Obtener la ruta base de AppData Roaming
-            string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-
-            // 2. Definir la carpeta específica de la aplicación
-            const string nombreCarpetaApp = "KalendulaData";
-
-            // 3. Combinar la ruta base con el nombre de la carpeta
-            folderPath = Path.Combine(appData, nombreCarpetaApp);
-
-            // 4. Definir la ruta completa del archivo JSON
-            rutaArchivo = Path.Combine(folderPath, "Usuarios.json");
+            rutaArchivo = Path.GetFullPath(Path.Combine(Application.StartupPath, @"..\..\Json\Usuarios.json"));
+            folderPath = Path.GetDirectoryName(rutaArchivo);
 
             // 5. Crear la carpeta si no existe
             try
@@ -57,7 +48,7 @@ namespace DesktopKalendula
 
             List<InfoUser> usuarios = LeerUsuarios();
 
-            return usuarios.Any(u => u.role.ToLower() == "anager");
+            return usuarios.Any(u => u.role.ToLower() == "manager");
 
         }
 
@@ -69,8 +60,9 @@ namespace DesktopKalendula
                 List<InfoUser> usuarios = JsonConvert.DeserializeObject<List<InfoUser>>(json);
 
                 return usuarios ?? new List<InfoUser>();
-            } catch
+            } catch (Exception ex)
             {
+                MessageBox.Show($"Error al leer usuarios: {ex.Message} en la ruta: {rutaArchivo}", "Error de Lectura JSON");
                 return new List<InfoUser>();
             }
         }

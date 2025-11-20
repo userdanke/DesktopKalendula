@@ -99,9 +99,9 @@ namespace DesktopKalendula
                     return;
                 }
 
-                string fullName = $"{txtFirstName.Text}{txtLastName.Text}";
+                string fullName = $"{txtFirstName.Text} {txtLastName.Text}";
 
-                string rolPorDefecto ="Desarrolador";
+                string rolPorDefecto ="Desarrollador";
 
                 InfoUser registroExistoso = UsuarioManager.RegistrarUsuario(
                     fullName, txtPassword.Text, txtEmail.Text, rolPorDefecto
@@ -122,9 +122,13 @@ namespace DesktopKalendula
                     txtPassword.Clear();
                     txtConfirmPassword.Clear();
 
-                    SignIn formsign = new SignIn();
-                    formsign.Show();
                     this.Hide();
+
+
+                    SignIn formsign = new SignIn();
+                    formsign.ShowDialog();
+
+                    this.Close();
                 }
                 else { 
                     MessageBox.Show("The email is already registered or there was an error.", "Registration error", MessageBoxButtons.OK,

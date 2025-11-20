@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirstLogin));
             this.Logo = new System.Windows.Forms.PictureBox();
             this.btnsignup = new System.Windows.Forms.Button();
-            this.btnsignin = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
@@ -53,15 +52,6 @@
             this.btnsignup.UseVisualStyleBackColor = false;
             this.btnsignup.Click += new System.EventHandler(this.btnsignup_Click);
             // 
-            // btnsignin
-            // 
-            this.btnsignin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(163)))), ((int)(((byte)(193)))));
-            resources.ApplyResources(this.btnsignin, "btnsignin");
-            this.btnsignin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
-            this.btnsignin.Name = "btnsignin";
-            this.btnsignin.UseVisualStyleBackColor = false;
-            this.btnsignin.Click += new System.EventHandler(this.btnsignin_Click);
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
@@ -72,7 +62,6 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
-            this.Controls.Add(this.btnsignin);
             this.Controls.Add(this.btnsignup);
             this.Controls.Add(this.Logo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -87,7 +76,6 @@
         #endregion
         private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.Button btnsignup;
-        private System.Windows.Forms.Button btnsignin;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

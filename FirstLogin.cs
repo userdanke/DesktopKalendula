@@ -28,9 +28,6 @@ namespace DesktopKalendula
             btnsignup.Left = (this.ClientSize.Width - btnsignup.Width) / 2;
             btnsignup.Top = 570;
             btnsignup.Font = Fuentes.RubikBold(20);
-            btnsignin.Left = (this.ClientSize.Width - btnsignin.Width) / 2;
-            btnsignin.Top = 640;
-            btnsignin.Font = Fuentes.RubikBold(20);
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -56,8 +53,6 @@ namespace DesktopKalendula
 
         private void btnsignin_Click(object sender, EventArgs e)
         {
-            SignIn signIn = new SignIn();
-            signIn.Show();
         }
     }
 }

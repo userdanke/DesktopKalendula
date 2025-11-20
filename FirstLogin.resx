@@ -2119,7 +2119,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Logo.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="btnsignup.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -2146,36 +2146,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnsignup.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnsignin.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnsignin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnsignin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>380, 68</value>
-  </data>
-  <data name="btnsignin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 50</value>
-  </data>
-  <data name="btnsignin.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="btnsignin.Text" xml:space="preserve">
-    <value>Sign In</value>
-  </data>
-  <data name="&gt;&gt;btnsignin.Name" xml:space="preserve">
-    <value>btnsignin</value>
-  </data>
-  <data name="&gt;&gt;btnsignin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnsignin.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnsignin.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
