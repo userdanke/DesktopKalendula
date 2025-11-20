@@ -1,14 +1,10 @@
 [
   {
-    "id": "id",
-    "role": "role",
-    "username": "username",
-    "password": "password",
-    "email": "email",
-    "projects": [
-      "id",
-      "id",
-      "id"
-    ]
+    "id": "e8948665-57f8-432b-bb7c-72a56b3bf1da",
+    "role": "Manager",
+    "username": "manager jefe",
+    "password": "1234",
+    "email": "manager@gmail.com",
+    "projects": []
   }
 ]

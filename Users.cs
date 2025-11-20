@@ -118,10 +118,10 @@ namespace DesktopKalendula
             panelformulario.Controls.Add(lblTitulo);
 
             lblTitulo.Left = (panelformulario.Width - lblTitulo.Width) / 2;
-            lblTitulo.Top = 20;
+            lblTitulo.Top = 40;
 
-            string[] labels = { "Full Name", "Email", "Password" };
-            int espacio = 90;
+            string[] labels = { "Fist Name","Last Name", "Email", "Password", "Confirm Password"};
+            int espacio = 120;
 
             for (int i = 0; i < labels.Length; i++)
             {
@@ -158,34 +158,34 @@ namespace DesktopKalendula
             ComboBox combobox = new ComboBox();
 
 
-            Button btn = new Button();
-            btn.Text = "Añadir Usuario";
-            btn.Location = new Point(150, espacio + 80);
-            btn.Width = 250;
-            btn.Height = 50;
-            btn.BackColor = Color.FromArgb(204, 163, 193);
-            btn.Font = Fuentes.RubikRegular(15);
-            btn.FlatStyle = FlatStyle.Flat;
-            btn.ForeColor = Color.FromArgb(252, 250, 249);
-            panelformulario.Controls.Add(btn);
+            Button btnAdd = new Button();
+            btnAdd.Text = "Añadir Usuario";
+            btnAdd.Location = new Point(150, espacio + 50);
+            btnAdd.Width = 250;
+            btnAdd.Height = 50;
+            btnAdd.BackColor = Color.FromArgb(204, 163, 193);
+            btnAdd.Font = Fuentes.RubikRegular(15);
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.ForeColor = Color.FromArgb(252, 250, 249);
+            panelformulario.Controls.Add(btnAdd);
 
-            Button btns = new Button();
-            btns.Text = "Cancelar";
-            btns.Location = new Point(150, espacio + 150);
-            btns.Width = 250;
-            btns.Height = 50;
-            btns.BackColor = Color.FromArgb(229, 122, 122);
-            btns.Font = Fuentes.RubikRegular(15);
-            btns.FlatStyle = FlatStyle.Flat;
-            btns.ForeColor = Color.FromArgb(252, 250, 249);
+            Button btnCancelar = new Button();
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.Location = new Point(150, espacio + 120);
+            btnCancelar.Width = 250;
+            btnCancelar.Height = 50;
+            btnCancelar.BackColor = Color.FromArgb(229, 122, 122);
+            btnCancelar.Font = Fuentes.RubikRegular(15);
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.ForeColor = Color.FromArgb(252, 250, 249);
 
-            btns.Click += (s, args) =>
+            btnCancelar.Click += (s, args) =>
             {
                 panelformulario.Visible = false;
             };
 
 
-            panelformulario.Controls.Add(btns);
+            panelformulario.Controls.Add(btnCancelar);
 
 
 

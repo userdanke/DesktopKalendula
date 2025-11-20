@@ -102,7 +102,8 @@ namespace DesktopKalendula
 
         private void IrAInicio()
         {
-            MessageBox.Show("Navegando a Inicio");
+            Home formHome = new Home();
+            formHome.Show();
         }
 
         private void IrAReportes()
@@ -112,7 +113,8 @@ namespace DesktopKalendula
 
         private void IrAUsuarios()
         {
-            MessageBox.Show("Navegando a Usuarios");
+            Users formUsuarios = new Users();
+            formUsuarios.Show();
         }
 
         private void IrAConfiguracion()

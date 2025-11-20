@@ -75,8 +75,32 @@ namespace DesktopKalendula
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            Home home = new Home();
-            home.Show();
+            if(string.IsNullOrWhiteSpace(textBoxEmail.Text)|| string.IsNullOrWhiteSpace(textBoxPassword.Text))
+            {
+                MessageBox.Show("Please complete all the fields.", "Empty fiels", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            InfoUser usuarioLogueado = UsuarioManager.ValidarLogin(textBoxEmail.Text, textBoxPassword.Text);
+
+            if(usuarioLogueado != null)
+            {
+                MessageBox.Show($"Bienvenido, {usuarioLogueado.username}!", "Successful registration", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Hide();
+
+                Home homeform = new Home();
+                homeform.Show();
+
+            } 
+            else
+            {
+                MessageBox.Show("Email or Password are incorrect. Try again.","Login error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxPassword.Clear();
+            }
+
+            
+
         }
     }
 }
