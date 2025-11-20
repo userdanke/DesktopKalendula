@@ -33,7 +33,7 @@ namespace DesktopKalendula
             //    Application.Run(new FirstLogin());
             //}
 
-            Application.Run(new RegisterPage());
+            Application.Run(new Home());
 
 
         }

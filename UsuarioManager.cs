@@ -57,7 +57,7 @@ namespace DesktopKalendula
 
             List<InfoUser> usuarios = LeerUsuarios();
 
-            return usuarios.Any(u => u.role.ToLower() == "anager");
+            return usuarios.Any(u => u.role.ToLower() == "Manager");
 
         }
 

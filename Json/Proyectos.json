@@ -1,35 +1,66 @@
 [
-    {
+  {
+    "Name": "name",
+    "Description": "Description",
+    "StartDate": "2025-12-01T00:00:00",
+    "EndDate": "0001-01-01T00:00:00",
+    "Tasks": [
+      {
         "name": "name",
-        "tasks": [
-            {
-                "name": "name",
-                "users": [
-                    "email",
-                    "email",
-                    "email"
-                ],
-                "description": "description",
-                "hoursDedicated": "hoursDedicated",
-                "startDate": "startDate",
-                "deadline": "deadline",
-                "state": "state",
-                "subTasks": [
-                    {
-                        "name": "name",
-                        "users": [
-                            "email",
-                            "email",
-                            "email"
-                        ],
-                        "description": "description",
-                        "hoursDedicated": "hoursDedicated",
-                        "startDate": "startDate",
-                        "deadline": "deadline",
-                        "state": "state"
-                    }
-                ]
-            }
+        "users": [
+          "email",
+          "email",
+          "email"
+        ],
+        "description": "description",
+        "hoursDedicated": "hoursDedicated",
+        "startDate": "startDate",
+        "deadline": "deadline",
+        "state": "state",
+        "subTasks": [
+          {
+            "name": "name",
+            "users": [
+              "email",
+              "email",
+              "email"
+            ],
+            "description": "description",
+            "hoursDedicated": "hoursDedicated",
+            "startDate": "startDate",
+            "deadline": "deadline",
+            "state": "state"
+          }
         ]
-    }
+      }
+    ]
+  },
+  {
+    "Name": "Hophop",
+    "Description": "Juego de un animalito que corre",
+    "StartDate": "2025-11-20T19:58:52",
+    "EndDate": "2025-12-07T19:58:52",
+    "Tasks": []
+  },
+  {
+    "Name": "Kalendula",
+    "Description": "Herramienta de gestion de tareas ",
+    "StartDate": "2025-11-20T20:15:10",
+    "EndDate": "2025-12-07T20:15:10",
+    "Tasks": [
+      {
+        "name": "Miembros Iniciales",
+        "users": [
+          "juan.perez@mail.com",
+          "ana.garcia@mail.com"
+        ],
+        "description": "",
+        "hoursDedicated": "",
+        "startDate": "",
+        "deadline": "",
+        "state": "",
+        "subTasks": []
+      }
+    ]
+  }
 ]
