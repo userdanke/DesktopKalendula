@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DesktopKalendula.Diseño;
+using Newtonsoft.Json;
 
 namespace DesktopKalendula
 {
@@ -15,6 +17,8 @@ namespace DesktopKalendula
     {
         private Button btnCerrar;
         private Button btnMinimizar;
+        private ListView listaUsuarios;
+        private List<InfoUser> usuariosRegistrados;
         public CreateProject()
         {
             InitializeComponent();
@@ -23,7 +27,7 @@ namespace DesktopKalendula
         private void CreateProject_Load(object sender, EventArgs e)
         {
 
-            this.Size = new Size(700, 700);
+            this.Size = new Size(900, 900);
             this.StartPosition = FormStartPosition.CenterScreen;
 
             btnCerrar = new Button();
@@ -112,11 +116,112 @@ namespace DesktopKalendula
             buttonCancelar.ForeColor = Color.FromArgb(252, 250, 249);
             buttonCancelar.BackColor = Color.FromArgb(211, 145, 109);
 
+            listaUsuarios = new ListView();
+            listaUsuarios.View = View.Details;
+            listaUsuarios.CheckBoxes = true;
+            listaUsuarios.FullRowSelect = true;
+            listaUsuarios.Size = new Size(panelFormulario.Width - 40, 180);
+            listaUsuarios.Location = new Point(20, 500); 
+            listaUsuarios.Columns.Add("Usuario", 150);
+            listaUsuarios.Columns.Add("Rol", 100);
+            listaUsuarios.Columns.Add("Email", 200);
 
+            panelFormulario.Controls.Add(listaUsuarios);
+            string rutaJson = Path.Combine(Application.StartupPath, "Json", "Usuarios.json");
+            usuariosRegistrados = CargarUsuariosDesdeJson(rutaJson);
+            MostrarUsuariosEnLista();
+            MostrarUsuariosEnLista();
         }
 
         private void labelFechaInicio_Click(object sender, EventArgs e)
         {
+
+        }
+
+        public List<InfoUser> CargarUsuariosDesdeJson(string ruta)
+        {
+            if (!File.Exists(ruta))
+                return new List<InfoUser>();
+
+            string json = File.ReadAllText(ruta);
+            return JsonConvert.DeserializeObject<List<InfoUser>>(json);
+        }
+
+        private void MostrarUsuariosEnLista()
+        {
+            listaUsuarios.Items.Clear();
+
+            foreach (var user in usuariosRegistrados)
+            {
+                ListViewItem item = new ListViewItem(user.username);
+                item.SubItems.Add(user.role);
+                item.SubItems.Add(user.email);
+                item.Tag = user; 
+                listaUsuarios.Items.Add(item);
+            }
+        }
+
+        private List<InfoUser> ObtenerUsuariosSeleccionados()
+        {
+            List<InfoUser> seleccionados = new List<InfoUser>();
+
+            foreach (ListViewItem item in listaUsuarios.Items)
+            {
+                if (item.Checked)
+                    seleccionados.Add((InfoUser)item.Tag);
+            }
+
+            return seleccionados;
+        }
+
+        private void buttonCrearProyecto_Click(object sender, EventArgs e)
+        {
+            var miembros = ObtenerUsuariosSeleccionados();
+            List<string> emailsMiembros = miembros.Select(u => u.email).ToList();
+
+            Project proyecto = new Project
+            {
+                Name = textBoxNombreProyecto.Text,
+                Description = textBoxDescripcionProyecto.Text,
+                StartDate = dateTimePickerInicio.Value,
+                EndDate = dateTimePickerFin.Value,
+                Tasks = new List<Task>()
+            };
+
+            if (emailsMiembros.Count > 0)
+            {
+                proyecto.Tasks.Add(new Task
+                {
+                    name = "Miembros Iniciales",
+                    users = emailsMiembros
+                });
+            }
+
+            GuardarProyecto(proyecto);
+            MessageBox.Show("Proyecto creado exitosamente.");
+
+        }
+
+        public void GuardarProyecto(Project proyecto)
+        {
+            string rutaJson = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Json", "Proyectos.json");
+            List<Project> proyectos = new List<Project>();
+
+            if (File.Exists(rutaJson))
+            {
+                string contenido = File.ReadAllText(rutaJson);
+                if (!string.IsNullOrWhiteSpace(contenido))
+                {
+                    proyectos = JsonConvert.DeserializeObject<List<Project>>(contenido);
+                    proyectos = proyectos.Where(p => p.Name !="Name").ToList();
+                }
+            }
+
+            proyectos.Add(proyecto);
+
+            string nuevoJson = JsonConvert.SerializeObject(proyectos, Formatting.Indented);
+            File.WriteAllText(rutaJson, nuevoJson);
+
 
         }
     }
