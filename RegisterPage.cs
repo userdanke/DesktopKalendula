@@ -101,17 +101,19 @@ namespace DesktopKalendula
 
                 string fullName = $"{txtFirstName.Text}{txtLastName.Text}";
 
-                string rol = UsuarioManager.ExistenUsuarios() ? "User" : "Manager";
+                string rolPorDefecto ="Desarrolador";
 
-                bool registroExistoso = UsuarioManager.RegistrarUsuario(
-                    fullName, txtPassword.Text, txtEmail.Text, rol
+                InfoUser registroExistoso = UsuarioManager.RegistrarUsuario(
+                    fullName, txtPassword.Text, txtEmail.Text, rolPorDefecto
                     );
 
                 //MessageBox.Show($"Resultado del registro: {registroExistoso}", "Debug");
 
-                if (registroExistoso)
+                if (registroExistoso != null)
                 {
-                    MessageBox.Show($"User successfully registered as {rol}.", "Successful registration", MessageBoxButtons.OK,
+                    string rolReal = registroExistoso.role;
+
+                    MessageBox.Show($"User successfully registered as {rolReal}.", "Successful registration", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
 
                     txtFirstName.Clear();
