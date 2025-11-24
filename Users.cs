@@ -121,7 +121,10 @@ namespace DesktopKalendula
             lblTitulo.Top = 40;
 
             string[] labels = { "Fist Name","Last Name", "Email", "Password", "Confirm Password"};
+
+            TextBox[] textBoxes = new TextBox[5];
             int espacio = 120;
+
 
             for (int i = 0; i < labels.Length; i++)
             {
@@ -138,14 +141,14 @@ namespace DesktopKalendula
                 TextBox txt = new TextBox();
                 txt.Location = new Point(90, espacio + 30);
                 txt.Width = 410;
-                txt.Height = 30;
+                txt.Height = 40;
                 txt.Font = Fuentes.RubikRegular(15);
-                txt.ForeColor= Color.FromArgb(252,250, 249);
+                txt.ForeColor= Color.FromArgb(61, 23, 0);
                 txt.BorderStyle = BorderStyle.None;
-               
+
 
                 // Si es contraseña, ocultar caracteres
-                if (i == 3)
+                if (i == 3 || i ==4)
                 {
                     txt.PasswordChar = '*';
                 }
@@ -167,6 +170,59 @@ namespace DesktopKalendula
             btnAdd.Font = Fuentes.RubikRegular(15);
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.ForeColor = Color.FromArgb(252, 250, 249);
+
+            btnadd.Click += (s, args) =>
+            {
+                String firstName = textBoxes[0].Text;
+                String lastName = textBoxes[1].Text;
+                String email = textBoxes[2].Text;
+                String password = textBoxes[3].Text;
+                String confirmPassword = textBoxes[4].Text;
+
+                if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || string.IsNullOrWhiteSpace(email)
+                || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(confirmPassword))
+                {
+                    MessageBox.Show("Please complete all the fields.", "Empty fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (password != confirmPassword)
+                {
+                    MessageBox.Show("Passwords do not match", "Password error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string fullName = $"{firstName} {lastName}";
+
+                InfoUser nuevoUsuario = UsuarioManager.RegistrarUsuario(fullName, password, email, "Developer");
+
+                if (nuevoUsuario != null)
+                {
+                    //CrearTarjetaUsuario(nuevoUsuario);
+                    panelformulario.Visible = true;
+                    MessageBox.Show($"User:{fullName} added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } 
+                else
+                {
+                    MessageBox.Show("The email is already used","Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+            };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             panelformulario.Controls.Add(btnAdd);
 
             Button btnCancelar = new Button();
@@ -183,7 +239,6 @@ namespace DesktopKalendula
             {
                 panelformulario.Visible = false;
             };
-
 
             panelformulario.Controls.Add(btnCancelar);
 
