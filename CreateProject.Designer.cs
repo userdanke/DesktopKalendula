@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelFormulario = new System.Windows.Forms.Panel();
+            this.labelAñadirUsuarios = new System.Windows.Forms.Label();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonCrearProyecto = new System.Windows.Forms.Button();
             this.dateTimePickerFin = new System.Windows.Forms.DateTimePicker();
@@ -40,7 +41,6 @@
             this.labelDescripcionProyecto = new System.Windows.Forms.Label();
             this.labelNombreProyecto = new System.Windows.Forms.Label();
             this.labelTitulo = new System.Windows.Forms.Label();
-            this.labelAñadirUsuarios = new System.Windows.Forms.Label();
             this.panelFormulario.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,15 @@
             this.panelFormulario.Size = new System.Drawing.Size(871, 830);
             this.panelFormulario.TabIndex = 0;
             // 
+            // labelAñadirUsuarios
+            // 
+            this.labelAñadirUsuarios.AutoSize = true;
+            this.labelAñadirUsuarios.Location = new System.Drawing.Point(91, 408);
+            this.labelAñadirUsuarios.Name = "labelAñadirUsuarios";
+            this.labelAñadirUsuarios.Size = new System.Drawing.Size(81, 13);
+            this.labelAñadirUsuarios.TabIndex = 11;
+            this.labelAñadirUsuarios.Text = "Añadir Usuarios";
+            // 
             // buttonCancelar
             // 
             this.buttonCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -73,6 +82,7 @@
             this.buttonCancelar.TabIndex = 10;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // buttonCrearProyecto
             // 
@@ -167,15 +177,6 @@
             this.labelTitulo.Size = new System.Drawing.Size(105, 13);
             this.labelTitulo.TabIndex = 0;
             this.labelTitulo.Text = "Create a new project";
-            // 
-            // labelAñadirUsuarios
-            // 
-            this.labelAñadirUsuarios.AutoSize = true;
-            this.labelAñadirUsuarios.Location = new System.Drawing.Point(91, 408);
-            this.labelAñadirUsuarios.Name = "labelAñadirUsuarios";
-            this.labelAñadirUsuarios.Size = new System.Drawing.Size(81, 13);
-            this.labelAñadirUsuarios.TabIndex = 11;
-            this.labelAñadirUsuarios.Text = "Añadir Usuarios";
             // 
             // CreateProject
             // 
