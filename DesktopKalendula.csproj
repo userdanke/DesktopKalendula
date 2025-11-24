@@ -93,6 +93,12 @@
     <Compile Include="OpenProject.Designer.cs">
       <DependentUpon>OpenProject.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProjectHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectHome.Designer.cs">
+      <DependentUpon>ProjectHome.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -128,6 +134,15 @@
     <None Include="Resources\SignIn.png" />
     <EmbeddedResource Include="CreateProject.resx">
       <DependentUpon>CreateProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateTask.resx">
+      <DependentUpon>CreateTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenProject.resx">
+      <DependentUpon>OpenProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectHome.resx">
+      <DependentUpon>ProjectHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>

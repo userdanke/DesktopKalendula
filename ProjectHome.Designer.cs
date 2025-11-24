@@ -1,6 +1,6 @@
 ﻿namespace DesktopKalendula
 {
-    partial class OpenProject
+    partial class ProjectHome
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnMenu = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.Location = new System.Drawing.Point(350, 209);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(101, 33);
+            this.btnMenu.TabIndex = 5;
+            this.btnMenu.Text = "button1";
+            this.btnMenu.UseVisualStyleBackColor = true;
             // 
             // OpenProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(235)))), ((int)(((byte)(241)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "OpenProject";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OpenProject";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.OpenProject_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnMenu;
     }
 }

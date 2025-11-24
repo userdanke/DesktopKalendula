@@ -16,5 +16,10 @@ namespace DesktopKalendula
         {
             InitializeComponent();
         }
+
+        private void CreateTask_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

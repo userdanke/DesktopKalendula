@@ -52,11 +52,6 @@ namespace DesktopKalendula
             buttonOpenProject.Location = new Point(370, 100);
             buttonOpenProject.Size = new Size(250, 40);
 
-            buttonTask.Font = Fuentes.RubikRegular(15);
-            buttonTask.ForeColor = Color.FromArgb(255, 251, 249);
-            buttonTask.Location = new Point(640, 100);
-            buttonTask.Size = new Size(250, 40);
-
             panelSecundario.Location = new Point(1320, 150);
             panelSecundario.Size = new Size(500, 800);
 
@@ -268,6 +263,12 @@ namespace DesktopKalendula
         {
             CreateProject crearProyecto = new CreateProject();
             crearProyecto.ShowDialog();
+        }
+
+        private void buttonOpenProject_Click(object sender, EventArgs e)
+        {
+            OpenProject abrirProyecto = new OpenProject();
+            abrirProyecto.ShowDialog();
         }
     }
 }
