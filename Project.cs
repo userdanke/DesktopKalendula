@@ -11,6 +11,7 @@ namespace DesktopKalendula
 {
     public class Project
     {
+        public string Id { get; set; } = Guid.NewGuid().ToString();
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime StartDate { get; set; }

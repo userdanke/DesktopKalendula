@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnMenu = new System.Windows.Forms.Button();
+            this.buttonCrearTarea = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMenu
@@ -40,15 +41,26 @@
             this.btnMenu.Text = "button1";
             this.btnMenu.UseVisualStyleBackColor = true;
             // 
-            // OpenProject
+            // buttonCrearTarea
+            // 
+            this.buttonCrearTarea.Location = new System.Drawing.Point(559, 130);
+            this.buttonCrearTarea.Name = "buttonCrearTarea";
+            this.buttonCrearTarea.Size = new System.Drawing.Size(75, 23);
+            this.buttonCrearTarea.TabIndex = 6;
+            this.buttonCrearTarea.Text = "Add Task";
+            this.buttonCrearTarea.UseVisualStyleBackColor = true;
+            this.buttonCrearTarea.Click += new System.EventHandler(this.buttonCrearTarea_Click);
+            // 
+            // ProjectHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonCrearTarea);
             this.Controls.Add(this.btnMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "OpenProject";
+            this.Name = "ProjectHome";
             this.Text = "OpenProject";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.OpenProject_Load);
@@ -59,5 +71,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Button buttonCrearTarea;
     }
 }
