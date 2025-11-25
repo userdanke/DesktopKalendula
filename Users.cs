@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,7 @@ namespace DesktopKalendula
     public partial class Users : Form
     {
         private MenuLateral menu;
+        private FlowLayoutPanel panelTarjetas;
 
         public Users()
         {
@@ -31,7 +33,91 @@ namespace DesktopKalendula
 
         private void Users_Load(object sender, EventArgs e)
         {
+            if(panelTarjetas == null)
+            {
+                panelTarjetas = new FlowLayoutPanel();
+                panelTarjetas.Location = new Point(70,300);
+                panelTarjetas.Size = new Size(800, 500);
+                panelTarjetas.AutoScroll = true;
+                panelTarjetas.FlowDirection = FlowDirection.LeftToRight;
+                panelTarjetas.WrapContents = true;
+                panelTarjetas.Padding = new Padding(10);
+                this.Controls.Add(panelTarjetas);
+            }
+
+            CargarTarjetasExistentes();
+
             
+        }
+         
+        private void CrearTarjetaUsuario(InfoUser usuario)
+
+        {
+            string ruta = @"Diseño\LogoUser.png";
+
+            Panel tarjeta = new Panel();
+            tarjeta.Size = new Size(300, 200);
+            tarjeta.BackColor = Color.White;
+            tarjeta.BorderStyle = BorderStyle.FixedSingle;
+            tarjeta.Margin = new Padding(10);
+
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Image = Image.FromFile(ruta);
+            pictureBox.Location = new Point(90, 20);
+            pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+            tarjeta.Controls.Add(pictureBox);
+
+            Label lblNombre = new Label();
+            lblNombre.Text = usuario.username;
+            lblNombre.Font = Fuentes.RubikMedium(14);
+            lblNombre.ForeColor = Color.FromArgb(92, 135, 153);
+            lblNombre.Location = new Point(20, 80);
+            lblNombre.AutoSize = true;
+            tarjeta.Controls.Add(lblNombre);
+
+            Label lblEmail = new Label();
+            lblEmail.Text = usuario.email;
+            lblEmail.Font = Fuentes.RubikRegular(10);
+            lblEmail.ForeColor = Color.Gray;
+            lblEmail.Location = new Point(20, 160);
+            lblEmail.AutoSize = true;
+            tarjeta.Controls.Add(lblEmail);
+
+            Label lblRol = new Label();
+            lblRol.Text = $"Role: {usuario.role}";
+            lblRol.Font = Fuentes.RubikRegular(10);
+            lblRol.ForeColor = Color.FromArgb(204, 163, 193);
+            lblRol.Location = new Point(20, 260);
+            lblRol.AutoSize = true;
+            tarjeta.Controls.Add(lblRol);
+
+            Button btnEliminar = new Button();
+            btnEliminar.Text = "✕";
+            btnEliminar.Size = new Size(30, 30);
+            btnEliminar.Location = new Point(230, 10);
+            btnEliminar.FlatStyle = FlatStyle.Flat;
+            btnEliminar.BackColor = Color.FromArgb(229, 122, 122);
+            btnEliminar.ForeColor = Color.White;
+            btnEliminar.Click += (s, args) =>
+            {
+                panelTarjetas.Controls.Remove(tarjeta);
+            };
+            tarjeta.Controls.Add(btnEliminar);
+
+            panelTarjetas.Controls.Add(tarjeta);
+        }
+
+        private void CargarTarjetasExistentes()
+        {
+            List<InfoUser> usuarios = UsuarioManager.LeerUsuarios();
+
+            foreach (InfoUser usuario in usuarios) {
+                CrearTarjetaUsuario(usuario);
+
+            }
+
+
+
         }
 
         private void ConfigurarMenu()
@@ -128,7 +214,7 @@ namespace DesktopKalendula
 
             for (int i = 0; i < labels.Length; i++)
             {
-                // Crear Label
+              
                 Label lbl = new Label();
                 lbl.Text = labels[i];
                 lbl.Location = new Point(90, espacio);
@@ -137,7 +223,7 @@ namespace DesktopKalendula
                 lbl.ForeColor = Color.FromArgb(92, 135, 153);
                 panelformulario.Controls.Add(lbl);
 
-                // Crear TextBox
+               
                 TextBox txt = new TextBox();
                 txt.Location = new Point(90, espacio + 30);
                 txt.Width = 410;
@@ -152,6 +238,8 @@ namespace DesktopKalendula
                 {
                     txt.PasswordChar = '*';
                 }
+
+                textBoxes[i] = txt;
 
                 panelformulario.Controls.Add(txt);
 
@@ -171,7 +259,7 @@ namespace DesktopKalendula
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.ForeColor = Color.FromArgb(252, 250, 249);
 
-            btnadd.Click += (s, args) =>
+            btnAdd.Click += (s, args) =>
             {
                 String firstName = textBoxes[0].Text;
                 String lastName = textBoxes[1].Text;
@@ -198,32 +286,17 @@ namespace DesktopKalendula
 
                 if (nuevoUsuario != null)
                 {
-                    //CrearTarjetaUsuario(nuevoUsuario);
-                    panelformulario.Visible = true;
+                    CrearTarjetaUsuario(nuevoUsuario);
+                    panelformulario.Visible = false;
                     MessageBox.Show($"User:{fullName} added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } 
                 else
                 {
                     MessageBox.Show("The email is already used","Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-
             };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             panelformulario.Controls.Add(btnAdd);
+            this.Controls.Add(panelformulario);
 
             Button btnCancelar = new Button();
             btnCancelar.Text = "Cancelar";
@@ -241,10 +314,6 @@ namespace DesktopKalendula
             };
 
             panelformulario.Controls.Add(btnCancelar);
-
-
-
-
             this.Controls.Add(panelformulario);
             panelformulario.BringToFront();
         }
