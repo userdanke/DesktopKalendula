@@ -176,29 +176,53 @@ namespace DesktopKalendula
 
         private void buttonCrearProyecto_Click(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrWhiteSpace(textBoxNombreProyecto.Text))
+            {
+                MessageBox.Show("Por favor, ingrese un nombre para el proyecto.");
+                textBoxNombreProyecto.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBoxDescripcionProyecto.Text))
+            {
+                MessageBox.Show("Por favor, ingrese una descripción para el proyecto.");
+                textBoxDescripcionProyecto.Focus();
+                return;
+            }
+
+
+            if (dateTimePickerFin.Value < dateTimePickerInicio.Value)
+            {
+                MessageBox.Show("La fecha de fin no puede ser igual a la fecha de inicio.");
+                dateTimePickerFin.Focus();
+                return;
+            }
+
             var miembros = ObtenerUsuariosSeleccionados();
+            if (miembros.Count == 0)
+            {
+                MessageBox.Show("Por favor, seleccione al menos un miembro para el proyecto.");
+                return;
+            }
+
             List<string> emailsMiembros = miembros.Select(u => u.email).ToList();
 
             Project proyecto = new Project
             {
+                Id = Guid.NewGuid().ToString(),
                 Name = textBoxNombreProyecto.Text,
                 Description = textBoxDescripcionProyecto.Text,
                 StartDate = dateTimePickerInicio.Value,
                 EndDate = dateTimePickerFin.Value,
+                users = emailsMiembros,
                 Tasks = new List<Task>()
             };
 
-            if (emailsMiembros.Count > 0)
-            {
-                proyecto.Tasks.Add(new Task
-                {
-                    name = "Miembros Iniciales",
-                    users = emailsMiembros
-                });
-            }
-
             GuardarProyecto(proyecto);
             MessageBox.Show("Proyecto creado exitosamente.");
+            ProjectHome projectHome = new ProjectHome(proyecto);
+            projectHome.Show();
 
         }
 
@@ -229,5 +253,6 @@ namespace DesktopKalendula
         {
             this.Close();
         }
+
     }
 }

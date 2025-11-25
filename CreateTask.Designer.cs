@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.panelFormulario = new System.Windows.Forms.Panel();
+            this.labelEstado = new System.Windows.Forms.Label();
+            this.labelUsuarios = new System.Windows.Forms.Label();
             this.labelAñadirUsuarios = new System.Windows.Forms.Label();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            this.buttonCrearProyecto = new System.Windows.Forms.Button();
+            this.buttonCrear = new System.Windows.Forms.Button();
             this.dateTimePickerFin = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerInicio = new System.Windows.Forms.DateTimePicker();
             this.textBoxDescripcionProyecto = new System.Windows.Forms.TextBox();
@@ -41,19 +43,21 @@
             this.labelDescripcionProyecto = new System.Windows.Forms.Label();
             this.labelNombreProyecto = new System.Windows.Forms.Label();
             this.labelTitulo = new System.Windows.Forms.Label();
-            this.labelUsuarios = new System.Windows.Forms.Label();
-            this.labelEstado = new System.Windows.Forms.Label();
+            this.checkedListBoxUsuarios = new System.Windows.Forms.CheckedListBox();
+            this.comboBoxEstado = new System.Windows.Forms.ComboBox();
             this.panelFormulario.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelFormulario
             // 
             this.panelFormulario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(235)))), ((int)(((byte)(241)))));
+            this.panelFormulario.Controls.Add(this.comboBoxEstado);
+            this.panelFormulario.Controls.Add(this.checkedListBoxUsuarios);
             this.panelFormulario.Controls.Add(this.labelEstado);
             this.panelFormulario.Controls.Add(this.labelUsuarios);
             this.panelFormulario.Controls.Add(this.labelAñadirUsuarios);
             this.panelFormulario.Controls.Add(this.buttonCancelar);
-            this.panelFormulario.Controls.Add(this.buttonCrearProyecto);
+            this.panelFormulario.Controls.Add(this.buttonCrear);
             this.panelFormulario.Controls.Add(this.dateTimePickerFin);
             this.panelFormulario.Controls.Add(this.dateTimePickerInicio);
             this.panelFormulario.Controls.Add(this.textBoxDescripcionProyecto);
@@ -67,6 +71,24 @@
             this.panelFormulario.Name = "panelFormulario";
             this.panelFormulario.Size = new System.Drawing.Size(871, 830);
             this.panelFormulario.TabIndex = 1;
+            // 
+            // labelEstado
+            // 
+            this.labelEstado.AutoSize = true;
+            this.labelEstado.Location = new System.Drawing.Point(91, 461);
+            this.labelEstado.Name = "labelEstado";
+            this.labelEstado.Size = new System.Drawing.Size(32, 13);
+            this.labelEstado.TabIndex = 13;
+            this.labelEstado.Text = "State";
+            // 
+            // labelUsuarios
+            // 
+            this.labelUsuarios.AutoSize = true;
+            this.labelUsuarios.Location = new System.Drawing.Point(91, 620);
+            this.labelUsuarios.Name = "labelUsuarios";
+            this.labelUsuarios.Size = new System.Drawing.Size(54, 13);
+            this.labelUsuarios.TabIndex = 12;
+            this.labelUsuarios.Text = "Add users";
             // 
             // labelAñadirUsuarios
             // 
@@ -86,15 +108,16 @@
             this.buttonCancelar.Text = "Cancel";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
-            // buttonCrearProyecto
+            // buttonCrear
             // 
-            this.buttonCrearProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCrearProyecto.Location = new System.Drawing.Point(94, 577);
-            this.buttonCrearProyecto.Name = "buttonCrearProyecto";
-            this.buttonCrearProyecto.Size = new System.Drawing.Size(119, 23);
-            this.buttonCrearProyecto.TabIndex = 9;
-            this.buttonCrearProyecto.Text = "Create task";
-            this.buttonCrearProyecto.UseVisualStyleBackColor = true;
+            this.buttonCrear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCrear.Location = new System.Drawing.Point(94, 577);
+            this.buttonCrear.Name = "buttonCrear";
+            this.buttonCrear.Size = new System.Drawing.Size(119, 23);
+            this.buttonCrear.TabIndex = 9;
+            this.buttonCrear.Text = "Create task";
+            this.buttonCrear.UseVisualStyleBackColor = true;
+            this.buttonCrear.Click += new System.EventHandler(this.buttonCrear_Click);
             // 
             // dateTimePickerFin
             // 
@@ -178,23 +201,21 @@
             this.labelTitulo.TabIndex = 0;
             this.labelTitulo.Text = "Add a new task";
             // 
-            // labelUsuarios
+            // checkedListBoxUsuarios
             // 
-            this.labelUsuarios.AutoSize = true;
-            this.labelUsuarios.Location = new System.Drawing.Point(91, 408);
-            this.labelUsuarios.Name = "labelUsuarios";
-            this.labelUsuarios.Size = new System.Drawing.Size(54, 13);
-            this.labelUsuarios.TabIndex = 12;
-            this.labelUsuarios.Text = "Add users";
+            this.checkedListBoxUsuarios.FormattingEnabled = true;
+            this.checkedListBoxUsuarios.Location = new System.Drawing.Point(93, 636);
+            this.checkedListBoxUsuarios.Name = "checkedListBoxUsuarios";
+            this.checkedListBoxUsuarios.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBoxUsuarios.TabIndex = 14;
             // 
-            // labelEstado
+            // comboBoxEstado
             // 
-            this.labelEstado.AutoSize = true;
-            this.labelEstado.Location = new System.Drawing.Point(91, 461);
-            this.labelEstado.Name = "labelEstado";
-            this.labelEstado.Size = new System.Drawing.Size(32, 13);
-            this.labelEstado.TabIndex = 13;
-            this.labelEstado.Text = "State";
+            this.comboBoxEstado.FormattingEnabled = true;
+            this.comboBoxEstado.Location = new System.Drawing.Point(647, 507);
+            this.comboBoxEstado.Name = "comboBoxEstado";
+            this.comboBoxEstado.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxEstado.TabIndex = 15;
             // 
             // CreateTask
             // 
@@ -218,7 +239,7 @@
         private System.Windows.Forms.Panel panelFormulario;
         private System.Windows.Forms.Label labelAñadirUsuarios;
         private System.Windows.Forms.Button buttonCancelar;
-        private System.Windows.Forms.Button buttonCrearProyecto;
+        private System.Windows.Forms.Button buttonCrear;
         private System.Windows.Forms.DateTimePicker dateTimePickerFin;
         private System.Windows.Forms.DateTimePicker dateTimePickerInicio;
         private System.Windows.Forms.TextBox textBoxDescripcionProyecto;
@@ -230,5 +251,7 @@
         private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.Label labelUsuarios;
         private System.Windows.Forms.Label labelEstado;
+        private System.Windows.Forms.CheckedListBox checkedListBoxUsuarios;
+        private System.Windows.Forms.ComboBox comboBoxEstado;
     }
 }
