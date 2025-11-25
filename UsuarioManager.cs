@@ -93,7 +93,7 @@ namespace DesktopKalendula
                 } 
                 else
                 {
-                    rolFinal = "Desarrollador";
+                    rolFinal = "Developer";
                 }
 
                 InfoUser nuevoUsuario = new InfoUser(nombre, contraseña, email, rolFinal);

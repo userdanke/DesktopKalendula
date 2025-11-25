@@ -37,7 +37,7 @@ namespace DesktopKalendula
 
             //Application.Run(formInicial);
 
-            Application.Run(new Home());
+            Application.Run(new Users());
 
 
         }
