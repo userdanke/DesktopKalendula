@@ -28,7 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.listBoxProjects = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
+            // 
+            // listBoxProjects
+            // 
+            this.listBoxProjects.FormattingEnabled = true;
+            this.listBoxProjects.Location = new System.Drawing.Point(336, 142);
+            this.listBoxProjects.Name = "listBoxProjects";
+            this.listBoxProjects.Size = new System.Drawing.Size(120, 95);
+            this.listBoxProjects.TabIndex = 0;
+            this.listBoxProjects.SelectedIndexChanged += new System.EventHandler(this.listBoxProjects_SelectedIndexChanged);
+            this.listBoxProjects.DoubleClick += new System.EventHandler(this.listBoxProjects_DoubleClick);
             // 
             // OpenProject
             // 
@@ -36,6 +47,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(235)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listBoxProjects);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "OpenProject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -46,5 +58,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.ListBox listBoxProjects;
     }
 }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panelFormulario = new System.Windows.Forms.Panel();
+            this.comboBoxEstado = new System.Windows.Forms.ComboBox();
+            this.checkedListBoxUsuarios = new System.Windows.Forms.CheckedListBox();
             this.labelEstado = new System.Windows.Forms.Label();
             this.labelUsuarios = new System.Windows.Forms.Label();
             this.labelAñadirUsuarios = new System.Windows.Forms.Label();
@@ -36,21 +38,24 @@
             this.buttonCrear = new System.Windows.Forms.Button();
             this.dateTimePickerFin = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerInicio = new System.Windows.Forms.DateTimePicker();
-            this.textBoxDescripcionProyecto = new System.Windows.Forms.TextBox();
-            this.textBoxNombreProyecto = new System.Windows.Forms.TextBox();
+            this.textBoxDescripcionTarea = new System.Windows.Forms.TextBox();
+            this.textBoxNombreTarea = new System.Windows.Forms.TextBox();
             this.labelFechaFin = new System.Windows.Forms.Label();
             this.labelFechaInicio = new System.Windows.Forms.Label();
-            this.labelDescripcionProyecto = new System.Windows.Forms.Label();
-            this.labelNombreProyecto = new System.Windows.Forms.Label();
+            this.labelDescripcionTarea = new System.Windows.Forms.Label();
+            this.labelNombreTarea = new System.Windows.Forms.Label();
             this.labelTitulo = new System.Windows.Forms.Label();
-            this.checkedListBoxUsuarios = new System.Windows.Forms.CheckedListBox();
-            this.comboBoxEstado = new System.Windows.Forms.ComboBox();
+            this.numericUpDownHoursDedicated = new System.Windows.Forms.NumericUpDown();
+            this.labelHoursDedicated = new System.Windows.Forms.Label();
             this.panelFormulario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHoursDedicated)).BeginInit();
             this.SuspendLayout();
             // 
             // panelFormulario
             // 
             this.panelFormulario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(235)))), ((int)(((byte)(241)))));
+            this.panelFormulario.Controls.Add(this.labelHoursDedicated);
+            this.panelFormulario.Controls.Add(this.numericUpDownHoursDedicated);
             this.panelFormulario.Controls.Add(this.comboBoxEstado);
             this.panelFormulario.Controls.Add(this.checkedListBoxUsuarios);
             this.panelFormulario.Controls.Add(this.labelEstado);
@@ -60,22 +65,39 @@
             this.panelFormulario.Controls.Add(this.buttonCrear);
             this.panelFormulario.Controls.Add(this.dateTimePickerFin);
             this.panelFormulario.Controls.Add(this.dateTimePickerInicio);
-            this.panelFormulario.Controls.Add(this.textBoxDescripcionProyecto);
-            this.panelFormulario.Controls.Add(this.textBoxNombreProyecto);
+            this.panelFormulario.Controls.Add(this.textBoxDescripcionTarea);
+            this.panelFormulario.Controls.Add(this.textBoxNombreTarea);
             this.panelFormulario.Controls.Add(this.labelFechaFin);
             this.panelFormulario.Controls.Add(this.labelFechaInicio);
-            this.panelFormulario.Controls.Add(this.labelDescripcionProyecto);
-            this.panelFormulario.Controls.Add(this.labelNombreProyecto);
+            this.panelFormulario.Controls.Add(this.labelDescripcionTarea);
+            this.panelFormulario.Controls.Add(this.labelNombreTarea);
             this.panelFormulario.Controls.Add(this.labelTitulo);
             this.panelFormulario.Location = new System.Drawing.Point(205, 73);
             this.panelFormulario.Name = "panelFormulario";
             this.panelFormulario.Size = new System.Drawing.Size(871, 830);
             this.panelFormulario.TabIndex = 1;
             // 
+            // comboBoxEstado
+            // 
+            this.comboBoxEstado.FormattingEnabled = true;
+            this.comboBoxEstado.Location = new System.Drawing.Point(94, 424);
+            this.comboBoxEstado.Name = "comboBoxEstado";
+            this.comboBoxEstado.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxEstado.TabIndex = 15;
+            this.comboBoxEstado.SelectedIndexChanged += new System.EventHandler(this.comboBoxEstado_SelectedIndexChanged);
+            // 
+            // checkedListBoxUsuarios
+            // 
+            this.checkedListBoxUsuarios.FormattingEnabled = true;
+            this.checkedListBoxUsuarios.Location = new System.Drawing.Point(92, 486);
+            this.checkedListBoxUsuarios.Name = "checkedListBoxUsuarios";
+            this.checkedListBoxUsuarios.Size = new System.Drawing.Size(453, 94);
+            this.checkedListBoxUsuarios.TabIndex = 14;
+            // 
             // labelEstado
             // 
             this.labelEstado.AutoSize = true;
-            this.labelEstado.Location = new System.Drawing.Point(91, 461);
+            this.labelEstado.Location = new System.Drawing.Point(91, 408);
             this.labelEstado.Name = "labelEstado";
             this.labelEstado.Size = new System.Drawing.Size(32, 13);
             this.labelEstado.TabIndex = 13;
@@ -84,7 +106,7 @@
             // labelUsuarios
             // 
             this.labelUsuarios.AutoSize = true;
-            this.labelUsuarios.Location = new System.Drawing.Point(91, 620);
+            this.labelUsuarios.Location = new System.Drawing.Point(93, 459);
             this.labelUsuarios.Name = "labelUsuarios";
             this.labelUsuarios.Size = new System.Drawing.Size(54, 13);
             this.labelUsuarios.TabIndex = 12;
@@ -101,17 +123,18 @@
             // buttonCancelar
             // 
             this.buttonCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancelar.Location = new System.Drawing.Point(426, 577);
+            this.buttonCancelar.Location = new System.Drawing.Point(397, 683);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(119, 23);
             this.buttonCancelar.TabIndex = 10;
             this.buttonCancelar.Text = "Cancel";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // buttonCrear
             // 
             this.buttonCrear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCrear.Location = new System.Drawing.Point(94, 577);
+            this.buttonCrear.Location = new System.Drawing.Point(92, 670);
             this.buttonCrear.Name = "buttonCrear";
             this.buttonCrear.Size = new System.Drawing.Size(119, 23);
             this.buttonCrear.TabIndex = 9;
@@ -137,24 +160,24 @@
             this.dateTimePickerInicio.Size = new System.Drawing.Size(451, 20);
             this.dateTimePickerInicio.TabIndex = 7;
             // 
-            // textBoxDescripcionProyecto
+            // textBoxDescripcionTarea
             // 
-            this.textBoxDescripcionProyecto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
-            this.textBoxDescripcionProyecto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDescripcionProyecto.Location = new System.Drawing.Point(94, 191);
-            this.textBoxDescripcionProyecto.Multiline = true;
-            this.textBoxDescripcionProyecto.Name = "textBoxDescripcionProyecto";
-            this.textBoxDescripcionProyecto.Size = new System.Drawing.Size(449, 78);
-            this.textBoxDescripcionProyecto.TabIndex = 6;
+            this.textBoxDescripcionTarea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            this.textBoxDescripcionTarea.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDescripcionTarea.Location = new System.Drawing.Point(94, 191);
+            this.textBoxDescripcionTarea.Multiline = true;
+            this.textBoxDescripcionTarea.Name = "textBoxDescripcionTarea";
+            this.textBoxDescripcionTarea.Size = new System.Drawing.Size(449, 78);
+            this.textBoxDescripcionTarea.TabIndex = 6;
             // 
-            // textBoxNombreProyecto
+            // textBoxNombreTarea
             // 
-            this.textBoxNombreProyecto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
-            this.textBoxNombreProyecto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxNombreProyecto.Location = new System.Drawing.Point(92, 147);
-            this.textBoxNombreProyecto.Name = "textBoxNombreProyecto";
-            this.textBoxNombreProyecto.Size = new System.Drawing.Size(451, 13);
-            this.textBoxNombreProyecto.TabIndex = 5;
+            this.textBoxNombreTarea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            this.textBoxNombreTarea.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxNombreTarea.Location = new System.Drawing.Point(92, 147);
+            this.textBoxNombreTarea.Name = "textBoxNombreTarea";
+            this.textBoxNombreTarea.Size = new System.Drawing.Size(451, 13);
+            this.textBoxNombreTarea.TabIndex = 5;
             // 
             // labelFechaFin
             // 
@@ -174,23 +197,23 @@
             this.labelFechaInicio.TabIndex = 3;
             this.labelFechaInicio.Text = "Start Date";
             // 
-            // labelDescripcionProyecto
+            // labelDescripcionTarea
             // 
-            this.labelDescripcionProyecto.AutoSize = true;
-            this.labelDescripcionProyecto.Location = new System.Drawing.Point(89, 175);
-            this.labelDescripcionProyecto.Name = "labelDescripcionProyecto";
-            this.labelDescripcionProyecto.Size = new System.Drawing.Size(60, 13);
-            this.labelDescripcionProyecto.TabIndex = 2;
-            this.labelDescripcionProyecto.Text = "Description";
+            this.labelDescripcionTarea.AutoSize = true;
+            this.labelDescripcionTarea.Location = new System.Drawing.Point(89, 175);
+            this.labelDescripcionTarea.Name = "labelDescripcionTarea";
+            this.labelDescripcionTarea.Size = new System.Drawing.Size(60, 13);
+            this.labelDescripcionTarea.TabIndex = 2;
+            this.labelDescripcionTarea.Text = "Description";
             // 
-            // labelNombreProyecto
+            // labelNombreTarea
             // 
-            this.labelNombreProyecto.AutoSize = true;
-            this.labelNombreProyecto.Location = new System.Drawing.Point(89, 124);
-            this.labelNombreProyecto.Name = "labelNombreProyecto";
-            this.labelNombreProyecto.Size = new System.Drawing.Size(58, 13);
-            this.labelNombreProyecto.TabIndex = 1;
-            this.labelNombreProyecto.Text = "Name task";
+            this.labelNombreTarea.AutoSize = true;
+            this.labelNombreTarea.Location = new System.Drawing.Point(89, 124);
+            this.labelNombreTarea.Name = "labelNombreTarea";
+            this.labelNombreTarea.Size = new System.Drawing.Size(58, 13);
+            this.labelNombreTarea.TabIndex = 1;
+            this.labelNombreTarea.Text = "Name task";
             // 
             // labelTitulo
             // 
@@ -201,21 +224,22 @@
             this.labelTitulo.TabIndex = 0;
             this.labelTitulo.Text = "Add a new task";
             // 
-            // checkedListBoxUsuarios
+            // numericUpDownHoursDedicated
             // 
-            this.checkedListBoxUsuarios.FormattingEnabled = true;
-            this.checkedListBoxUsuarios.Location = new System.Drawing.Point(93, 636);
-            this.checkedListBoxUsuarios.Name = "checkedListBoxUsuarios";
-            this.checkedListBoxUsuarios.Size = new System.Drawing.Size(120, 94);
-            this.checkedListBoxUsuarios.TabIndex = 14;
+            this.numericUpDownHoursDedicated.Location = new System.Drawing.Point(91, 602);
+            this.numericUpDownHoursDedicated.Name = "numericUpDownHoursDedicated";
+            this.numericUpDownHoursDedicated.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownHoursDedicated.TabIndex = 16;
             // 
-            // comboBoxEstado
+            // labelHoursDedicated
             // 
-            this.comboBoxEstado.FormattingEnabled = true;
-            this.comboBoxEstado.Location = new System.Drawing.Point(647, 507);
-            this.comboBoxEstado.Name = "comboBoxEstado";
-            this.comboBoxEstado.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxEstado.TabIndex = 15;
+            this.labelHoursDedicated.AutoSize = true;
+            this.labelHoursDedicated.Location = new System.Drawing.Point(91, 586);
+            this.labelHoursDedicated.Name = "labelHoursDedicated";
+            this.labelHoursDedicated.Size = new System.Drawing.Size(85, 13);
+            this.labelHoursDedicated.TabIndex = 17;
+            this.labelHoursDedicated.Text = "Hours dedicated";
+            this.labelHoursDedicated.Click += new System.EventHandler(this.label1_Click);
             // 
             // CreateTask
             // 
@@ -230,6 +254,7 @@
             this.Load += new System.EventHandler(this.CreateTask_Load);
             this.panelFormulario.ResumeLayout(false);
             this.panelFormulario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHoursDedicated)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -242,16 +267,18 @@
         private System.Windows.Forms.Button buttonCrear;
         private System.Windows.Forms.DateTimePicker dateTimePickerFin;
         private System.Windows.Forms.DateTimePicker dateTimePickerInicio;
-        private System.Windows.Forms.TextBox textBoxDescripcionProyecto;
-        private System.Windows.Forms.TextBox textBoxNombreProyecto;
+        private System.Windows.Forms.TextBox textBoxDescripcionTarea;
+        private System.Windows.Forms.TextBox textBoxNombreTarea;
         private System.Windows.Forms.Label labelFechaFin;
         private System.Windows.Forms.Label labelFechaInicio;
-        private System.Windows.Forms.Label labelDescripcionProyecto;
-        private System.Windows.Forms.Label labelNombreProyecto;
+        private System.Windows.Forms.Label labelDescripcionTarea;
+        private System.Windows.Forms.Label labelNombreTarea;
         private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.Label labelUsuarios;
         private System.Windows.Forms.Label labelEstado;
         private System.Windows.Forms.CheckedListBox checkedListBoxUsuarios;
         private System.Windows.Forms.ComboBox comboBoxEstado;
+        private System.Windows.Forms.Label labelHoursDedicated;
+        private System.Windows.Forms.NumericUpDown numericUpDownHoursDedicated;
     }
 }

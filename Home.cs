@@ -78,7 +78,6 @@ namespace DesktopKalendula
 
             menu.AgregarOpcion("🏠", "Home", () => IrAInicio());
             menu.AgregarOpcion("👥", "Usuarios", () => IrAUsuarios());
-            menu.AgregarOpcion("⚙️", "Configuración", () => IrAConfiguracion());
             menu.AgregarOpcion("🚪", "Cerrar Sesión", () => CerrarSesion());
 
             btnMenu.Text = "☰";
@@ -101,20 +100,11 @@ namespace DesktopKalendula
             formHome.Show();
         }
 
-        private void IrAReportes()
-        {
-            MessageBox.Show("Navegando a Reportes");
-        }
 
         private void IrAUsuarios()
         {
             Users formUsuarios = new Users();
             formUsuarios.Show();
-        }
-
-        private void IrAConfiguracion()
-        {
-            MessageBox.Show("Abriendo Configuración");
         }
 
         private void CerrarSesion()

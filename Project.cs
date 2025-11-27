@@ -11,13 +11,13 @@ namespace DesktopKalendula
 {
     public class Project
     {
-        public string Id { get; set; } = Guid.NewGuid().ToString();
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public string id { get; set; } = Guid.NewGuid().ToString();
+        public string name { get; set; }
+        public string description { get; set; }
+        public DateTime startDate { get; set; }
+        public DateTime endDate { get; set; }
         public List<string> users { get; set; } = new List<string>();
-        public List<Task> Tasks { get; set; } = new List<Task>();
+        public List<Task> tasks { get; set; } = new List<Task>();
 
 
     }
