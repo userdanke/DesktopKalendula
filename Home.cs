@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DesktopKalendula.Diseño;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DesktopKalendula
 {
@@ -51,6 +50,11 @@ namespace DesktopKalendula
             buttonOpenProject.ForeColor = Color.FromArgb(255, 251, 249);
             buttonOpenProject.Location = new Point(370, 100);
             buttonOpenProject.Size = new Size(250, 40);
+
+            buttonData.Font = Fuentes.RubikRegular(15);
+            buttonData.ForeColor = Color.FromArgb(255, 251, 249);
+            buttonData.Location = new Point(650, 100);
+            buttonData.Size = new Size(250, 40);
 
             panelSecundario.Location = new Point(1320, 150);
             panelSecundario.Size = new Size(500, 800);
@@ -269,6 +273,80 @@ namespace DesktopKalendula
         {
             OpenProject abrirProyecto = new OpenProject();
             abrirProyecto.ShowDialog();
+        }
+
+        private void buttonData_Click(object sender, EventArgs e)
+        {
+            Panel panelData = new Panel();
+            panelData.Size = new Size(600, 250);
+            panelData.BackColor = Color.FromArgb(228, 235,241);
+            panelData.Location = new Point((this.ClientSize.Width - panelData.Width) / 2,
+                (this.ClientSize.Height - panelData.Height) / 2);
+
+            Label labelTitulo= new Label();
+            labelTitulo.Text = "Seleccionar Archivo";
+            labelTitulo.Font = Fuentes.RubikRegular(15);
+            labelTitulo.ForeColor = Color.FromArgb(92, 135, 153);
+            labelTitulo.AutoSize = true;
+            panelData.Controls.Add(labelTitulo);
+
+            labelTitulo.Left = (panelData.Width - labelTitulo.Width) / 2;
+            labelTitulo.Top = 20;
+
+            ComboBox comboBoxTitulo = new ComboBox();
+            comboBoxTitulo.Location = new Point(90, 70);
+            comboBoxTitulo.Width = 420;
+            comboBoxTitulo.Font = Fuentes.RubikRegular(12);
+            comboBoxTitulo.DropDownStyle = ComboBoxStyle.DropDownList;
+            panelData.Controls.Add(comboBoxTitulo);
+
+            Button buttonVisualizar = new Button();
+            buttonVisualizar.Text = "Visualizar archivo";
+            buttonVisualizar.Location = new Point(90,150);
+            buttonVisualizar.Size = new Size(200, 50);
+            buttonVisualizar.AutoSize = true;
+            buttonVisualizar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            buttonVisualizar.BackColor = Color.FromArgb(204, 163, 193);
+            buttonVisualizar.Font = Fuentes.RubikRegular(12);
+            buttonVisualizar.FlatStyle = FlatStyle.Flat;
+            buttonVisualizar.ForeColor = Color.FromArgb(252, 250, 249);
+            panelData.Controls.Add(buttonVisualizar);
+
+            Button buttonRenombrar= new Button();
+            buttonRenombrar.Text = "Renombrar";
+            buttonRenombrar.Location = new Point(300, 150);
+            buttonRenombrar.Size = new Size(200, 50);
+            buttonRenombrar.AutoSize = true;
+            buttonRenombrar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            buttonRenombrar.BackColor = Color.FromArgb(204, 163, 193);
+            buttonRenombrar.Font = Fuentes.RubikRegular(12);
+            buttonRenombrar.FlatStyle = FlatStyle.Flat;
+            buttonRenombrar.ForeColor = Color.FromArgb(252, 250, 249);
+            panelData.Controls.Add(buttonRenombrar);
+
+
+            Button buttonEliminar = new Button();
+            buttonEliminar.Text = "Eliminar";
+            buttonEliminar.Location = new Point(400, 150);
+            buttonEliminar.Size = new Size(200, 50);
+            buttonEliminar.AutoSize = true;
+            buttonEliminar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            buttonEliminar.BackColor = Color.FromArgb(204, 163, 193);
+            buttonEliminar.Font = Fuentes.RubikRegular(12);
+            buttonEliminar.FlatStyle = FlatStyle.Flat;
+            buttonEliminar.ForeColor = Color.FromArgb(252, 250, 249);
+            panelData.Controls.Add(buttonEliminar);
+
+
+
+
+
+
+
+
+
+            this.Controls.Add(panelData);
+            panelData.BringToFront();
         }
     }
 }

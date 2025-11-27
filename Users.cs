@@ -317,6 +317,7 @@ namespace DesktopKalendula
             this.Controls.Add(panelformulario);
             panelformulario.BringToFront();
         }
+
     }
 
 }
