@@ -56,6 +56,7 @@
             // 
             // btnadd
             // 
+            this.btnadd.AutoSize = true;
             this.btnadd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(145)))), ((int)(((byte)(109)))));
             this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnadd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
@@ -82,6 +83,7 @@
             this.Load += new System.EventHandler(this.Users_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UsersLogo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
