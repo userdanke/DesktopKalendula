@@ -210,13 +210,13 @@ namespace DesktopKalendula
 
             Project proyecto = new Project
             {
-                Id = Guid.NewGuid().ToString(),
-                Name = textBoxNombreProyecto.Text,
-                Description = textBoxDescripcionProyecto.Text,
-                StartDate = dateTimePickerInicio.Value,
-                EndDate = dateTimePickerFin.Value,
+                id = Guid.NewGuid().ToString(),
+                name = textBoxNombreProyecto.Text,
+                description = textBoxDescripcionProyecto.Text,
+                startDate = dateTimePickerInicio.Value,
+                endDate = dateTimePickerFin.Value,
                 users = emailsMiembros,
-                Tasks = new List<Task>()
+                tasks = new List<Task>()
             };
 
             GuardarProyecto(proyecto);
@@ -237,7 +237,7 @@ namespace DesktopKalendula
                 if (!string.IsNullOrWhiteSpace(contenido))
                 {
                     proyectos = JsonConvert.DeserializeObject<List<Project>>(contenido);
-                    proyectos = proyectos.Where(p => p.Name !="Name").ToList();
+                    proyectos = proyectos.Where(p => p.name !="Name").ToList();
                 }
             }
 

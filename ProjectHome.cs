@@ -33,6 +33,7 @@ namespace DesktopKalendula
             this.Controls.Add(diseño);
 
             ConfigurarMenu();
+            InicializarTablero();
 
         }
 
@@ -101,7 +102,7 @@ namespace DesktopKalendula
         {
             panelTablero = new Panel();
             panelTablero.Size = new Size(1200, 600);
-            panelTablero.Location = new Point(this.ClientSize.Width / 2 - panelTablero.Width / 2, this.ClientSize.Height / 2 - panelTablero.Height / 2);
+            panelTablero.Location = new Point(this.ClientSize.Width / 2, 400);
             panelTablero.AutoScroll = true;
             panelTablero.BackColor = Color.FromArgb(240, 240, 240);
             this.Controls.Add(panelTablero);
@@ -132,6 +133,11 @@ namespace DesktopKalendula
             panelTablero.Controls.Add(panelCompletada);
 
             ConfigurarDragDrop();
+
+            foreach (var tarea in currentProject.tasks)
+            {
+                CrearTarjetaTarea(tarea);
+            }
         }
 
         private void CrearTarjetaTarea(Task tarea)
@@ -140,7 +146,7 @@ namespace DesktopKalendula
             tarjeta.Size = new Size(200, 100);
             tarjeta.BackColor = Color.LightBlue;
             tarjeta.BorderStyle = BorderStyle.FixedSingle;
-            tarjeta.Tag = tarea; // guardamos la referencia a la tarea
+            tarjeta.Tag = tarea;
 
             Label lblNombre = new Label();
             lblNombre.Text = tarea.name;
@@ -216,7 +222,7 @@ namespace DesktopKalendula
                     proyectos = JsonConvert.DeserializeObject<List<Project>>(contenido);
 
                     // Reemplazamos el proyecto actual en la lista
-                    proyectos = proyectos.Select(p => p.Id == proyectoActual.Id ? proyectoActual : p).ToList();
+                    proyectos = proyectos.Select(p => p.id == proyectoActual.id ? proyectoActual : p).ToList();
                 }
             }
             else
@@ -235,7 +241,7 @@ namespace DesktopKalendula
             if (form.ShowDialog() == DialogResult.OK)
             {
                 Task nuevaTarea = form.TareaCreada;
-                currentProject.Tasks.Add(nuevaTarea);
+                currentProject.tasks.Add(nuevaTarea);
 
                 GuardarProyecto(currentProject);
                 CrearTarjetaTarea(nuevaTarea);
