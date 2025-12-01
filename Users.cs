@@ -56,7 +56,7 @@ namespace DesktopKalendula
             string ruta = @"Diseño\LogoUser.png";
 
             Panel tarjeta = new Panel();
-            tarjeta.Size = new Size(300, 200);
+            tarjeta.Size = new Size(300, 350);
             tarjeta.BackColor = Color.White;
             tarjeta.BorderStyle = BorderStyle.FixedSingle;
             tarjeta.Margin = new Padding(10);
@@ -69,25 +69,25 @@ namespace DesktopKalendula
 
             Label lblNombre = new Label();
             lblNombre.Text = usuario.username;
-            lblNombre.Font = Fuentes.RubikMedium(14);
+            lblNombre.Font = Fuentes.RubikSemiBold(14);
             lblNombre.ForeColor = Color.FromArgb(92, 135, 153);
-            lblNombre.Location = new Point(20, 80);
+            lblNombre.Location = new Point(20, 140);
             lblNombre.AutoSize = true;
             tarjeta.Controls.Add(lblNombre);
 
             Label lblEmail = new Label();
             lblEmail.Text = usuario.email;
-            lblEmail.Font = Fuentes.RubikRegular(10);
-            lblEmail.ForeColor = Color.Gray;
-            lblEmail.Location = new Point(20, 160);
+            lblEmail.Font = Fuentes.RubikRegular(12);
+            lblEmail.ForeColor = Color.FromArgb(92, 135, 153);
+            lblEmail.Location = new Point(20, 170);
             lblEmail.AutoSize = true;
             tarjeta.Controls.Add(lblEmail);
 
             Label lblRol = new Label();
             lblRol.Text = $"Role: {usuario.role}";
-            lblRol.Font = Fuentes.RubikRegular(10);
+            lblRol.Font = Fuentes.RubikRegular(12);
             lblRol.ForeColor = Color.FromArgb(204, 163, 193);
-            lblRol.Location = new Point(20, 260);
+            lblRol.Location = new Point(20, 200);
             lblRol.AutoSize = true;
             tarjeta.Controls.Add(lblRol);
 
