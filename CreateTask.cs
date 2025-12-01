@@ -16,12 +16,14 @@ namespace DesktopKalendula
     {
         private List<string> usuariosDisponibles;
         public Task TareaCreada { get; private set; }
+        public Task TareaEnEdicion;
         private ListView listaUsuarios;
         private List<InfoUser> usuariosRegistrados;
-        public CreateTask(List<string> users)
+        public CreateTask(List<string> users, Task tareaEditar = null)
         {
             InitializeComponent();
             usuariosDisponibles = users;
+            TareaEnEdicion = tareaEditar;
         }
 
         private void CreateTask_Load(object sender, EventArgs e)
@@ -34,6 +36,32 @@ namespace DesktopKalendula
 
             comboBoxEstado.Items.AddRange(new string[] { "Pendiente", "En Progreso", "Completada" });
             comboBoxEstado.SelectedIndex = 0;
+
+            if (TareaEnEdicion != null)
+            {
+                textBoxNombreTarea.Text = TareaEnEdicion.name;
+                textBoxDescripcionTarea.Text = TareaEnEdicion.description;
+                numericUpDownHoursDedicated.Value = (decimal)TareaEnEdicion.hoursDedicated;
+                if (TareaEnEdicion.startDate > DateTimePicker.MinimumDateTime)
+                    dateTimePickerInicio.Value = TareaEnEdicion.startDate;
+                else
+                    dateTimePickerInicio.Value = DateTime.Now;
+
+                if (TareaEnEdicion.deadline > DateTimePicker.MinimumDateTime)
+                    dateTimePickerFin.Value = TareaEnEdicion.deadline;
+                else
+                    dateTimePickerFin.Value = DateTime.Now.AddDays(1);
+                comboBoxEstado.SelectedItem = TareaEnEdicion.state;
+
+                foreach(string u in TareaEnEdicion.users)
+                {
+                    int index = checkedListBoxUsuarios.Items.IndexOf(u);
+                    if (index >= 0)
+                    {
+                        checkedListBoxUsuarios.SetItemChecked(index, true);
+                    }
+                }
+            }
 
         }
 
@@ -60,18 +88,40 @@ namespace DesktopKalendula
                 return;
             }
 
-            TareaCreada = new Task
+            DateTime start = dateTimePickerInicio.Value;
+            DateTime end = dateTimePickerFin.Value;
+            if (end < start)
             {
-                Id = Guid.NewGuid().ToString(),
-                name = textBoxNombreTarea.Text,
-                description = textBoxDescripcionTarea.Text,
-                users = usuariosSeleccionados,
-                hoursDedicated = (double)numericUpDownHoursDedicated.Value,
-                startDate = dateTimePickerInicio.Value,
-                deadline = dateTimePickerFin.Value,
-                state = comboBoxEstado.SelectedItem.ToString(),
-                subTasks = new List<SubTasks>()
-            };
+                MessageBox.Show("La fecha de fin no puede ser anterior a la fecha de inicio.");
+                return;
+            }
+
+            if (TareaEnEdicion != null) 
+            { 
+                TareaCreada = TareaEnEdicion;
+                TareaCreada.name = textBoxNombreTarea.Text;
+                TareaCreada.description = textBoxDescripcionTarea.Text;
+                TareaCreada.users = usuariosSeleccionados;
+                TareaCreada.hoursDedicated = (double)numericUpDownHoursDedicated.Value;
+                TareaCreada.startDate = start;
+                TareaCreada.deadline = end;
+                TareaCreada.state = comboBoxEstado.SelectedItem.ToString();
+            } else
+            {
+                TareaCreada = new Task
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    name = textBoxNombreTarea.Text,
+                    description = textBoxDescripcionTarea.Text,
+                    users = usuariosSeleccionados,
+                    hoursDedicated = (double)numericUpDownHoursDedicated.Value,
+                    startDate = start,
+                    deadline = end,
+                    state = comboBoxEstado.SelectedItem.ToString(),
+                    subTasks = new List<SubTasks>()
+                };
+
+            }
 
             this.DialogResult = DialogResult.OK;
             this.Close();

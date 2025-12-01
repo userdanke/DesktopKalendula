@@ -30,6 +30,8 @@
         {
             this.btnMenu = new System.Windows.Forms.Button();
             this.buttonCrearTarea = new System.Windows.Forms.Button();
+            this.buttonEliminar = new System.Windows.Forms.Button();
+            this.buttonEditar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMenu
@@ -51,12 +53,41 @@
             this.buttonCrearTarea.UseVisualStyleBackColor = true;
             this.buttonCrearTarea.Click += new System.EventHandler(this.buttonCrearTarea_Click);
             // 
+            // buttonEliminar
+            // 
+            this.buttonEliminar.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonEliminar.BackgroundImage = global::DesktopKalendula.Properties.Resources.delete;
+            this.buttonEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEliminar.ForeColor = System.Drawing.Color.Transparent;
+            this.buttonEliminar.Location = new System.Drawing.Point(168, 173);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(34, 33);
+            this.buttonEliminar.TabIndex = 8;
+            this.buttonEliminar.UseVisualStyleBackColor = false;
+            // 
+            // buttonEditar
+            // 
+            this.buttonEditar.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonEditar.BackgroundImage = global::DesktopKalendula.Properties.Resources.edit;
+            this.buttonEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditar.ForeColor = System.Drawing.Color.Transparent;
+            this.buttonEditar.Location = new System.Drawing.Point(127, 173);
+            this.buttonEditar.Name = "buttonEditar";
+            this.buttonEditar.Size = new System.Drawing.Size(35, 33);
+            this.buttonEditar.TabIndex = 7;
+            this.buttonEditar.UseVisualStyleBackColor = false;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
+            // 
             // ProjectHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonEliminar);
+            this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonCrearTarea);
             this.Controls.Add(this.btnMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -72,5 +103,7 @@
 
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Button buttonCrearTarea;
+        private System.Windows.Forms.Button buttonEditar;
+        private System.Windows.Forms.Button buttonEliminar;
     }
 }

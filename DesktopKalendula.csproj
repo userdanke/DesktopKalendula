@@ -136,6 +136,9 @@
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
     <Compile Include="UsuarioManager.cs" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\trash.png" />
+    <None Include="Resources\edit.png" />
     <None Include="Json\Proyectos.json" />
     <None Include="packages.config" />
     <None Include="Resources\SignIn.png" />
