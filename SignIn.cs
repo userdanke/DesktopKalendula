@@ -85,12 +85,11 @@ namespace DesktopKalendula
 
             if(usuarioLogueado != null)
             {
-                MessageBox.Show($"Bienvenido, {usuarioLogueado.username}!", "Successful registration", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.Hide();
+                SesionActual.UsuarioActual = usuarioLogueado;
 
                 Home homeform = new Home();
                 homeform.Show();
+                this.Hide();
 
             } 
             else
