@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DesktopKalendula.Diseño;
 using Newtonsoft.Json;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DesktopKalendula
 {
@@ -106,7 +105,7 @@ namespace DesktopKalendula
             panelTablero.AutoScroll = true;
             panelTablero.BackColor = Color.FromArgb(240, 240, 240);
             this.Controls.Add(panelTablero);
-            
+
             int anchoColumna = panelTablero.Width / 3;
 
             panelPendiente = new Panel();
@@ -116,7 +115,6 @@ namespace DesktopKalendula
             panelPendiente.AllowDrop = true;
             panelTablero.Controls.Add(panelPendiente);
 
-            // Panel En Progreso
             panelEnProgreso = new Panel();
             panelEnProgreso.BackColor = Color.LightYellow;
             panelEnProgreso.Size = new Size(anchoColumna - 10, panelTablero.Height);
@@ -124,7 +122,6 @@ namespace DesktopKalendula
             panelEnProgreso.AllowDrop = true;
             panelTablero.Controls.Add(panelEnProgreso);
 
-            // Panel Completada
             panelCompletada = new Panel();
             panelCompletada.BackColor = Color.LightGreen;
             panelCompletada.Size = new Size(anchoColumna - 10, panelTablero.Height);
@@ -153,6 +150,29 @@ namespace DesktopKalendula
             lblNombre.Dock = DockStyle.Top;
             lblNombre.Font = new Font("Rubik", 10, FontStyle.Bold);
 
+            buttonEditar.Location = new Point(120, 60);
+            buttonEditar.FlatAppearance.BorderSize = 0;
+            buttonEditar.Click += (s, e) =>
+            {
+                CreateTask formEditar = new CreateTask(currentProject.users, tarea);
+                if (formEditar.ShowDialog() == DialogResult.OK)
+                {
+                    // Actualizar la tarjeta con la información editada
+                    Label lbl = tarjeta.Controls.OfType<Label>().First();
+                    lbl.Text = tarea.name;
+
+                    // Guardar cambios
+                    GuardarProyecto(currentProject);
+                    MessageBox.Show("Tarea actualizada correctamente.");
+                }
+            };
+
+
+            buttonEliminar.Location = new Point(160, 60);
+            buttonEliminar.FlatAppearance.BorderSize = 0;
+
+            tarjeta.Controls.Add(buttonEditar);
+            tarjeta.Controls.Add(buttonEliminar);
             tarjeta.Controls.Add(lblNombre);
 
             tarjeta.Controls.Add(lblNombre);
@@ -175,6 +195,7 @@ namespace DesktopKalendula
                     break;
             }
         }
+            
 
         private void ConfigurarDragDrop()
         {
@@ -191,16 +212,12 @@ namespace DesktopKalendula
 
                     Task tarea = (Task)tarjeta.Tag;
 
-                    // Actualizar estado
                     if (destino == panelPendiente) tarea.state = "Pendiente";
                     else if (destino == panelEnProgreso) tarea.state = "En Progreso";
                     else if (destino == panelCompletada) tarea.state = "Completada";
 
-                    // Mover tarjeta al nuevo panel
                     tarjeta.Parent.Controls.Remove(tarjeta);
                     destino.Controls.Add(tarjeta);
-
-                    // Guardar cambios en JSON
                     GuardarProyecto(currentProject);
                 };
             }
@@ -221,13 +238,11 @@ namespace DesktopKalendula
                 {
                     proyectos = JsonConvert.DeserializeObject<List<Project>>(contenido);
 
-                    // Reemplazamos el proyecto actual en la lista
                     proyectos = proyectos.Select(p => p.id == proyectoActual.id ? proyectoActual : p).ToList();
                 }
             }
             else
             {
-                // Si el JSON no existía, agregamos el proyecto actual
                 proyectos.Add(proyectoActual);
             }
 
@@ -246,6 +261,11 @@ namespace DesktopKalendula
                 GuardarProyecto(currentProject);
                 CrearTarjetaTarea(nuevaTarea);
             }
+        }
+
+        private void buttonEditar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
