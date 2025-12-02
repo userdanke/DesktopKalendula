@@ -28,9 +28,12 @@ namespace DesktopKalendula.Diseño
         public Image FotoUsuario { get; set; } = null;
 
 
-        public MenuLateral(Form formulario)
+        public MenuLateral(Form formulario, string nombreUsuario, string correoUsuario)
         {
+
             formularioPadre = formulario;
+            NombreUsuario = nombreUsuario;
+            CorreoUsuario = correoUsuario;
             InicializarMenu();
         }
 

@@ -72,7 +72,16 @@ namespace DesktopKalendula
 
         private void ConfigurarMenu()
         {
-            menu = new MenuLateral(this);
+            string nombre = "Tu Nombre";
+            string correo = "tu@correo.com";
+
+            if (SesionActual.HaySesionActiva())
+            {
+                nombre = SesionActual.UsuarioActual.username;
+                correo = SesionActual.UsuarioActual.email;
+            }
+
+            menu = new MenuLateral(this, nombre, correo);
 
             menu.ColorFondo = Color.FromArgb(211, 145, 109);
             menu.ColorTexto = Color.FromArgb(61, 23, 0);

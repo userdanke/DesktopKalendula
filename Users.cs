@@ -122,14 +122,20 @@ namespace DesktopKalendula
 
         private void ConfigurarMenu()
         {
-            menu = new MenuLateral(this);
+            string NombreUsuario = "Tu Nombre";
+            string CorreoUsuario = "tu@correo.com";
+
+            if (SesionActual.HaySesionActiva())
+            {
+                NombreUsuario = SesionActual.UsuarioActual.username;
+                CorreoUsuario = SesionActual.UsuarioActual.email;
+            }
+
+            menu = new MenuLateral(this, NombreUsuario, CorreoUsuario);
 
             menu.ColorFondo = Color.FromArgb(211, 145, 109);
             menu.ColorTexto = Color.FromArgb(61, 23, 0);
             menu.ColorHover = Color.FromArgb(190, 125, 90);
-
-            menu.NombreUsuario = "Tu Nombre";
-            menu.CorreoUsuario = "tu@correo.com";
 
             menu.AgregarOpcion("🏠", "Home", () => IrAInicio());
             menu.AgregarOpcion("👥", "Usuarios", () => IrAUsuarios());
