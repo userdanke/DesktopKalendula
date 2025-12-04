@@ -49,53 +49,24 @@ namespace DesktopKalendula
 
             
         }
-         
-        private void CrearTarjetaUsuario(InfoUser usuario)
 
+        private void CrearTarjetaUsuario(InfoUser usuario)
         {
             string ruta = @"Diseño\LogoUser.png";
 
             Panel tarjeta = new Panel();
-            tarjeta.Size = new Size(300, 350);
+            tarjeta.Size = new Size(250, 250);
             tarjeta.BackColor = Color.White;
-            tarjeta.BorderStyle = BorderStyle.FixedSingle;
+            tarjeta.BorderStyle = BorderStyle.None;
             tarjeta.Margin = new Padding(10);
-
-            PictureBox pictureBox = new PictureBox();
-            pictureBox.Image = Image.FromFile(ruta);
-            pictureBox.Location = new Point(90, 20);
-            pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
-            tarjeta.Controls.Add(pictureBox);
-
-            Label lblNombre = new Label();
-            lblNombre.Text = usuario.username;
-            lblNombre.Font = Fuentes.RubikSemiBold(14);
-            lblNombre.ForeColor = Color.FromArgb(92, 135, 153);
-            lblNombre.Location = new Point(20, 140);
-            lblNombre.AutoSize = true;
-            tarjeta.Controls.Add(lblNombre);
-
-            Label lblEmail = new Label();
-            lblEmail.Text = usuario.email;
-            lblEmail.Font = Fuentes.RubikRegular(12);
-            lblEmail.ForeColor = Color.FromArgb(92, 135, 153);
-            lblEmail.Location = new Point(20, 170);
-            lblEmail.AutoSize = true;
-            tarjeta.Controls.Add(lblEmail);
-
-            Label lblRol = new Label();
-            lblRol.Text = $"Role: {usuario.role}";
-            lblRol.Font = Fuentes.RubikRegular(12);
-            lblRol.ForeColor = Color.FromArgb(204, 163, 193);
-            lblRol.Location = new Point(20, 200);
-            lblRol.AutoSize = true;
-            tarjeta.Controls.Add(lblRol);
 
             Button btnEliminar = new Button();
             btnEliminar.Text = "✕";
             btnEliminar.Size = new Size(30, 30);
-            btnEliminar.Location = new Point(230, 10);
+            btnEliminar.Location = new Point(tarjeta.Width - 40, 5);
+            btnEliminar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnEliminar.FlatStyle = FlatStyle.Flat;
+            btnEliminar.FlatAppearance.BorderSize = 0;
             btnEliminar.BackColor = Color.FromArgb(229, 122, 122);
             btnEliminar.ForeColor = Color.White;
             btnEliminar.Click += (s, args) =>
@@ -104,9 +75,72 @@ namespace DesktopKalendula
             };
             tarjeta.Controls.Add(btnEliminar);
 
+            Button btnEditar = new Button();
+            btnEditar.Text = "🖍";
+            btnEditar.Size = new Size(30, 30);
+            btnEditar.Location = new Point(tarjeta.Width - 80, 5);
+            btnEditar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnEditar.FlatStyle = FlatStyle.Flat;
+            btnEditar.FlatAppearance.BorderSize = 0;
+            btnEditar.BackColor = Color.FromArgb(92, 135, 153);
+            btnEditar.ForeColor = Color.White;
+                btnEditar.Click += (s, args) =>
+            {
+                panelTarjetas.Controls.Remove(tarjeta);
+            };
+            tarjeta.Controls.Add(btnEditar);
+
+            TableLayoutPanel layout = new TableLayoutPanel();
+            layout.Dock = DockStyle.Fill; 
+            layout.ColumnCount = 1;   
+            layout.RowCount = 4;        
+            layout.Padding = new Padding(10, 40, 10, 10);
+            layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            layout.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            tarjeta.Controls.Add(layout);
+            layout.SendToBack();
+
+ 
+            PictureBox pictureBox = new PictureBox();
+            if (System.IO.File.Exists(ruta)) 
+                pictureBox.Image = Image.FromFile(ruta);
+            pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox.Anchor = AnchorStyles.None; 
+            pictureBox.Margin = new Padding(0, 0, 0, 15); 
+            layout.Controls.Add(pictureBox, 0, 0);
+
+            Label lblNombre = new Label();
+            lblNombre.Text = usuario.username;
+            lblNombre.Font = Fuentes.RubikSemiBold(14);
+            lblNombre.ForeColor = Color.FromArgb(92, 135, 153);
+            lblNombre.AutoSize = true;
+            lblNombre.TextAlign = ContentAlignment.MiddleCenter; 
+            lblNombre.Dock = DockStyle.Fill;
+            layout.Controls.Add(lblNombre, 0, 1); 
+
+            Label lblEmail = new Label();
+            lblEmail.Text = usuario.email;
+            lblEmail.Font = Fuentes.RubikRegular(12);
+            lblEmail.ForeColor = Color.FromArgb(92, 135, 153);
+            lblEmail.AutoSize = true;
+            lblEmail.TextAlign = ContentAlignment.MiddleCenter;
+            lblEmail.Dock = DockStyle.Fill;
+            layout.Controls.Add(lblEmail, 0, 2); 
+
+         
+            Label lblRol = new Label();
+            lblRol.Text = $"Role: {usuario.role}";
+            lblRol.Font = Fuentes.RubikRegular(12);
+            lblRol.ForeColor = Color.FromArgb(204, 163, 193);
+            lblRol.AutoSize = true;
+            lblRol.TextAlign = ContentAlignment.MiddleCenter;
+            lblRol.Dock = DockStyle.Fill;
+            layout.Controls.Add(lblRol, 0, 3); 
+
             panelTarjetas.Controls.Add(tarjeta);
         }
-
         private void CargarTarjetasExistentes()
         {
             List<InfoUser> usuarios = UsuarioManager.LeerUsuarios();
@@ -115,9 +149,6 @@ namespace DesktopKalendula
                 CrearTarjetaUsuario(usuario);
 
             }
-
-
-
         }
 
         private void ConfigurarMenu()
@@ -192,8 +223,7 @@ namespace DesktopKalendula
             panelformulario.BackColor = Color.FromArgb(228, 235, 241);
             panelformulario.Location = new Point(
                 (this.ClientSize.Width - panelformulario.Width) / 2,
-                (this.ClientSize.Height - panelformulario.Height) / 2
-                 );
+                (this.ClientSize.Height - panelformulario.Height) / 2);
 
 
             Label lblTitulo = new Label();
@@ -201,6 +231,7 @@ namespace DesktopKalendula
             lblTitulo.Font = Fuentes.RubikMedium(20);
             lblTitulo.ForeColor = Color.FromArgb(92,135,153);
             lblTitulo.AutoSize = true;
+            lblTitulo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             panelformulario.Controls.Add(lblTitulo);
 
             lblTitulo.Left = (panelformulario.Width - lblTitulo.Width) / 2;
@@ -311,6 +342,8 @@ namespace DesktopKalendula
             btnCancelar.Click += (s, args) =>
             {
                 panelformulario.Visible = false;
+                panelformulario.Dispose();
+                this.Controls.Remove(panelformulario);
             };
 
             panelformulario.Controls.Add(btnCancelar);

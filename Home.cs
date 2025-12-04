@@ -52,10 +52,6 @@ namespace DesktopKalendula
             buttonOpenProject.Location = new Point(370, 100);
             buttonOpenProject.Size = new Size(250, 40);
 
-            buttonData.Font = Fuentes.RubikRegular(15);
-            buttonData.ForeColor = Color.FromArgb(255, 251, 249);
-            buttonData.Location = new Point(650, 100);
-            buttonData.Size = new Size(250, 40);
 
             panelSecundario.Location = new Point(1320, 150);
             panelSecundario.Size = new Size(500, 800);
@@ -289,95 +285,6 @@ namespace DesktopKalendula
 
         private void buttonData_Click(object sender, EventArgs e)
         {
-            Panel panelData = new Panel();
-            panelData.Size = new Size(600, 700);
-            panelData.BackColor = Color.FromArgb(228, 235,241);
-            panelData.Location = new Point((this.ClientSize.Width - panelData.Width) / 2,
-                (this.ClientSize.Height - panelData.Height) / 2);
-
-            Label labelTitulo= new Label();
-            labelTitulo.Text = "Seleccionar Archivo";
-            labelTitulo.Font = Fuentes.RubikMedium(18);
-            labelTitulo.ForeColor = Color.FromArgb(92, 135, 153);
-            labelTitulo.AutoSize = true;
-            panelData.Controls.Add(labelTitulo);
-
-            labelTitulo.Left = (panelData.Width - labelTitulo.Width) / 2;
-            labelTitulo.Top = 20;
-
-            ComboBox comboBoxTitulo = new ComboBox();
-            comboBoxTitulo.Location = new Point(90, 100);
-            comboBoxTitulo.Width = 420;
-            comboBoxTitulo.Font = Fuentes.RubikRegular(12);
-            comboBoxTitulo.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxTitulo.Items.AddRange(new object[] {
-                "Proyectos.json" , "Usuarios.json"
-            });
-            panelData.Controls.Add(comboBoxTitulo);
-
-            Button buttonVisualizar = new Button();
-            buttonVisualizar.Text = "Visualizar archivo";
-            buttonVisualizar.Location = new Point(90,160);
-            buttonVisualizar.Size = new Size(200, 50);
-            buttonVisualizar.AutoSize = true;
-            buttonVisualizar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            buttonVisualizar.BackColor = Color.FromArgb(204, 163, 193);
-            buttonVisualizar.Font = Fuentes.RubikRegular(12);
-            buttonVisualizar.FlatStyle = FlatStyle.Flat;
-            buttonVisualizar.ForeColor = Color.FromArgb(252, 250, 249);
-            buttonVisualizar.Click += (s, args) =>
-            {
-                comboBoxTitulo.SelectedIndex = 0;
-            };
-            panelData.Controls.Add(buttonVisualizar);
-
-            Button buttonRenombrar= new Button();
-            buttonRenombrar.Text = "Renombrar";
-            buttonRenombrar.Location = new Point(280, 160);
-            buttonRenombrar.Size = new Size(200, 50);
-            buttonRenombrar.AutoSize = true;
-            buttonRenombrar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            buttonRenombrar.BackColor = Color.FromArgb(204, 163, 193);
-            buttonRenombrar.Font = Fuentes.RubikRegular(12);
-            buttonRenombrar.FlatStyle = FlatStyle.Flat;
-            buttonRenombrar.ForeColor = Color.FromArgb(252, 250, 249);
-            buttonRenombrar.Click += (s, args) =>
-            {
-                comboBoxTitulo.SelectedIndex = 0;
-            };
-            panelData.Controls.Add(buttonRenombrar);
-
-
-            Button buttonEliminar = new Button();
-            buttonEliminar.Text = "Eliminar";
-            buttonEliminar.Location = new Point(420, 160);
-            buttonEliminar.Size = new Size(200, 50);
-            buttonEliminar.AutoSize = true;
-            buttonEliminar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            buttonEliminar.BackColor = Color.FromArgb(204, 163, 193);
-            buttonEliminar.Font = Fuentes.RubikRegular(12);
-            buttonEliminar.FlatStyle = FlatStyle.Flat;
-            buttonEliminar.ForeColor = Color.FromArgb(252, 250, 249);
-            buttonEliminar.Click += (s, args) =>
-            {
-                comboBoxTitulo.SelectedIndex = 0;
-            };
-            panelData.Controls.Add(buttonEliminar);
-
-
-            Button btnCerrar = new Button();
-            btnCerrar.Text = "✕";
-            btnCerrar.Size = new Size(35, 35);
-            btnCerrar.Location = new Point(panelData.Width - 35);
-            btnCerrar.FlatStyle = FlatStyle.Flat;
-            btnCerrar.BackColor = Color.FromArgb(92, 135, 153);
-            btnCerrar.ForeColor = Color.White;
-            btnCerrar.Font = Fuentes.RubikBold(12);
-            btnCerrar.Click += (s, args) => panelData.Visible = false;
-            panelData.Controls.Add(btnCerrar);
-
-            this.Controls.Add(panelData);
-            panelData.BringToFront();
         }
     }
 }
