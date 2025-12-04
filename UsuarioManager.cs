@@ -119,5 +119,30 @@ namespace DesktopKalendula
             return usuarios.FirstOrDefault(u => u.email.ToLower() == email.ToLower() &&
             u.password == contraseña);
         }
+
+        public static string LeerContenido(string nombreArchivo)
+        {
+            try
+            {
+                string rutaCompleta = rutaArchivo;
+
+                if (!File.Exists(rutaCompleta))
+                    return "El archivo no existe.";
+
+                string json = File.ReadAllText(rutaCompleta);
+
+                // Si el archivo está vacío
+                if (string.IsNullOrWhiteSpace(json))
+                    return "[]";
+
+                // Formatear el JSON para que se vea bonito
+                dynamic obj = JsonConvert.DeserializeObject(json);
+                return JsonConvert.SerializeObject(obj, Formatting.Indented);
+            }
+            catch (Exception ex)
+            {
+                return $"Error al leer el archivo: {ex.Message}";
+            }
+        }
     }
 }
