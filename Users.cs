@@ -25,9 +25,16 @@ namespace DesktopKalendula
             ConfigurarMenu();
 
 
-            UsersLogo.Location = new Point(150, 150);
-            btnadd.Location = new Point(1500, 200);
+            UsersLogo.Location = new Point(850, 70);
+            btnadd.Location = new Point(1400, 250);
             btnadd.Font = Fuentes.RubikSemiBold(15);
+
+            buttonBuscar.Location = new Point(420, 250);
+            buttonBuscar.Font = Fuentes.RubikBold(10);
+
+            textBoxBuscar.Location = new Point(560,250);
+            textBoxBuscar.Font = Fuentes.RubikBold(18);
+
 
         }
 
@@ -37,7 +44,7 @@ namespace DesktopKalendula
             {
                 panelTarjetas = new FlowLayoutPanel();
                 panelTarjetas.Location = new Point(70,300);
-                panelTarjetas.Size = new Size(800, 500);
+                panelTarjetas.Size = new Size(1700, 800);
                 panelTarjetas.AutoScroll = true;
                 panelTarjetas.FlowDirection = FlowDirection.LeftToRight;
                 panelTarjetas.WrapContents = true;
@@ -58,7 +65,7 @@ namespace DesktopKalendula
             tarjeta.Size = new Size(250, 250);
             tarjeta.BackColor = Color.White;
             tarjeta.BorderStyle = BorderStyle.None;
-            tarjeta.Margin = new Padding(10);
+            tarjeta.Margin = new Padding(30);
 
             Button btnEliminar = new Button();
             btnEliminar.Text = "✕";
@@ -67,7 +74,7 @@ namespace DesktopKalendula
             btnEliminar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.FlatAppearance.BorderSize = 0;
-            btnEliminar.BackColor = Color.FromArgb(229, 122, 122);
+            btnEliminar.BackColor = Color.FromArgb(204, 163, 193);
             btnEliminar.ForeColor = Color.White;
             btnEliminar.Click += (s, args) =>
             {
@@ -82,7 +89,7 @@ namespace DesktopKalendula
             btnEditar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.FlatAppearance.BorderSize = 0;
-            btnEditar.BackColor = Color.FromArgb(92, 135, 153);
+            btnEditar.BackColor = Color.FromArgb(211, 145, 109);
             btnEditar.ForeColor = Color.White;
                 btnEditar.Click += (s, args) =>
             {
@@ -114,7 +121,7 @@ namespace DesktopKalendula
             Label lblNombre = new Label();
             lblNombre.Text = usuario.username;
             lblNombre.Font = Fuentes.RubikSemiBold(14);
-            lblNombre.ForeColor = Color.FromArgb(92, 135, 153);
+            lblNombre.ForeColor = Color.FromArgb(211, 145, 109);
             lblNombre.AutoSize = true;
             lblNombre.TextAlign = ContentAlignment.MiddleCenter; 
             lblNombre.Dock = DockStyle.Fill;
@@ -123,7 +130,7 @@ namespace DesktopKalendula
             Label lblEmail = new Label();
             lblEmail.Text = usuario.email;
             lblEmail.Font = Fuentes.RubikRegular(12);
-            lblEmail.ForeColor = Color.FromArgb(92, 135, 153);
+            lblEmail.ForeColor = Color.FromArgb(211, 145, 109);
             lblEmail.AutoSize = true;
             lblEmail.TextAlign = ContentAlignment.MiddleCenter;
             lblEmail.Dock = DockStyle.Fill;

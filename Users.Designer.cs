@@ -32,6 +32,8 @@
             this.btnMenu = new System.Windows.Forms.Button();
             this.UsersLogo = new System.Windows.Forms.PictureBox();
             this.btnadd = new System.Windows.Forms.Button();
+            this.textBoxBuscar = new System.Windows.Forms.TextBox();
+            this.buttonBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UsersLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +59,7 @@
             // btnadd
             // 
             this.btnadd.AutoSize = true;
-            this.btnadd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(145)))), ((int)(((byte)(109)))));
+            this.btnadd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
             this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnadd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.btnadd.Location = new System.Drawing.Point(349, 12);
@@ -68,12 +70,35 @@
             this.btnadd.UseVisualStyleBackColor = false;
             this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
             // 
+            // textBoxBuscar
+            // 
+            this.textBoxBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxBuscar.Location = new System.Drawing.Point(349, 78);
+            this.textBoxBuscar.Name = "textBoxBuscar";
+            this.textBoxBuscar.Size = new System.Drawing.Size(740, 13);
+            this.textBoxBuscar.TabIndex = 6;
+            // 
+            // buttonBuscar
+            // 
+            this.buttonBuscar.AutoSize = true;
+            this.buttonBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(163)))), ((int)(((byte)(193)))));
+            this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            this.buttonBuscar.Location = new System.Drawing.Point(349, 104);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(131, 25);
+            this.buttonBuscar.TabIndex = 7;
+            this.buttonBuscar.Text = "Buscar ⌕";
+            this.buttonBuscar.UseVisualStyleBackColor = false;
+            // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(877, 450);
+            this.Controls.Add(this.buttonBuscar);
+            this.Controls.Add(this.textBoxBuscar);
             this.Controls.Add(this.btnadd);
             this.Controls.Add(this.UsersLogo);
             this.Controls.Add(this.btnMenu);
@@ -93,5 +118,7 @@
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.PictureBox UsersLogo;
         private System.Windows.Forms.Button btnadd;
+        private System.Windows.Forms.TextBox textBoxBuscar;
+        private System.Windows.Forms.Button buttonBuscar;
     }
 }
