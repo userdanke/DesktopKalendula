@@ -42,7 +42,7 @@ namespace DesktopKalendula
 
 
         public static bool ExisteMananger()
-        { 
+        {
             if (!ExistenUsuarios())
                 return false;
 
@@ -66,9 +66,9 @@ namespace DesktopKalendula
                 return new List<InfoUser>();
             }
         }
-        
-        
-        private static void GuardarUsuarios(List<InfoUser>usuarios)
+
+
+        public static void GuardarUsuarios(List<InfoUser> usuarios)
         {
             string json = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
             File.WriteAllText(rutaArchivo, json);
@@ -83,14 +83,14 @@ namespace DesktopKalendula
                 List<InfoUser> usuarios = LeerUsuarios();
 
                 string rolFinal;
-                if(usuarios.Count == 0)
+                if (usuarios.Count == 0)
                 {
                     rolFinal = "Manager";
-                } 
+                }
                 else if (usuarios.Any(u => u.email.ToLower() == email.ToLower()))
                 {
                     return null;
-                } 
+                }
                 else
                 {
                     rolFinal = "Developer";
@@ -144,5 +144,90 @@ namespace DesktopKalendula
                 return $"Error al leer el archivo: {ex.Message}";
             }
         }
+
+        public static bool EliminarUsuario(string id)
+        {
+            try
+            {
+                List<InfoUser> usuarios = LeerUsuarios();
+
+                InfoUser usuarioAEliminar = usuarios.FirstOrDefault(u => u.id == id);
+
+                if (usuarioAEliminar == null)
+                {
+                    MessageBox.Show("Usuario no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                if (usuarioAEliminar.role.ToLower() == "manager")
+                {
+                    int cantidadManager = usuarios.Count(u => u.role.ToLower() == "manager");
+                    if (cantidadManager <= 1)
+                    {
+                        MessageBox.Show("No puedes eliminar al único Manager del sistema.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+
+                    }
+                }
+
+                usuarios.Remove(usuarioAEliminar);
+
+                GuardarUsuarios(usuarios);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar usuario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public static bool EditarUsuario(string id, string nuevoNombre, string nuevoEmail, string nuevaContraseña, string nuevoRol)
+        {
+            try
+            {
+                List<InfoUser> usuarios = LeerUsuarios();
+                InfoUser usuarioAEditar = usuarios.FirstOrDefault(u => u.id == id);
+
+                if (usuarioAEditar == null)
+                {
+                    MessageBox.Show("Usuario no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                if (usuarioAEditar.email != nuevoEmail)
+                {
+                    if (usuarios.Any(u => u.email.ToLower() == nuevoEmail.ToLower() && u.id != id))
+                    {
+                        MessageBox.Show("El email ya está en uso por otro usuario.", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+
+                usuarioAEditar.username = nuevoNombre;
+                usuarioAEditar.email = nuevoEmail;
+
+
+                if (!string.IsNullOrWhiteSpace(nuevaContraseña))
+                {
+                    usuarioAEditar.password = nuevaContraseña;
+                }
+
+                if (!string.IsNullOrWhiteSpace(nuevoRol))
+                {
+                    usuarioAEditar.role = nuevoRol;
+                }
+
+                GuardarUsuarios(usuarios);
+
+                return true;
+            }
+
+            catch (Exception ex) {
+                MessageBox.Show($"Error al editar usuario: {ex.Message}", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
     }
+
 }
