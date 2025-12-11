@@ -79,8 +79,9 @@ namespace DesktopKalendula.Diseño
             fotoPerfil.SizeMode = PictureBoxSizeMode.StretchImage;
             fotoPerfil.Click += (s, e) =>
             {
-                Users prueba = new Users();
-                prueba.ShowDialog();
+
+                PerfilManager perfil = new PerfilManager();
+                perfil.ShowDialog();
 
             };
 
