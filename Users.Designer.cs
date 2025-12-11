@@ -41,10 +41,9 @@
             // 
             // btnMenu
             // 
-            this.btnMenu.Location = new System.Drawing.Point(16, 15);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMenu.Location = new System.Drawing.Point(12, 12);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(100, 28);
+            this.btnMenu.Size = new System.Drawing.Size(75, 23);
             this.btnMenu.TabIndex = 0;
             this.btnMenu.Text = "button1";
             this.btnMenu.UseVisualStyleBackColor = true;
@@ -52,10 +51,9 @@
             // UsersLogo
             // 
             this.UsersLogo.Image = ((System.Drawing.Image)(resources.GetObject("UsersLogo.Image")));
-            this.UsersLogo.Location = new System.Drawing.Point(124, 15);
-            this.UsersLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.UsersLogo.Location = new System.Drawing.Point(93, 12);
             this.UsersLogo.Name = "UsersLogo";
-            this.UsersLogo.Size = new System.Drawing.Size(333, 154);
+            this.UsersLogo.Size = new System.Drawing.Size(250, 125);
             this.UsersLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.UsersLogo.TabIndex = 4;
             this.UsersLogo.TabStop = false;
@@ -66,10 +64,9 @@
             this.btnadd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
             this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnadd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
-            this.btnadd.Location = new System.Drawing.Point(465, 15);
-            this.btnadd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnadd.Location = new System.Drawing.Point(349, 12);
             this.btnadd.Name = "btnadd";
-            this.btnadd.Size = new System.Drawing.Size(267, 49);
+            this.btnadd.Size = new System.Drawing.Size(150, 40);
             this.btnadd.TabIndex = 5;
             this.btnadd.Text = "Add user";
             this.btnadd.UseVisualStyleBackColor = false;
@@ -78,10 +75,9 @@
             // textBoxBuscar
             // 
             this.textBoxBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxBuscar.Location = new System.Drawing.Point(465, 96);
-            this.textBoxBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxBuscar.Location = new System.Drawing.Point(349, 78);
             this.textBoxBuscar.Name = "textBoxBuscar";
-            this.textBoxBuscar.Size = new System.Drawing.Size(987, 15);
+            this.textBoxBuscar.Size = new System.Drawing.Size(740, 13);
             this.textBoxBuscar.TabIndex = 6;
             // 
             // buttonBuscar
@@ -90,10 +86,9 @@
             this.buttonBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(163)))), ((int)(((byte)(193)))));
             this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
-            this.buttonBuscar.Location = new System.Drawing.Point(465, 128);
-            this.buttonBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonBuscar.Location = new System.Drawing.Point(349, 104);
             this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(175, 31);
+            this.buttonBuscar.Size = new System.Drawing.Size(150, 40);
             this.buttonBuscar.TabIndex = 7;
             this.buttonBuscar.Text = "Buscar ⌕";
             this.buttonBuscar.UseVisualStyleBackColor = false;
@@ -105,10 +100,9 @@
             this.buttonOrderBy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(163)))), ((int)(((byte)(193)))));
             this.buttonOrderBy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOrderBy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
-            this.buttonOrderBy.Location = new System.Drawing.Point(648, 128);
-            this.buttonOrderBy.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonOrderBy.Location = new System.Drawing.Point(486, 104);
             this.buttonOrderBy.Name = "buttonOrderBy";
-            this.buttonOrderBy.Size = new System.Drawing.Size(175, 31);
+            this.buttonOrderBy.Size = new System.Drawing.Size(150, 40);
             this.buttonOrderBy.TabIndex = 8;
             this.buttonOrderBy.Text = "order by";
             this.buttonOrderBy.UseVisualStyleBackColor = false;
@@ -117,18 +111,19 @@
             // comboBoxFiltro
             // 
             this.comboBoxFiltro.FormattingEnabled = true;
-            this.comboBoxFiltro.Location = new System.Drawing.Point(841, 132);
+            this.comboBoxFiltro.Location = new System.Drawing.Point(641, 116);
+            this.comboBoxFiltro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxFiltro.Name = "comboBoxFiltro";
-            this.comboBoxFiltro.Size = new System.Drawing.Size(217, 24);
+            this.comboBoxFiltro.Size = new System.Drawing.Size(164, 21);
             this.comboBoxFiltro.TabIndex = 9;
             this.comboBoxFiltro.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltro_SelectedIndexChanged);
             // 
             // Users
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(1169, 554);
+            this.ClientSize = new System.Drawing.Size(877, 450);
             this.Controls.Add(this.comboBoxFiltro);
             this.Controls.Add(this.buttonOrderBy);
             this.Controls.Add(this.buttonBuscar);
@@ -137,7 +132,6 @@
             this.Controls.Add(this.UsersLogo);
             this.Controls.Add(this.btnMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Users";
             this.Text = "Users";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

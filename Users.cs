@@ -27,18 +27,22 @@ namespace DesktopKalendula
 
 
             UsersLogo.Location = new Point(850, 70);
-            btnadd.Location = new Point(1400, 250);
+
+            btnadd.Location = new Point(1450, 250);
             btnadd.Font = Fuentes.RubikSemiBold(15);
 
-            buttonBuscar.Location = new Point(420, 250);
+            buttonBuscar.Location = new Point(450, 250);
             buttonBuscar.Font = Fuentes.RubikBold(10);
             buttonBuscar.Click += buttonBuscar_Click;
 
-            textBoxBuscar.Location = new Point(560, 250);
+            textBoxBuscar.Location = new Point(580, 250);
             textBoxBuscar.Font = Fuentes.RubikBold(18);
 
+            buttonOrderBy.Location = new Point(110,250);
+            buttonOrderBy.Font = Fuentes.RubikBold(10);
 
-
+            comboBoxFiltro.Location = new Point(260,250);
+            comboBoxFiltro.Font = Fuentes.RubikMedium(14);
         }
 
         private void Users_Load(object sender, EventArgs e)
@@ -386,17 +390,14 @@ namespace DesktopKalendula
 
         private void IrAInicio()
         {
-            MessageBox.Show("Navegando a Inicio");
-        }
-
-        private void IrAReportes()
-        {
-            MessageBox.Show("Navegando a Reportes");
+            Home home = new Home();
+            home.ShowDialog();
         }
 
         private void IrAUsuarios()
         {
-            MessageBox.Show("Navegando a Usuarios");
+            Users users = new Users();
+            users.ShowDialog();
         }
 
         private void CerrarSesion()
