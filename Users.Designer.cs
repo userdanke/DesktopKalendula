@@ -34,13 +34,15 @@
             this.btnadd = new System.Windows.Forms.Button();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.buttonBuscar = new System.Windows.Forms.Button();
+            this.buttonOrderBy = new System.Windows.Forms.Button();
+            this.comboBoxFiltro = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.UsersLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnMenu
             // 
             this.btnMenu.Location = new System.Drawing.Point(16, 15);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenu.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(100, 28);
             this.btnMenu.TabIndex = 0;
@@ -51,7 +53,7 @@
             // 
             this.UsersLogo.Image = ((System.Drawing.Image)(resources.GetObject("UsersLogo.Image")));
             this.UsersLogo.Location = new System.Drawing.Point(124, 15);
-            this.UsersLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UsersLogo.Margin = new System.Windows.Forms.Padding(4);
             this.UsersLogo.Name = "UsersLogo";
             this.UsersLogo.Size = new System.Drawing.Size(333, 154);
             this.UsersLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -65,7 +67,7 @@
             this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnadd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.btnadd.Location = new System.Drawing.Point(465, 15);
-            this.btnadd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnadd.Margin = new System.Windows.Forms.Padding(4);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(267, 49);
             this.btnadd.TabIndex = 5;
@@ -77,7 +79,7 @@
             // 
             this.textBoxBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxBuscar.Location = new System.Drawing.Point(465, 96);
-            this.textBoxBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxBuscar.Name = "textBoxBuscar";
             this.textBoxBuscar.Size = new System.Drawing.Size(987, 15);
             this.textBoxBuscar.TabIndex = 6;
@@ -89,7 +91,7 @@
             this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.buttonBuscar.Location = new System.Drawing.Point(465, 128);
-            this.buttonBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonBuscar.Name = "buttonBuscar";
             this.buttonBuscar.Size = new System.Drawing.Size(175, 31);
             this.buttonBuscar.TabIndex = 7;
@@ -97,19 +99,45 @@
             this.buttonBuscar.UseVisualStyleBackColor = false;
             this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
+            // buttonOrderBy
+            // 
+            this.buttonOrderBy.AutoSize = true;
+            this.buttonOrderBy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(163)))), ((int)(((byte)(193)))));
+            this.buttonOrderBy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOrderBy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            this.buttonOrderBy.Location = new System.Drawing.Point(648, 128);
+            this.buttonOrderBy.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonOrderBy.Name = "buttonOrderBy";
+            this.buttonOrderBy.Size = new System.Drawing.Size(175, 31);
+            this.buttonOrderBy.TabIndex = 8;
+            this.buttonOrderBy.Text = "order by";
+            this.buttonOrderBy.UseVisualStyleBackColor = false;
+            this.buttonOrderBy.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // comboBoxFiltro
+            // 
+            this.comboBoxFiltro.FormattingEnabled = true;
+            this.comboBoxFiltro.Location = new System.Drawing.Point(841, 132);
+            this.comboBoxFiltro.Name = "comboBoxFiltro";
+            this.comboBoxFiltro.Size = new System.Drawing.Size(217, 24);
+            this.comboBoxFiltro.TabIndex = 9;
+            this.comboBoxFiltro.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltro_SelectedIndexChanged);
+            // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1169, 554);
+            this.Controls.Add(this.comboBoxFiltro);
+            this.Controls.Add(this.buttonOrderBy);
             this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.textBoxBuscar);
             this.Controls.Add(this.btnadd);
             this.Controls.Add(this.UsersLogo);
             this.Controls.Add(this.btnMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Users";
             this.Text = "Users";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -127,5 +155,7 @@
         private System.Windows.Forms.Button btnadd;
         private System.Windows.Forms.TextBox textBoxBuscar;
         private System.Windows.Forms.Button buttonBuscar;
+        private System.Windows.Forms.Button buttonOrderBy;
+        private System.Windows.Forms.ComboBox comboBoxFiltro;
     }
 }

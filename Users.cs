@@ -37,7 +37,6 @@ namespace DesktopKalendula
             textBoxBuscar.Location = new Point(560, 250);
             textBoxBuscar.Font = Fuentes.RubikBold(18);
 
-            CrearFiltros();
 
 
         }
@@ -57,6 +56,8 @@ namespace DesktopKalendula
             }
 
             CargarTarjetasExistentes();
+
+            ConfigurarComboBoxFiltros();
 
 
         }
@@ -591,14 +592,54 @@ namespace DesktopKalendula
             }
         }
 
-        private void CrearFiltros()
+        private void ConfigurarComboBoxFiltros()
         {
+            comboBoxFiltro.Items.Clear();
+            comboBoxFiltro.Items.AddRange(new object[]
+            {
+                "Name (A-Z)",
+                "Name (Z-A)",
+                "Role (Manager first)",
+                "Role (Developer first)",
+                "Email (A-Z)"
+            }
+            );
+            comboBoxFiltro.SelectedIndex = 0;
 
+            comboBoxFiltro.SelectedIndexChanged += comboBoxFiltro_SelectedIndexChanged;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
 
         }
 
-        private void ComboFiltros_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxFiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
+            List<InfoUser> usuarios = UsuarioManager.LeerUsuarios();
+
+            switch (comboBoxFiltro.SelectedIndex)
+            {
+                case 0:
+                    usuarios = usuarios.OrderBy(u => u.username).ToList();
+                    break;
+                case 1:
+                    usuarios = usuarios.OrderByDescending(u => u.username).ToList();
+                    break;
+                case 2:
+                    usuarios = usuarios.OrderBy(u => u.role == "Manager" ? 0 : 1).
+                        ThenBy(u => u.username).ToList();
+                    break;
+                case 3:
+                    usuarios = usuarios.OrderBy(u => u.role == "Developer" ? 0 : 1).
+                        ThenBy(u =>u.username).ToList();
+                    break;
+                case 4:
+                    usuarios = usuarios.OrderBy(u => u.email).ToList();
+                    break;
+            }
+
+            MostrarUsuariosFiltrados(usuarios);
 
         }
     }
