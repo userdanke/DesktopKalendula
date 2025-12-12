@@ -191,10 +191,6 @@ namespace DesktopKalendula
             MessageBox.Show("Navegando a Inicio");
         }
 
-        private void IrAReportes()
-        {
-            MessageBox.Show("Navegando a Reportes");
-        }
 
         private void IrAUsuarios()
         {
