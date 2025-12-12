@@ -30,6 +30,7 @@
         {
             this.btnMenu = new System.Windows.Forms.Button();
             this.buttonCrearTarea = new System.Windows.Forms.Button();
+            this.buttonAgregar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -53,6 +54,20 @@
             this.buttonCrearTarea.UseVisualStyleBackColor = true;
             this.buttonCrearTarea.Click += new System.EventHandler(this.buttonCrearTarea_Click);
             // 
+            // buttonAgregar
+            // 
+            this.buttonAgregar.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonAgregar.BackgroundImage = global::DesktopKalendula.Properties.Resources.mas;
+            this.buttonAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAgregar.ForeColor = System.Drawing.Color.Transparent;
+            this.buttonAgregar.Location = new System.Drawing.Point(96, 173);
+            this.buttonAgregar.Name = "buttonAgregar";
+            this.buttonAgregar.Size = new System.Drawing.Size(30, 33);
+            this.buttonAgregar.TabIndex = 9;
+            this.buttonAgregar.UseVisualStyleBackColor = false;
+            this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
+            // 
             // buttonEliminar
             // 
             this.buttonEliminar.BackColor = System.Drawing.Color.LightBlue;
@@ -62,20 +77,21 @@
             this.buttonEliminar.ForeColor = System.Drawing.Color.Transparent;
             this.buttonEliminar.Location = new System.Drawing.Point(168, 173);
             this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(34, 33);
+            this.buttonEliminar.Size = new System.Drawing.Size(30, 33);
             this.buttonEliminar.TabIndex = 8;
             this.buttonEliminar.UseVisualStyleBackColor = false;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
             // buttonEditar
             // 
             this.buttonEditar.BackColor = System.Drawing.Color.LightBlue;
-            this.buttonEditar.BackgroundImage = global::DesktopKalendula.Properties.Resources.edit;
+            this.buttonEditar.BackgroundImage = global::DesktopKalendula.Properties.Resources.editing;
             this.buttonEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditar.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonEditar.Location = new System.Drawing.Point(127, 173);
+            this.buttonEditar.Location = new System.Drawing.Point(132, 173);
             this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(35, 33);
+            this.buttonEditar.Size = new System.Drawing.Size(30, 33);
             this.buttonEditar.TabIndex = 7;
             this.buttonEditar.UseVisualStyleBackColor = false;
             this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
@@ -86,6 +102,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonAgregar);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonCrearTarea);
@@ -105,5 +122,6 @@
         private System.Windows.Forms.Button buttonCrearTarea;
         private System.Windows.Forms.Button buttonEditar;
         private System.Windows.Forms.Button buttonEliminar;
+        private System.Windows.Forms.Button buttonAgregar;
     }
 }
