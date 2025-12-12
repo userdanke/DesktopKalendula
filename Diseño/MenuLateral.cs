@@ -77,6 +77,13 @@ namespace DesktopKalendula.Diseño
             fotoPerfil.Location = new Point(20, 70);
             fotoPerfil.BackColor = Color.FromArgb(168,184,197);
             fotoPerfil.SizeMode = PictureBoxSizeMode.StretchImage;
+            fotoPerfil.Click += (s, e) =>
+            {
+
+                PerfilManager perfil = new PerfilManager();
+                perfil.ShowDialog();
+
+            };
 
 
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();

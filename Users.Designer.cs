@@ -32,6 +32,10 @@
             this.btnMenu = new System.Windows.Forms.Button();
             this.UsersLogo = new System.Windows.Forms.PictureBox();
             this.btnadd = new System.Windows.Forms.Button();
+            this.textBoxBuscar = new System.Windows.Forms.TextBox();
+            this.buttonBuscar = new System.Windows.Forms.Button();
+            this.buttonOrderBy = new System.Windows.Forms.Button();
+            this.comboBoxFiltro = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.UsersLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,23 +61,73 @@
             // btnadd
             // 
             this.btnadd.AutoSize = true;
-            this.btnadd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(145)))), ((int)(((byte)(109)))));
+            this.btnadd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
             this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnadd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.btnadd.Location = new System.Drawing.Point(349, 12);
             this.btnadd.Name = "btnadd";
-            this.btnadd.Size = new System.Drawing.Size(200, 40);
+            this.btnadd.Size = new System.Drawing.Size(150, 40);
             this.btnadd.TabIndex = 5;
             this.btnadd.Text = "Add user";
             this.btnadd.UseVisualStyleBackColor = false;
             this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
+            // 
+            // textBoxBuscar
+            // 
+            this.textBoxBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxBuscar.Location = new System.Drawing.Point(349, 78);
+            this.textBoxBuscar.Name = "textBoxBuscar";
+            this.textBoxBuscar.Size = new System.Drawing.Size(740, 13);
+            this.textBoxBuscar.TabIndex = 6;
+            // 
+            // buttonBuscar
+            // 
+            this.buttonBuscar.AutoSize = true;
+            this.buttonBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(163)))), ((int)(((byte)(193)))));
+            this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            this.buttonBuscar.Location = new System.Drawing.Point(349, 104);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(150, 40);
+            this.buttonBuscar.TabIndex = 7;
+            this.buttonBuscar.Text = "Buscar ⌕";
+            this.buttonBuscar.UseVisualStyleBackColor = false;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
+            // 
+            // buttonOrderBy
+            // 
+            this.buttonOrderBy.AutoSize = true;
+            this.buttonOrderBy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(163)))), ((int)(((byte)(193)))));
+            this.buttonOrderBy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOrderBy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            this.buttonOrderBy.Location = new System.Drawing.Point(486, 104);
+            this.buttonOrderBy.Name = "buttonOrderBy";
+            this.buttonOrderBy.Size = new System.Drawing.Size(150, 40);
+            this.buttonOrderBy.TabIndex = 8;
+            this.buttonOrderBy.Text = "order by";
+            this.buttonOrderBy.UseVisualStyleBackColor = false;
+            this.buttonOrderBy.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // comboBoxFiltro
+            // 
+            this.comboBoxFiltro.FormattingEnabled = true;
+            this.comboBoxFiltro.Location = new System.Drawing.Point(641, 116);
+            this.comboBoxFiltro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxFiltro.Name = "comboBoxFiltro";
+            this.comboBoxFiltro.Size = new System.Drawing.Size(164, 21);
+            this.comboBoxFiltro.TabIndex = 9;
+            this.comboBoxFiltro.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltro_SelectedIndexChanged);
             // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(877, 450);
+            this.Controls.Add(this.comboBoxFiltro);
+            this.Controls.Add(this.buttonOrderBy);
+            this.Controls.Add(this.buttonBuscar);
+            this.Controls.Add(this.textBoxBuscar);
             this.Controls.Add(this.btnadd);
             this.Controls.Add(this.UsersLogo);
             this.Controls.Add(this.btnMenu);
@@ -93,5 +147,9 @@
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.PictureBox UsersLogo;
         private System.Windows.Forms.Button btnadd;
+        private System.Windows.Forms.TextBox textBoxBuscar;
+        private System.Windows.Forms.Button buttonBuscar;
+        private System.Windows.Forms.Button buttonOrderBy;
+        private System.Windows.Forms.ComboBox comboBoxFiltro;
     }
 }

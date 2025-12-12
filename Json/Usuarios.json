@@ -8,11 +8,35 @@
     "projects": []
   },
   {
-    "id": "2760bce0-6e4c-46ea-af8b-6770a3b2124f",
+    "id": "6458876e-105f-4943-bc3a-67492f07afc4",
     "role": "Developer",
-    "username": "mary lui",
+    "username": "Edith Miranda",
     "password": "1234",
-    "email": "lui@gmail.com",
+    "email": "edith@gmail.com",
+    "projects": []
+  },
+  {
+    "id": "6d222881-43c3-4063-9d54-538a1f16c24f",
+    "role": "Developer",
+    "username": "Ledys Maradiaga",
+    "password": "1234",
+    "email": "ledys@gmail.com",
+    "projects": []
+  },
+  {
+    "id": "d6419933-2136-40d9-afa7-07032feb3a4e",
+    "role": "Developer",
+    "username": "Daniil Loktev",
+    "password": "1234",
+    "email": "daniil@gmail.com",
+    "projects": []
+  },
+  {
+    "id": "8c4268ca-2f08-40a2-a2b6-f9365149fd46",
+    "role": "Developer",
+    "username": "Júlia Schmid",
+    "password": "1234",
+    "email": "julia@gmail.com",
     "projects": []
   }
 ]
