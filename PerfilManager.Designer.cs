@@ -61,10 +61,11 @@
             this.buttonEditarDatos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.buttonEditarDatos.Location = new System.Drawing.Point(386, 45);
             this.buttonEditarDatos.Name = "buttonEditarDatos";
-            this.buttonEditarDatos.Size = new System.Drawing.Size(150, 30);
+            this.buttonEditarDatos.Size = new System.Drawing.Size(150, 50);
             this.buttonEditarDatos.TabIndex = 8;
             this.buttonEditarDatos.Text = "Editar Datos";
             this.buttonEditarDatos.UseVisualStyleBackColor = false;
+            this.buttonEditarDatos.Click += new System.EventHandler(this.buttonEditarDatos_Click);
             // 
             // buttonPendientes
             // 
@@ -74,7 +75,7 @@
             this.buttonPendientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.buttonPendientes.Location = new System.Drawing.Point(538, 45);
             this.buttonPendientes.Name = "buttonPendientes";
-            this.buttonPendientes.Size = new System.Drawing.Size(150, 30);
+            this.buttonPendientes.Size = new System.Drawing.Size(150, 50);
             this.buttonPendientes.TabIndex = 9;
             this.buttonPendientes.Text = "Pendientes";
             this.buttonPendientes.UseVisualStyleBackColor = false;
