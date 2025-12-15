@@ -81,12 +81,14 @@ namespace DesktopKalendula
         {
             Home formHome = new Home();
             formHome.Show();
+            this.Close();
         }
 
         private void IrAUsuarios()
         {
             Users formUsuarios = new Users();
             formUsuarios.Show();
+            this.Close();
         }
 
         private void CerrarSesion()

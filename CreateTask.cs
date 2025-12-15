@@ -29,7 +29,7 @@ namespace DesktopKalendula
         private void CreateTask_Load(object sender, EventArgs e)
         {
 
-            string rutaJson = Path.Combine(Application.StartupPath, "Json", "Usuarios.json");
+            string rutaJson = Path.Combine(Application.StartupPath, "Json", "users.json");
             usuariosRegistrados = CargarUsuariosDesdeJson(rutaJson);
 
             checkedListBoxUsuarios.Items.Clear();

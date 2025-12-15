@@ -173,7 +173,8 @@ namespace DesktopKalendula
         }
         private void CargarTarjetasExistentes()
         {
-            List<InfoUser> usuarios = UsuarioManager.LeerUsuarios();
+            List<InfoUser> usuarios = UsuarioManager.LeerUsuarios().
+                Where(u => u.role.ToLower() != "manager").ToList();
 
             foreach (InfoUser usuario in usuarios)
             {
@@ -286,6 +287,15 @@ namespace DesktopKalendula
                     return;
                 }
 
+                if (nuevoRol == "Manager")
+                {
+                    MessageBox.Show("Cannot assign 'Manager' role. Only one Manager is allowed.",
+                        "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    if (comboRol != null) comboRol.SelectedItem = "Developer";
+
+                    return;
+                }
 
                 if (nuevaContraseña == "Leave empty to keep current" || string.IsNullOrWhiteSpace(nuevaContraseña))
                 {
@@ -371,7 +381,10 @@ namespace DesktopKalendula
             menu.ColorHover = Color.FromArgb(190, 125, 90);
 
             menu.AgregarOpcion("🏠", "Home", () => IrAInicio());
-            menu.AgregarOpcion("👥", "Usuarios", () => IrAUsuarios());
+            if (SesionActual.UsuarioActual != null && SesionActual.UsuarioActual.role.ToLower() == "manager")
+            {
+                menu.AgregarOpcion("👥", "Usuarios", () => IrAUsuarios());
+            }
             menu.AgregarOpcion("🚪", "Cerrar Sesión", () => CerrarSesion());
 
             btnMenu.Text = "☰";
@@ -391,13 +404,15 @@ namespace DesktopKalendula
         private void IrAInicio()
         {
             Home home = new Home();
-            home.ShowDialog();
+            home.Show();
+            this.Close();
         }
 
         private void IrAUsuarios()
         {
             Users users = new Users();
-            users.ShowDialog();
+            users.Show();
+            this.Close();
         }
 
         private void CerrarSesion()
@@ -411,7 +426,7 @@ namespace DesktopKalendula
 
             if (resultado == DialogResult.Yes)
             {
-                this.Close();
+                SesionActual.CerrarSesionYReiniciar();
             }
         }
 
@@ -554,16 +569,16 @@ namespace DesktopKalendula
         {
             string textoBusqueda = textBoxBuscar.Text.Trim().ToLower();
 
+            var usuariosBase = UsuarioManager.LeerUsuarios().Where(u => u.role.ToLower() != "manager");
+
             if (string.IsNullOrWhiteSpace(textoBusqueda))
             {
-                panelTarjetas.Controls.Clear();
-                CargarTarjetasExistentes();
+                comboBoxFiltro_SelectedIndexChanged(null, null);
                 return;
             }
 
-            List<InfoUser> usuariosFiltrados = UsuarioManager.LeerUsuarios().Where(
-                u => u.username.ToLower().Contains(textoBusqueda) || u.email.ToLower().Contains(textoBusqueda)
-                || u.role.ToLower().Contains(textoBusqueda)).ToList();
+            List<InfoUser> usuariosFiltrados = usuariosBase.Where(u => u.username.ToLower().Contains(textoBusqueda) ||u.email.ToLower().Contains(textoBusqueda) ||
+                 u.role.ToLower().Contains(textoBusqueda)).ToList();
 
 
             MostrarUsuariosFiltrados(usuariosFiltrados);
@@ -598,6 +613,7 @@ namespace DesktopKalendula
             comboBoxFiltro.Items.Clear();
             comboBoxFiltro.Items.AddRange(new object[]
             {
+                "Default (Creation Order)",
                 "Name (A-Z)",
                 "Name (Z-A)",
                 "Role (Manager first)",
@@ -617,25 +633,27 @@ namespace DesktopKalendula
 
         private void comboBoxFiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<InfoUser> usuarios = UsuarioManager.LeerUsuarios();
+            List<InfoUser> usuarios = UsuarioManager.LeerUsuarios().
+                Where(u => u.role.ToLower() != "manager").ToList();
 
             switch (comboBoxFiltro.SelectedIndex)
             {
                 case 0:
-                    usuarios = usuarios.OrderBy(u => u.username).ToList();
+                   
                     break;
                 case 1:
-                    usuarios = usuarios.OrderByDescending(u => u.username).ToList();
+                    usuarios = usuarios.OrderBy(u => u.username).ToList();
                     break;
                 case 2:
-                    usuarios = usuarios.OrderBy(u => u.role == "Manager" ? 0 : 1).
-                        ThenBy(u => u.username).ToList();
+                    usuarios = usuarios.OrderByDescending(u => u.username).ToList();
                     break;
                 case 3:
-                    usuarios = usuarios.OrderBy(u => u.role == "Developer" ? 0 : 1).
-                        ThenBy(u =>u.username).ToList();
+                    usuarios = usuarios.OrderBy(u => u.role).ThenBy(u => u.username).ToList();
                     break;
                 case 4:
+                    usuarios = usuarios.OrderByDescending(u => u.role).ThenBy(u => u.username).ToList();
+                    break;
+                case 5:
                     usuarios = usuarios.OrderBy(u => u.email).ToList();
                     break;
             }

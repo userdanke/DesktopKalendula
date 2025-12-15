@@ -16,7 +16,7 @@ namespace DesktopKalendula
 
         static UsuarioManager()
         {
-            rutaArchivo = Path.GetFullPath(Path.Combine(Application.StartupPath, @"..\..\Json\Usuarios.json"));
+            rutaArchivo = Path.GetFullPath(Path.Combine(Application.StartupPath, @"..\..\Json\users.json"));
             folderPath = Path.GetDirectoryName(rutaArchivo);
 
             // 5. Crear la carpeta si no existe

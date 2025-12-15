@@ -79,6 +79,7 @@
             this.buttonPendientes.TabIndex = 9;
             this.buttonPendientes.Text = "Pendientes";
             this.buttonPendientes.UseVisualStyleBackColor = false;
+            this.buttonPendientes.Click += new System.EventHandler(this.buttonPendientes_Click);
             // 
             // PerfilManager
             // 
