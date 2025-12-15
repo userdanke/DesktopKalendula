@@ -11,44 +11,6 @@
     ],
     "tasks": [
       {
-        "id": "60b0fcc7-5dc7-4eb6-953c-ef3e4b499fd8",
-        "name": "Diseño de estructura",
-        "users": [
-          "2760bce0-6e4c-46ea-af8b-6770a3b2124f"
-        ],
-        "description": "Definir la estructura logica que tendra el juego.",
-        "hoursDedicated": "00:00:00",
-        "startDate": "2025-12-20",
-        "deadline": "2025-12-27",
-        "state": 0,
-        "subTasks": [
-          {
-            "parentTaskId": "60b0fcc7-5dc7-4eb6-953c-ef3e4b499fd8",
-            "id": "0d0ab512-81a8-4620-a694-feb7a4a8852a",
-            "name": "Diseñar wireFrame",
-            "users": [],
-            "description": "Establecer el diseño del juego.",
-            "hoursDedicated": "00:00:00",
-            "startDate": "2025-12-21",
-            "deadline": "2025-12-22",
-            "state": 0
-          }
-        ]
-      },
-      {
-        "id": "4b08a159-0778-4cf0-9340-63172bfb8a84",
-        "name": "Programar aplicación",
-        "users": [
-          "2760bce0-6e4c-46ea-af8b-6770a3b2124f"
-        ],
-        "description": "Programar primeras funciones.",
-        "hoursDedicated": "00:00:00",
-        "startDate": "2025-12-22",
-        "deadline": "2025-12-23",
-        "state": 0,
-        "subTasks": []
-      },
-      {
         "id": "a82972b9-da8e-4faa-94bf-5545502e164c",
         "name": "Crear base de datos.",
         "users": [
@@ -125,6 +87,46 @@
         "deadline": "2026-01-18",
         "state": 0,
         "subTasks": []
+      }
+    ]
+  },
+  {
+    "id": "295a178c-9ca0-434f-afa9-b6ec144014ba",
+    "name": "Protectora de animales",
+    "description": "Creación de un quiz para una veterinaria",
+    "startDate": "2025-12-24",
+    "endDate": "2026-03-24",
+    "users": [
+      "6458876e-105f-4943-bc3a-67492f07afc4",
+      "6d222881-43c3-4063-9d54-538a1f16c24f",
+      "d6419933-2136-40d9-afa7-07032feb3a4e",
+      "8c4268ca-2f08-40a2-a2b6-f9365149fd46"
+    ],
+    "tasks": [
+      {
+        "id": "5567eaa6-e952-407f-852c-75205f1d38f6",
+        "name": "Definir estructura",
+        "users": [
+          "6458876e-105f-4943-bc3a-67492f07afc4"
+        ],
+        "description": "Definir la estructura del programa en java",
+        "hoursDedicated": "00:00:00",
+        "startDate": "2025-12-25",
+        "deadline": "2025-12-26",
+        "state": 0,
+        "subTasks": [
+          {
+            "parentTaskId": "5567eaa6-e952-407f-852c-75205f1d38f6",
+            "id": "8beb743c-76c8-4681-b54d-58e7dce81758",
+            "name": "Definir funciones",
+            "users": [],
+            "description": "Creación de las funciones necesarias del proyecto.",
+            "hoursDedicated": "00:00:00",
+            "startDate": "2025-12-25",
+            "deadline": "2025-12-26",
+            "state": 0
+          }
+        ]
       }
     ]
   }

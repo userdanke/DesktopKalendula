@@ -58,7 +58,7 @@
     </Compile>
     <Compile Include="CreateSubtask.Designer.cs">
       <DependentUpon>CreateSubtask.cs</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="PerfilManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,7 +156,7 @@
     <None Include="Resources\delete.png" />
     <None Include="Resources\trash.png" />
     <None Include="Resources\edit.png" />
-    <None Include="Json\Proyectos.json" />
+    <None Include="Json\projects.json" />
     <None Include="packages.config" />
     <None Include="Resources\SignIn.png" />
     <EmbeddedResource Include="CreateProject.resx">

@@ -68,8 +68,8 @@ namespace DesktopKalendula
 
         private void ConfigurarMenu()
         {
-            string nombre = "Tu Nombre";
-            string correo = "tu@correo.com";
+            string nombre = "Your Name";
+            string correo = "your@email.com";
 
             if (SesionActual.HaySesionActiva())
             {
@@ -89,13 +89,13 @@ namespace DesktopKalendula
                 menu.CorreoUsuario = SesionActual.UsuarioActual.email;
             } else
             {
-                menu.NombreUsuario = "Tu Nombre";
-                menu.CorreoUsuario = "tu@correo.com";
+                menu.NombreUsuario = "Your Name";
+                menu.CorreoUsuario = "your@email.com";
             }
 
             menu.AgregarOpcion("🏠", "Home", () => IrAInicio());
-            menu.AgregarOpcion("👥", "Usuarios", () => IrAUsuarios());
-            menu.AgregarOpcion("🚪", "Cerrar Sesión", () => CerrarSesion());
+            menu.AgregarOpcion("👥", "Users", () => IrAUsuarios());
+            menu.AgregarOpcion("🚪", "Log out", () => CerrarSesion());
 
             btnMenu.Text = "☰";
             btnMenu.Size = new Size(50, 1200);
@@ -182,13 +182,13 @@ namespace DesktopKalendula
 
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.FromArgb(204, 163, 193);
 
-            dataGridView1.Columns.Add("Dom", "Dom");
-            dataGridView1.Columns.Add("Lun", "Lun");
-            dataGridView1.Columns.Add("Mar", "Mar");
-            dataGridView1.Columns.Add("Mie", "Mié");
-            dataGridView1.Columns.Add("Jue", "Jue");
-            dataGridView1.Columns.Add("Vie", "Vie");
-            dataGridView1.Columns.Add("Sab", "Sáb");
+            dataGridView1.Columns.Add("Sun", "Sun");
+            dataGridView1.Columns.Add("Mon", "Mon");
+            dataGridView1.Columns.Add("Tue", "Tue");
+            dataGridView1.Columns.Add("Wed", "Wed");
+            dataGridView1.Columns.Add("Thu", "Thu");
+            dataGridView1.Columns.Add("Fri", "Fri");
+            dataGridView1.Columns.Add("Sat", "Sat");
 
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
@@ -266,7 +266,7 @@ namespace DesktopKalendula
                     int dia = Convert.ToInt32(valor);
                     DateTime fechaSeleccionada = new DateTime(fechaActual.Year, fechaActual.Month, dia);
 
-                    MessageBox.Show("Seleccionaste: " + fechaSeleccionada.ToShortDateString());
+                    MessageBox.Show("You have selected : " + fechaSeleccionada.ToShortDateString());
                 }
             }
         }

@@ -33,6 +33,9 @@
             this.buttonAgregar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
+            this.panelDetails = new System.Windows.Forms.Panel();
+            this.Logo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnMenu
@@ -96,12 +99,32 @@
             this.buttonEditar.UseVisualStyleBackColor = false;
             this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
+            // panelDetails
+            // 
+            this.panelDetails.BackColor = System.Drawing.Color.White;
+            this.panelDetails.Location = new System.Drawing.Point(214, 304);
+            this.panelDetails.Name = "panelDetails";
+            this.panelDetails.Size = new System.Drawing.Size(200, 100);
+            this.panelDetails.TabIndex = 10;
+            // 
+            // Logo
+            // 
+            this.Logo.Image = global::DesktopKalendula.Properties.Resources.Logo;
+            this.Logo.Location = new System.Drawing.Point(49, 12);
+            this.Logo.Name = "Logo";
+            this.Logo.Size = new System.Drawing.Size(365, 119);
+            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Logo.TabIndex = 11;
+            this.Logo.TabStop = false;
+            // 
             // ProjectHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Logo);
+            this.Controls.Add(this.panelDetails);
             this.Controls.Add(this.buttonAgregar);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.buttonEditar);
@@ -112,6 +135,7 @@
             this.Text = "OpenProject";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.OpenProject_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -123,5 +147,7 @@
         private System.Windows.Forms.Button buttonEditar;
         private System.Windows.Forms.Button buttonEliminar;
         private System.Windows.Forms.Button buttonAgregar;
+        private System.Windows.Forms.Panel panelDetails;
+        private System.Windows.Forms.PictureBox Logo;
     }
 }

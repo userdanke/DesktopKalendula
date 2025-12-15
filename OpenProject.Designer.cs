@@ -28,18 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBoxProjects = new System.Windows.Forms.ListBox();
+            this.labelTitulo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listBoxProjects
+            // labelTitulo
             // 
-            this.listBoxProjects.FormattingEnabled = true;
-            this.listBoxProjects.Location = new System.Drawing.Point(336, 142);
-            this.listBoxProjects.Name = "listBoxProjects";
-            this.listBoxProjects.Size = new System.Drawing.Size(120, 95);
-            this.listBoxProjects.TabIndex = 0;
-            this.listBoxProjects.SelectedIndexChanged += new System.EventHandler(this.listBoxProjects_SelectedIndexChanged);
-            this.listBoxProjects.DoubleClick += new System.EventHandler(this.listBoxProjects_DoubleClick);
+            this.labelTitulo.AutoSize = true;
+            this.labelTitulo.Location = new System.Drawing.Point(355, 208);
+            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Size = new System.Drawing.Size(63, 13);
+            this.labelTitulo.TabIndex = 0;
+            this.labelTitulo.Text = "PROJECTS";
             // 
             // OpenProject
             // 
@@ -47,18 +46,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(235)))), ((int)(((byte)(241)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBoxProjects);
+            this.Controls.Add(this.labelTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "OpenProject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OpenProject";
             this.Load += new System.EventHandler(this.OpenProject_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBoxProjects;
+        private System.Windows.Forms.Label labelTitulo;
     }
 }
