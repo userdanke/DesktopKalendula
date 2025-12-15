@@ -70,8 +70,15 @@ namespace DesktopKalendula
 
         public static void GuardarUsuarios(List<InfoUser> usuarios)
         {
-            string json = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
-            File.WriteAllText(rutaArchivo, json);
+            try
+            {
+                string json = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
+                File.WriteAllText(rutaArchivo, json);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al guardar usuarios: {ex.Message} en la ruta: {rutaArchivo}", "Error de Escritura JSON");
+            }
 
         }
 

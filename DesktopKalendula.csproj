@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="CreateSubtask.Designer.cs">
       <DependentUpon>CreateSubtask.cs</DependentUpon>
+	</Compile>
     <Compile Include="PerfilManager.cs">
       <SubType>Form</SubType>
     </Compile>

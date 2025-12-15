@@ -222,22 +222,22 @@ namespace DesktopKalendula
             };
 
             string nuevoProyectoId = proyecto.id;
+            List<InfoUser> usuariosGlobales = UsuarioManager.LeerUsuarios();
 
-            foreach(var miembroSeleccionado in miembros)
+            foreach (var miembroSeleccionado in miembros)
             {
-                var usuarioGlobal = usuariosRegistrados.FirstOrDefault(u => u.id == miembroSeleccionado.id);
+                var usuarioActualizar = usuariosGlobales.FirstorDefault(u => u.id == miembroSeleccionado.id);
 
-                if (usuarioGlobal != null)
+                if (usuarioActualizar != null)
                 {
-                    if (!usuarioGlobal.projects.Contains(nuevoProyectoId))
+                    if (!usuarioActualizar.projects.Contains(nuevoProyectoId))
                     {
-                        usuarioGlobal.projects.Add(nuevoProyectoId);
+                        usuarioActualizar.projects.Add(nuevoProyectoId);
                     }
-
-                    usuarioGlobal.projects.Add(nuevoProyectoId);
                 }
             }
-            GuardarUsuarios(usuariosRegistrados);
+
+            UsuarioManager.GuardarUsuariosPublic(usuariosGlobales);
 
             GuardarProyecto(proyecto);
             MessageBox.Show("Proyecto creado exitosamente.");
