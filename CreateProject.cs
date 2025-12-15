@@ -127,7 +127,7 @@ namespace DesktopKalendula
             listaUsuarios.Columns.Add("Email", 200);
 
             panelFormulario.Controls.Add(listaUsuarios);
-            string rutaJson = Path.Combine(Application.StartupPath, "Json", "Usuarios.json");
+            string rutaJson = Path.Combine(Application.StartupPath, "Json", "users.json");
             usuariosRegistrados = CargarUsuariosDesdeJson(rutaJson);
             MostrarUsuariosEnLista();
             MostrarUsuariosEnLista();
@@ -226,7 +226,7 @@ namespace DesktopKalendula
 
             foreach (var miembroSeleccionado in miembros)
             {
-                var usuarioActualizar = usuariosGlobales.FirstorDefault(u => u.id == miembroSeleccionado.id);
+                var usuarioActualizar = usuariosGlobales.FirstOrDefault(u => u.id == miembroSeleccionado.id);
 
                 if (usuarioActualizar != null)
                 {
@@ -237,7 +237,7 @@ namespace DesktopKalendula
                 }
             }
 
-            UsuarioManager.GuardarUsuariosPublic(usuariosGlobales);
+            UsuarioManager.GuardarUsuarios(usuariosGlobales);
 
             GuardarProyecto(proyecto);
             MessageBox.Show("Proyecto creado exitosamente.");
@@ -280,7 +280,7 @@ namespace DesktopKalendula
 
         private void GuardarUsuarios (List<InfoUser> usuarios)
         {
-            string rutaJson = Path.Combine(Application.StartupPath, "Json", "Usuarios.Json");
+            string rutaJson = Path.Combine(Application.StartupPath, "Json", "users.Json");
 
             string json = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
             File.WriteAllText(rutaJson, json);

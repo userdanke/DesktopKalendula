@@ -52,6 +52,14 @@ namespace DesktopKalendula
             buttonOpenProject.Location = new Point(370, 100);
             buttonOpenProject.Size = new Size(250, 40);
 
+            InfoUser usuario = SesionActual.UsuarioActual;
+
+            if(usuario != null && usuario.role.ToLower() != "manager")
+            {
+                buttonNewProject.Visible = false;
+                buttonOpenProject.Location = new Point(100, 100);
+            }
+
 
             panelSecundario.Location = new Point(1320, 150);
             panelSecundario.Size = new Size(500, 800);
@@ -63,6 +71,7 @@ namespace DesktopKalendula
             labelMessages.Font = Fuentes.Calistoga(25);
             labelMessages.Location = new Point(155, 470);
             labelMessages.ForeColor = Color.FromArgb(61, 23, 0);
+
 
         }
 
@@ -94,7 +103,11 @@ namespace DesktopKalendula
             }
 
             menu.AgregarOpcion("🏠", "Home", () => IrAInicio());
-            menu.AgregarOpcion("👥", "Usuarios", () => IrAUsuarios());
+
+            if(SesionActual.UsuarioActual != null && SesionActual.UsuarioActual.role.ToLower() == "manager")
+            {
+                menu.AgregarOpcion("👥", "Usuarios", () => IrAUsuarios());
+            }
             menu.AgregarOpcion("🚪", "Cerrar Sesión", () => CerrarSesion());
 
             btnMenu.Text = "☰";
@@ -135,12 +148,7 @@ namespace DesktopKalendula
 
             if (resultado == DialogResult.Yes)
             {
-                SesionActual.CerrarSesion();
-
-                SignIn loginForm = new SignIn();
-                loginForm.Show();
-
-                this.Close();
+                SesionActual.CerrarSesionYReiniciar();
             }
         }
 

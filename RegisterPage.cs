@@ -126,8 +126,7 @@ namespace DesktopKalendula
 
 
                     SignIn formsign = new SignIn();
-                    formsign.ShowDialog();
-
+                    formsign.Show();
                     this.Close();
                 }
                 else { 

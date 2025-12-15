@@ -8,43 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DesktopKalendula.Diseño;
-using DesktopKalendula.Properties;
 
 namespace DesktopKalendula
 {
-    public partial class PerfilManager : Form
+    public partial class UserProfile : Form
     {
         private MenuLateral menu;
-        public PerfilManager()
+        public UserProfile()
         {
             InitializeComponent();
             DiseñoForms diseño = new DiseñoForms();
             this.Controls.Add(diseño);
-            ConfigurarInterfazPerfil();
             ConfigurarMenu();
+            ConfigurarInterfaz();
         }
 
-        private void PerfilManager_Load(object sender, EventArgs e)
+        private void UserProfile_Load(object sender, EventArgs e)
         {
 
-            InfoUser manager = SesionActual.UsuarioActual;
-
-            if (manager == null || manager.role.ToLower() != "manager") 
-            {
-                MessageBox.Show("You are trying to access the manager's profile.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
-                return;
-            }
-            pictureBoxLogo.Image = Resources.Logo;
-            pictureBoxLogo.Location = new Point(850, 950);
-
-            buttonEditarDatos.Location = new Point(1600,900);
-
-            buttonPendientes.Location = new Point(1600,200);
-
-
-
         }
+
         private void ConfigurarMenu()
         {
             string NombreUsuario = "Tu Nombre";
@@ -112,129 +95,84 @@ namespace DesktopKalendula
             }
         }
 
-        private void ConfigurarInterfazPerfil()
+        private void ConfigurarInterfaz()
         {
+            InfoUser usuario = SesionActual.UsuarioActual;
             string ruta = @"Diseño\LogoUser.png";
 
-            InfoUser manager = SesionActual.UsuarioActual;
-
-            if(manager == null || manager.role.ToLower() != "manager") {
-                return;
-            }
-
-            Label lblTitulo = new Label();
-            lblTitulo.Text = "Manager Profile";
             lblTitulo.Font = Fuentes.Calistoga(40);
-            lblTitulo.ForeColor = Color.FromArgb(61, 23, 0);
             lblTitulo.Location = new Point(80, 80);
-            lblTitulo.AutoSize = true;
             this.Controls.Add(lblTitulo);
 
-            PictureBox pbAvatar = new PictureBox();
-            pbAvatar.Size = new Size(200, 200);
             pbAvatar.Location = new Point(150, 200);
-            pbAvatar.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbAvatar.Image = Image.FromFile( ruta );
+            if (System.IO.File.Exists(ruta))
+                pbAvatar.Image = Image.FromFile(ruta);
+
             pbAvatar.BackColor = Color.White;
             this.Controls.Add(pbAvatar);
 
-            Button btnEditarFoto = new Button();
-            btnEditarFoto.Text = "Change Photo";
-            btnEditarFoto.Size = new Size(200, 40);
-            btnEditarFoto.Location = new Point(150, 450);
-            btnEditarFoto.BackColor = Color.FromArgb(211, 145, 109);
-            btnEditarFoto.ForeColor = Color.White;
-            btnEditarFoto.FlatStyle = FlatStyle.Flat;
-            btnEditarFoto.FlatAppearance.BorderSize = 0;
-            this.Controls.Add(btnEditarFoto);
+            btnEditar.Location = new Point(150, 450);
+            this.Controls.Add(btnEditar);
 
             Panel panelInfo = new Panel();
-            panelInfo.Location = new Point(600, 400);
-            panelInfo.Size = new Size(800, 400);
+            panelInfo.Location = new Point(600, 300);
+            panelInfo.Size = new Size(600, 400);
             panelInfo.BackColor = Color.White;
-            panelInfo.BorderStyle = BorderStyle.None;
             this.Controls.Add(panelInfo);
 
-            int yPos = 30;
+            int yPos = 0;
             int spacing = 80;
 
-            Label lblNombreTitulo = new Label();
-            lblNombreTitulo.Text = "Name:";
-            lblNombreTitulo.Font = Fuentes.RubikBold(14);
-            lblNombreTitulo.ForeColor = Color.FromArgb(92, 135, 153);
-            lblNombreTitulo.Location = new Point(30, yPos);
-            lblNombreTitulo.AutoSize = true;
-            panelInfo.Controls.Add(lblNombreTitulo);
+            AgregarDato(panelInfo, "Name:", usuario.username, ref yPos, spacing);
 
-            Label lblNombreValor = new Label();
-            lblNombreValor.Text = manager.username;
-            lblNombreValor.Font = Fuentes.RubikRegular(14);
-            lblNombreValor.ForeColor = Color.FromArgb(61, 23, 0);
-            lblNombreValor.Location = new Point(30, yPos + 30);
-            lblNombreValor.AutoSize = true;
-            lblNombreValor.Tag = "nombre";
-            panelInfo.Controls.Add(lblNombreValor);
+            AgregarDato(panelInfo, "Email:", usuario.email, ref yPos, spacing);
 
-            yPos += spacing;
+            AgregarDato(panelInfo, "Role:", usuario.role, ref yPos, spacing);
 
-
-            Label lblEmailTitulo = new Label();
-            lblEmailTitulo.Text = "Email:";
-            lblEmailTitulo.Font = Fuentes.RubikBold(14);
-            lblEmailTitulo.ForeColor = Color.FromArgb(92, 135, 153);
-            lblEmailTitulo.Location = new Point(30, yPos);
-            lblEmailTitulo.AutoSize = true;
-            panelInfo.Controls.Add(lblEmailTitulo);
-
-            Label lblEmailValor = new Label();
-            lblEmailValor.Text = manager.email;
-            lblEmailValor.Font = Fuentes.RubikRegular(14);
-            lblEmailValor.ForeColor = Color.FromArgb(61, 23, 0);
-            lblEmailValor.Location = new Point(30, yPos + 30);
-            lblEmailValor.AutoSize = true;
-            lblEmailValor.Tag = "email";
-            panelInfo.Controls.Add(lblEmailValor);
-
-            yPos += spacing;
-
-            // Role
-            Label lblRolTitulo = new Label();
-            lblRolTitulo.Text = "Role:";
-            lblRolTitulo.Font = Fuentes.RubikBold(14);
-            lblRolTitulo.ForeColor = Color.FromArgb(92, 135, 153);
-            lblRolTitulo.Location = new Point(30, yPos);
-            lblRolTitulo.AutoSize = true;
-            panelInfo.Controls.Add(lblRolTitulo);
-
-            Label lblRolValor = new Label();
-            lblRolValor.Text = manager.role;
-            lblRolValor.Font = Fuentes.RubikRegular(14);
-            lblRolValor.ForeColor = Color.FromArgb(204, 163, 193);
-            lblRolValor.Location = new Point(30, yPos + 30);
-            lblRolValor.AutoSize = true;
-            lblRolValor.Tag = "role";
-            panelInfo.Controls.Add(lblRolValor);
-
-            yPos += spacing;
-
+            btnCerrar.Location = new Point(1200,50);
+            btnCerrar.Click += (s, e) => this.Close();
+            this.Controls.Add(btnCerrar);
 
 
 
         }
 
-        private void buttonEditarDatos_Click(object sender, EventArgs e)
+        private void AgregarDato(Panel panel, String titulo, String valor, ref int yPos, int spacing)
         {
-            InfoUser manager = SesionActual.UsuarioActual;
+            Label lblTitulo = new Label();
+            lblTitulo.Text = titulo;
+            lblTitulo.Font = Fuentes.RubikBold(14);
+            lblTitulo.ForeColor = Color.FromArgb(92, 135, 153);
+            lblTitulo.Location = new Point(30, yPos);
+            lblTitulo.AutoSize = true;
+            panel.Controls.Add(lblTitulo);
 
-            if (manager == null ) {
+            Label lblValor = new Label();
+            lblValor.Text = valor;
+            lblValor.Font = Fuentes.RubikRegular(14);
+            lblValor.ForeColor = Color.FromArgb(61, 23, 0);
+            lblValor.Location = new Point(30, yPos + 30);
+            lblValor.AutoSize = true;
+            panel.Controls.Add(lblValor);
+
+            yPos += spacing;
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            InfoUser usuario = SesionActual.UsuarioActual;
+
+            if (usuario == null)
+            {
                 MessageBox.Show("No user information found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            mostrarPanelEdicion(manager);
+            mostrarPanelEdicion(usuario);
         }
 
-        private void mostrarPanelEdicion(InfoUser manager)
+        private void mostrarPanelEdicion(InfoUser usuario)
         {
             Panel panelEditar = new Panel();
             panelEditar.Size = new Size(600, 550);
@@ -278,9 +216,11 @@ namespace DesktopKalendula
 
                 switch (i)
                 {
-                    case 0: txt.Text = manager.username; 
+                    case 0:
+                        txt.Text = usuario.username;
                         break;
-                    case 1: txt.Text = manager.email; 
+                    case 1:
+                        txt.Text = usuario.email;
                         break;
                     case 2:
                         txt.PasswordChar = '*';
@@ -319,7 +259,7 @@ namespace DesktopKalendula
                     nuevaContraseña = null;
                 }
 
-                if (UsuarioManager.EditarUsuario(manager.id, nuevoNombre, nuevoEmail, nuevaContraseña, manager.role))
+                if (UsuarioManager.EditarUsuario(usuario.id, nuevoNombre, nuevoEmail, nuevaContraseña, usuario.role))
                 {
                     SesionActual.UsuarioActual.username = nuevoNombre;
                     SesionActual.UsuarioActual.email = nuevoEmail;
@@ -361,35 +301,29 @@ namespace DesktopKalendula
 
         private void ActualizarDatosPerfil()
         {
-            InfoUser manager = SesionActual.UsuarioActual;
+            InfoUser usuario = SesionActual.UsuarioActual;
 
             Panel panelinfo = this.Controls.OfType<Panel>().
-                FirstOrDefault(p => p.Location == new Point(600,400));
+                FirstOrDefault(p => p.Location == new Point(600, 400));
 
-            if (panelinfo == null ) return;
+            if (panelinfo == null) return;
 
             Label lblNombre = panelinfo.Controls.OfType<Label>().
                 FirstOrDefault(l => l.Tag?.ToString() == "nombre");
             if (lblNombre != null)
-                lblNombre.Text = manager.username;
+                lblNombre.Text = usuario.username;
 
 
             Label lblEmail = panelinfo.Controls.OfType<Label>().
                 FirstOrDefault(l => l.Tag?.ToString() == "email");
             if (lblEmail != null)
-                lblEmail.Text = manager.email;
+                lblEmail.Text = usuario.email;
 
             Label lblRol = panelinfo.Controls.OfType<Label>().
                 FirstOrDefault(l => l.Tag?.ToString() == "role");
             if (lblRol != null)
-                lblRol.Text = manager.role;
+                lblRol.Text = usuario.role;
 
-        }
-
-        private void buttonPendientes_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Navegando hacia sus pendientes....");
         }
     }
 }
-
