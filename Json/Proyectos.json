@@ -1,66 +1,129 @@
 [
   {
-    "id": "7a12c523-d8c1-483a-8981-2642430b3856",
-    "name": "Kalendula",
-    "description": "App de gestion de proyectos",
-    "startDate": "2025-11-27T19:55:44.9499011+01:00",
-    "endDate": "2025-12-07T19:55:44",
+    "id": "49d05e87-8fbd-4fc2-aa30-ad3e97b082ec",
+    "name": "HopHop",
+    "description": "Juego en android para niños de 5 años.",
+    "startDate": "2025-12-12",
+    "endDate": "2026-02-23",
     "users": [
-      "manager@gmail.com",
-      "lui@gmail.com"
+      "f0a0246d-2fc7-4294-a835-ed1e2c6eadc5",
+      "2760bce0-6e4c-46ea-af8b-6770a3b2124f"
     ],
     "tasks": [
       {
-        "Id": "66c86e9d-9903-47d2-b0bd-531026ef0626",
-        "name": "Programar app",
+        "id": "60b0fcc7-5dc7-4eb6-953c-ef3e4b499fd8",
+        "name": "Diseño de estructura",
         "users": [
-          "manager@gmail.com",
-          "lui@gmail.com"
+          "2760bce0-6e4c-46ea-af8b-6770a3b2124f"
         ],
-        "description": "Crear el repositorio den git de kalendula",
-        "hoursDedicated": 0.0,
-        "startDate": "2025-11-27T19:56:08.1571666+01:00",
-        "deadline": "2025-12-27T19:56:08",
-        "state": "Completada",
+        "description": "Definir la estructura logica que tendra el juego.",
+        "hoursDedicated": "00:00:00",
+        "startDate": "2025-12-20",
+        "deadline": "2025-12-27",
+        "state": 0,
+        "subTasks": [
+          {
+            "parentTaskId": "60b0fcc7-5dc7-4eb6-953c-ef3e4b499fd8",
+            "id": "0d0ab512-81a8-4620-a694-feb7a4a8852a",
+            "name": "Diseñar wireFrame",
+            "users": [],
+            "description": "Establecer el diseño del juego.",
+            "hoursDedicated": "00:00:00",
+            "startDate": "2025-12-21",
+            "deadline": "2025-12-22",
+            "state": 0
+          }
+        ]
+      },
+      {
+        "id": "4b08a159-0778-4cf0-9340-63172bfb8a84",
+        "name": "Programar aplicación",
+        "users": [
+          "2760bce0-6e4c-46ea-af8b-6770a3b2124f"
+        ],
+        "description": "Programar primeras funciones.",
+        "hoursDedicated": "00:00:00",
+        "startDate": "2025-12-22",
+        "deadline": "2025-12-23",
+        "state": 0,
+        "subTasks": []
+      },
+      {
+        "id": "a82972b9-da8e-4faa-94bf-5545502e164c",
+        "name": "Crear base de datos.",
+        "users": [
+          "f0a0246d-2fc7-4294-a835-ed1e2c6eadc5"
+        ],
+        "description": "Crear la base de datos en mySQL.",
+        "hoursDedicated": "00:00:00",
+        "startDate": "2025-12-23",
+        "deadline": "2025-12-25",
+        "state": 0,
+        "subTasks": []
+      },
+      {
+        "id": "249bb749-cb6d-4119-93c0-95dd50d2e98d",
+        "name": "Testear juego",
+        "users": [
+          "f0a0246d-2fc7-4294-a835-ed1e2c6eadc5"
+        ],
+        "description": "Probar que el juego funciona correctamente antes de ser presentado.",
+        "hoursDedicated": "00:00:00",
+        "startDate": "2025-12-22",
+        "deadline": "2025-12-26",
+        "state": 0,
         "subTasks": []
       }
     ]
   },
   {
-    "id": "8e8f1d1e-14e2-45e3-925f-c9271fa95480",
-    "name": "HopHop",
-    "description": "Juego para niños de animales que corren",
-    "startDate": "2025-11-27T19:58:54.447859+01:00",
-    "endDate": "2026-01-08T19:58:54",
+    "id": "76f99841-4af8-4147-8cf0-bb4f37641a46",
+    "name": "Kalendula",
+    "description": "App de gestión de proyectos.",
+    "startDate": "2025-12-13",
+    "endDate": "2026-02-13",
     "users": [
-      "manager@gmail.com",
-      "lui@gmail.com"
+      "f0a0246d-2fc7-4294-a835-ed1e2c6eadc5",
+      "2760bce0-6e4c-46ea-af8b-6770a3b2124f"
     ],
     "tasks": [
       {
-        "Id": "d1220ac9-79f7-4c4f-b35d-be6e0d414508",
-        "name": "Manual de identidad",
+        "id": "a2ef721a-840f-4ecb-8196-0fd33de13bc5",
+        "name": "Diseñar prototipo",
         "users": [
-          "lui@gmail.com"
+          "f0a0246d-2fc7-4294-a835-ed1e2c6eadc5"
         ],
-        "description": "Creacion y diseño del manual de identidad",
-        "hoursDedicated": 0.0,
-        "startDate": "2026-01-01T19:59:21",
-        "deadline": "2026-01-23T19:59:21",
-        "state": "Pendiente",
+        "description": "Crear el prototipo de la app para presentar al cliente.",
+        "hoursDedicated": "00:00:00",
+        "startDate": "2025-12-12",
+        "deadline": "2025-12-12",
+        "state": 0,
         "subTasks": []
-      },
+      }
+    ]
+  },
+  {
+    "id": "6cd71b14-f844-4bc6-a8d1-a8c79cf136a0",
+    "name": "AtrapaFormas",
+    "description": "Juego de atrapar formas geometricas para niños de 5 años.",
+    "startDate": "2025-12-24",
+    "endDate": "2026-07-24",
+    "users": [
+      "f0a0246d-2fc7-4294-a835-ed1e2c6eadc5",
+      "2760bce0-6e4c-46ea-af8b-6770a3b2124f"
+    ],
+    "tasks": [
       {
-        "Id": "2cb42171-8949-48b2-bf63-8c52226fb3d6",
-        "name": "Programar juego",
+        "id": "d788a405-4d7e-4d54-8d51-957f4c9e1422",
+        "name": "Definir la estructura.",
         "users": [
-          "lui@gmail.com"
+          "2760bce0-6e4c-46ea-af8b-6770a3b2124f"
         ],
-        "description": "Programar funciones de animaciones y colisiones",
-        "hoursDedicated": 0.0,
-        "startDate": "2026-02-23T20:02:50",
-        "deadline": "2026-02-27T20:02:50",
-        "state": "En Progreso",
+        "description": "Creación y documentación de la estructura del proyecto.",
+        "hoursDedicated": "00:00:00",
+        "startDate": "2026-01-15",
+        "deadline": "2026-01-18",
+        "state": 0,
         "subTasks": []
       }
     ]

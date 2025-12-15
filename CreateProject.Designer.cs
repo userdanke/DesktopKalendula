@@ -63,6 +63,7 @@
             this.panelFormulario.Name = "panelFormulario";
             this.panelFormulario.Size = new System.Drawing.Size(871, 830);
             this.panelFormulario.TabIndex = 0;
+            this.panelFormulario.Paint += new System.Windows.Forms.PaintEventHandler(this.panelFormulario_Paint);
             // 
             // labelAñadirUsuarios
             // 

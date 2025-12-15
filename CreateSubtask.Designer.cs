@@ -1,6 +1,6 @@
 ﻿namespace DesktopKalendula
 {
-    partial class CreateTask
+    partial class CreateSubtask
     {
         /// <summary>
         /// Required designer variable.
@@ -29,24 +29,22 @@
         private void InitializeComponent()
         {
             this.panelFormulario = new System.Windows.Forms.Panel();
+            this.mtbHoursDedicated = new System.Windows.Forms.MaskedTextBox();
             this.labelHoursDedicated = new System.Windows.Forms.Label();
             this.comboBoxEstado = new System.Windows.Forms.ComboBox();
-            this.checkedListBoxUsuarios = new System.Windows.Forms.CheckedListBox();
             this.labelEstado = new System.Windows.Forms.Label();
-            this.labelUsuarios = new System.Windows.Forms.Label();
             this.labelAñadirUsuarios = new System.Windows.Forms.Label();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonCrear = new System.Windows.Forms.Button();
             this.dateTimePickerFin = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerInicio = new System.Windows.Forms.DateTimePicker();
-            this.textBoxDescripcionTarea = new System.Windows.Forms.TextBox();
-            this.textBoxNombreTarea = new System.Windows.Forms.TextBox();
+            this.textBoxDescripcionSubtarea = new System.Windows.Forms.TextBox();
+            this.textBoxNombreSubtarea = new System.Windows.Forms.TextBox();
             this.labelFechaFin = new System.Windows.Forms.Label();
             this.labelFechaInicio = new System.Windows.Forms.Label();
             this.labelDescripcionTarea = new System.Windows.Forms.Label();
             this.labelNombreTarea = new System.Windows.Forms.Label();
             this.labelTitulo = new System.Windows.Forms.Label();
-            this.mtbHoursDedicated = new System.Windows.Forms.MaskedTextBox();
             this.panelFormulario.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,35 +54,42 @@
             this.panelFormulario.Controls.Add(this.mtbHoursDedicated);
             this.panelFormulario.Controls.Add(this.labelHoursDedicated);
             this.panelFormulario.Controls.Add(this.comboBoxEstado);
-            this.panelFormulario.Controls.Add(this.checkedListBoxUsuarios);
             this.panelFormulario.Controls.Add(this.labelEstado);
-            this.panelFormulario.Controls.Add(this.labelUsuarios);
             this.panelFormulario.Controls.Add(this.labelAñadirUsuarios);
             this.panelFormulario.Controls.Add(this.buttonCancelar);
             this.panelFormulario.Controls.Add(this.buttonCrear);
             this.panelFormulario.Controls.Add(this.dateTimePickerFin);
             this.panelFormulario.Controls.Add(this.dateTimePickerInicio);
-            this.panelFormulario.Controls.Add(this.textBoxDescripcionTarea);
-            this.panelFormulario.Controls.Add(this.textBoxNombreTarea);
+            this.panelFormulario.Controls.Add(this.textBoxDescripcionSubtarea);
+            this.panelFormulario.Controls.Add(this.textBoxNombreSubtarea);
             this.panelFormulario.Controls.Add(this.labelFechaFin);
             this.panelFormulario.Controls.Add(this.labelFechaInicio);
             this.panelFormulario.Controls.Add(this.labelDescripcionTarea);
             this.panelFormulario.Controls.Add(this.labelNombreTarea);
             this.panelFormulario.Controls.Add(this.labelTitulo);
-            this.panelFormulario.Location = new System.Drawing.Point(205, 73);
+            this.panelFormulario.Location = new System.Drawing.Point(163, 43);
             this.panelFormulario.Name = "panelFormulario";
             this.panelFormulario.Size = new System.Drawing.Size(871, 830);
-            this.panelFormulario.TabIndex = 1;
+            this.panelFormulario.TabIndex = 2;
+            // 
+            // mtbHoursDedicated
+            // 
+            this.mtbHoursDedicated.Location = new System.Drawing.Point(92, 492);
+            this.mtbHoursDedicated.Mask = "00:00";
+            this.mtbHoursDedicated.Name = "mtbHoursDedicated";
+            this.mtbHoursDedicated.Size = new System.Drawing.Size(51, 20);
+            this.mtbHoursDedicated.TabIndex = 18;
+            this.mtbHoursDedicated.ValidatingType = typeof(System.DateTime);
+            this.mtbHoursDedicated.Validating += new System.ComponentModel.CancelEventHandler(this.mtbHoursDedicated_Validating);
             // 
             // labelHoursDedicated
             // 
             this.labelHoursDedicated.AutoSize = true;
-            this.labelHoursDedicated.Location = new System.Drawing.Point(91, 586);
+            this.labelHoursDedicated.Location = new System.Drawing.Point(91, 466);
             this.labelHoursDedicated.Name = "labelHoursDedicated";
             this.labelHoursDedicated.Size = new System.Drawing.Size(85, 13);
             this.labelHoursDedicated.TabIndex = 17;
             this.labelHoursDedicated.Text = "Hours dedicated";
-            this.labelHoursDedicated.Click += new System.EventHandler(this.label1_Click);
             // 
             // comboBoxEstado
             // 
@@ -93,15 +98,6 @@
             this.comboBoxEstado.Name = "comboBoxEstado";
             this.comboBoxEstado.Size = new System.Drawing.Size(121, 21);
             this.comboBoxEstado.TabIndex = 15;
-            this.comboBoxEstado.SelectedIndexChanged += new System.EventHandler(this.comboBoxEstado_SelectedIndexChanged);
-            // 
-            // checkedListBoxUsuarios
-            // 
-            this.checkedListBoxUsuarios.FormattingEnabled = true;
-            this.checkedListBoxUsuarios.Location = new System.Drawing.Point(92, 486);
-            this.checkedListBoxUsuarios.Name = "checkedListBoxUsuarios";
-            this.checkedListBoxUsuarios.Size = new System.Drawing.Size(453, 94);
-            this.checkedListBoxUsuarios.TabIndex = 14;
             // 
             // labelEstado
             // 
@@ -111,15 +107,6 @@
             this.labelEstado.Size = new System.Drawing.Size(32, 13);
             this.labelEstado.TabIndex = 13;
             this.labelEstado.Text = "State";
-            // 
-            // labelUsuarios
-            // 
-            this.labelUsuarios.AutoSize = true;
-            this.labelUsuarios.Location = new System.Drawing.Point(93, 459);
-            this.labelUsuarios.Name = "labelUsuarios";
-            this.labelUsuarios.Size = new System.Drawing.Size(54, 13);
-            this.labelUsuarios.TabIndex = 12;
-            this.labelUsuarios.Text = "Add users";
             // 
             // labelAñadirUsuarios
             // 
@@ -132,7 +119,7 @@
             // buttonCancelar
             // 
             this.buttonCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancelar.Location = new System.Drawing.Point(397, 683);
+            this.buttonCancelar.Location = new System.Drawing.Point(397, 563);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(119, 23);
             this.buttonCancelar.TabIndex = 10;
@@ -143,11 +130,11 @@
             // buttonCrear
             // 
             this.buttonCrear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCrear.Location = new System.Drawing.Point(92, 670);
+            this.buttonCrear.Location = new System.Drawing.Point(92, 550);
             this.buttonCrear.Name = "buttonCrear";
             this.buttonCrear.Size = new System.Drawing.Size(119, 23);
             this.buttonCrear.TabIndex = 9;
-            this.buttonCrear.Text = "Create task";
+            this.buttonCrear.Text = "Create Subtask";
             this.buttonCrear.UseVisualStyleBackColor = true;
             this.buttonCrear.Click += new System.EventHandler(this.buttonCrear_Click);
             // 
@@ -169,24 +156,24 @@
             this.dateTimePickerInicio.Size = new System.Drawing.Size(451, 20);
             this.dateTimePickerInicio.TabIndex = 7;
             // 
-            // textBoxDescripcionTarea
+            // textBoxDescripcionSubtarea
             // 
-            this.textBoxDescripcionTarea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
-            this.textBoxDescripcionTarea.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDescripcionTarea.Location = new System.Drawing.Point(94, 191);
-            this.textBoxDescripcionTarea.Multiline = true;
-            this.textBoxDescripcionTarea.Name = "textBoxDescripcionTarea";
-            this.textBoxDescripcionTarea.Size = new System.Drawing.Size(449, 78);
-            this.textBoxDescripcionTarea.TabIndex = 6;
+            this.textBoxDescripcionSubtarea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            this.textBoxDescripcionSubtarea.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDescripcionSubtarea.Location = new System.Drawing.Point(94, 191);
+            this.textBoxDescripcionSubtarea.Multiline = true;
+            this.textBoxDescripcionSubtarea.Name = "textBoxDescripcionSubtarea";
+            this.textBoxDescripcionSubtarea.Size = new System.Drawing.Size(449, 78);
+            this.textBoxDescripcionSubtarea.TabIndex = 6;
             // 
-            // textBoxNombreTarea
+            // textBoxNombreSubtarea
             // 
-            this.textBoxNombreTarea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
-            this.textBoxNombreTarea.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxNombreTarea.Location = new System.Drawing.Point(92, 147);
-            this.textBoxNombreTarea.Name = "textBoxNombreTarea";
-            this.textBoxNombreTarea.Size = new System.Drawing.Size(451, 13);
-            this.textBoxNombreTarea.TabIndex = 5;
+            this.textBoxNombreSubtarea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            this.textBoxNombreSubtarea.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxNombreSubtarea.Location = new System.Drawing.Point(92, 147);
+            this.textBoxNombreSubtarea.Name = "textBoxNombreSubtarea";
+            this.textBoxNombreSubtarea.Size = new System.Drawing.Size(451, 13);
+            this.textBoxNombreSubtarea.TabIndex = 5;
             // 
             // labelFechaFin
             // 
@@ -220,39 +207,31 @@
             this.labelNombreTarea.AutoSize = true;
             this.labelNombreTarea.Location = new System.Drawing.Point(89, 124);
             this.labelNombreTarea.Name = "labelNombreTarea";
-            this.labelNombreTarea.Size = new System.Drawing.Size(38, 13);
+            this.labelNombreTarea.Size = new System.Drawing.Size(35, 13);
             this.labelNombreTarea.TabIndex = 1;
-            this.labelNombreTarea.Text = "Name ";
+            this.labelNombreTarea.Text = "Name";
             // 
             // labelTitulo
             // 
             this.labelTitulo.AutoSize = true;
             this.labelTitulo.Location = new System.Drawing.Point(229, 54);
             this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Size = new System.Drawing.Size(81, 13);
+            this.labelTitulo.Size = new System.Drawing.Size(77, 13);
             this.labelTitulo.TabIndex = 0;
-            this.labelTitulo.Text = "Add a new task";
+            this.labelTitulo.Text = "Add a Subtask";
             // 
-            // mtbHoursDedicated
-            // 
-            this.mtbHoursDedicated.Location = new System.Drawing.Point(95, 602);
-            this.mtbHoursDedicated.Mask = "00:00";
-            this.mtbHoursDedicated.Name = "mtbHoursDedicated";
-            this.mtbHoursDedicated.Size = new System.Drawing.Size(51, 20);
-            this.mtbHoursDedicated.TabIndex = 19;
-            this.mtbHoursDedicated.ValidatingType = typeof(System.DateTime);
-            // 
-            // CreateTask
+            // CreateSubtask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(235)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(1332, 827);
+            this.ClientSize = new System.Drawing.Size(1197, 916);
             this.Controls.Add(this.panelFormulario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "CreateTask";
-            this.Text = "CreateTask";
-            this.Load += new System.EventHandler(this.CreateTask_Load);
+            this.Name = "CreateSubtask";
+            this.Text = "CreateSubtask";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.CreateSubtask_Load);
             this.panelFormulario.ResumeLayout(false);
             this.panelFormulario.PerformLayout();
             this.ResumeLayout(false);
@@ -262,23 +241,21 @@
         #endregion
 
         private System.Windows.Forms.Panel panelFormulario;
+        private System.Windows.Forms.Label labelHoursDedicated;
+        private System.Windows.Forms.ComboBox comboBoxEstado;
+        private System.Windows.Forms.Label labelEstado;
         private System.Windows.Forms.Label labelAñadirUsuarios;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Button buttonCrear;
         private System.Windows.Forms.DateTimePicker dateTimePickerFin;
         private System.Windows.Forms.DateTimePicker dateTimePickerInicio;
-        private System.Windows.Forms.TextBox textBoxDescripcionTarea;
-        private System.Windows.Forms.TextBox textBoxNombreTarea;
+        private System.Windows.Forms.TextBox textBoxDescripcionSubtarea;
+        private System.Windows.Forms.TextBox textBoxNombreSubtarea;
         private System.Windows.Forms.Label labelFechaFin;
         private System.Windows.Forms.Label labelFechaInicio;
         private System.Windows.Forms.Label labelDescripcionTarea;
         private System.Windows.Forms.Label labelNombreTarea;
         private System.Windows.Forms.Label labelTitulo;
-        private System.Windows.Forms.Label labelUsuarios;
-        private System.Windows.Forms.Label labelEstado;
-        private System.Windows.Forms.CheckedListBox checkedListBoxUsuarios;
-        private System.Windows.Forms.ComboBox comboBoxEstado;
-        private System.Windows.Forms.Label labelHoursDedicated;
         private System.Windows.Forms.MaskedTextBox mtbHoursDedicated;
     }
 }

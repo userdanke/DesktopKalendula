@@ -192,10 +192,12 @@ namespace DesktopKalendula
             }
 
 
-            if (dateTimePickerFin.Value < dateTimePickerInicio.Value)
+            DateTime start = dateTimePickerInicio.Value.Date;
+            DateTime end = dateTimePickerFin.Value.Date;
+
+            if (end < start)
             {
-                MessageBox.Show("La fecha de fin no puede ser igual a la fecha de inicio.");
-                dateTimePickerFin.Focus();
+                MessageBox.Show("La fecha de fin no puede ser anterior a la fecha de inicio.");
                 return;
             }
 
@@ -206,18 +208,36 @@ namespace DesktopKalendula
                 return;
             }
 
-            List<string> emailsMiembros = miembros.Select(u => u.email).ToList();
+            List<string> idsMiembros = miembros.Select(u => u.id).ToList();
 
             Project proyecto = new Project
             {
                 id = Guid.NewGuid().ToString(),
                 name = textBoxNombreProyecto.Text,
                 description = textBoxDescripcionProyecto.Text,
-                startDate = dateTimePickerInicio.Value,
-                endDate = dateTimePickerFin.Value,
-                users = emailsMiembros,
+                startDate = start,
+                endDate = end,
+                users = idsMiembros,
                 tasks = new List<Task>()
             };
+
+            string nuevoProyectoId = proyecto.id;
+
+            foreach(var miembroSeleccionado in miembros)
+            {
+                var usuarioGlobal = usuariosRegistrados.FirstOrDefault(u => u.id == miembroSeleccionado.id);
+
+                if (usuarioGlobal != null)
+                {
+                    if (!usuarioGlobal.projects.Contains(nuevoProyectoId))
+                    {
+                        usuarioGlobal.projects.Add(nuevoProyectoId);
+                    }
+
+                    usuarioGlobal.projects.Add(nuevoProyectoId);
+                }
+            }
+            GuardarUsuarios(usuariosRegistrados);
 
             GuardarProyecto(proyecto);
             MessageBox.Show("Proyecto creado exitosamente.");
@@ -243,10 +263,27 @@ namespace DesktopKalendula
 
             proyectos.Add(proyecto);
 
-            string nuevoJson = JsonConvert.SerializeObject(proyectos, Formatting.Indented);
+            var settings = new JsonSerializerSettings
+            {
+                Formatting = Formatting.Indented,
+                Converters = new List<JsonConverter>
+                {
+                    new CustomDateTimeConverter2()
+                }
+            };
+
+            string nuevoJson = JsonConvert.SerializeObject(proyectos, settings);
             File.WriteAllText(rutaJson, nuevoJson);
 
 
+        }
+
+        private void GuardarUsuarios (List<InfoUser> usuarios)
+        {
+            string rutaJson = Path.Combine(Application.StartupPath, "Json", "Usuarios.Json");
+
+            string json = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
+            File.WriteAllText(rutaJson, json);
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
@@ -254,5 +291,9 @@ namespace DesktopKalendula
             this.Close();
         }
 
+        private void panelFormulario_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

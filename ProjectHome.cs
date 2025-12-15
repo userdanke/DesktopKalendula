@@ -18,9 +18,9 @@ namespace DesktopKalendula
         private MenuLateral menu;
         private Project currentProject;
         private Panel panelTablero;
-        private Panel panelPendiente;
-        private Panel panelEnProgreso;
-        private Panel panelCompletada;
+        private FlowLayoutPanel colPendiente;
+        private FlowLayoutPanel colEnProgreso;
+        private FlowLayoutPanel colCompletada;
 
         public ProjectHome(Project project)
         {
@@ -106,37 +106,30 @@ namespace DesktopKalendula
 
         private void InicializarTablero()
         {
-            panelTablero = new Panel();
-            panelTablero.Size = new Size(1200, 600);
-            panelTablero.Location = new Point(this.ClientSize.Width / 2, 400);
-            panelTablero.AutoScroll = true;
-            panelTablero.BackColor = Color.FromArgb(240, 240, 240);
+            panelTablero = new Panel
+            {
+                Size = new Size(1200, 600),
+                Location = new Point(this.ClientSize.Width / 2, 400),
+                BackColor = Color.FromArgb(240, 240, 240),
+                AutoScroll = true
+            };
+
             this.Controls.Add(panelTablero);
 
             int anchoColumna = panelTablero.Width / 3;
 
-            panelPendiente = new Panel();
-            panelPendiente.BackColor = Color.LightGray;
-            panelPendiente.Size = new Size(anchoColumna - 10, panelTablero.Height);
-            panelPendiente.Location = new Point(0, 0);
-            panelPendiente.AllowDrop = true;
-            panelTablero.Controls.Add(panelPendiente);
+            colPendiente = CrearColumna(anchoColumna, "Pendiente", Color.AliceBlue);
+            colPendiente.Location = new Point(0, 0);
 
-            panelEnProgreso = new Panel();
-            panelEnProgreso.BackColor = Color.LightYellow;
-            panelEnProgreso.Size = new Size(anchoColumna - 10, panelTablero.Height);
-            panelEnProgreso.Location = new Point(anchoColumna, 0);
-            panelEnProgreso.AllowDrop = true;
-            panelTablero.Controls.Add(panelEnProgreso);
+            colEnProgreso = CrearColumna(anchoColumna, "En Progreso", Color.Black);
+            colEnProgreso.Location = new Point(anchoColumna, 0);
 
-            panelCompletada = new Panel();
-            panelCompletada.BackColor = Color.LightGreen;
-            panelCompletada.Size = new Size(anchoColumna - 10, panelTablero.Height);
-            panelCompletada.Location = new Point(2 * anchoColumna, 0);
-            panelCompletada.AllowDrop = true;
-            panelTablero.Controls.Add(panelCompletada);
+            colCompletada = CrearColumna(anchoColumna, "Completada", Color.LightGreen);
+            colCompletada.Location = new Point(2 * anchoColumna, 0);
 
-            ConfigurarDragDrop();
+            panelTablero.Controls.Add(colPendiente);
+            panelTablero.Controls.Add(colEnProgreso);
+            panelTablero.Controls.Add(colCompletada);
 
             foreach (var tarea in currentProject.tasks)
             {
@@ -144,18 +137,142 @@ namespace DesktopKalendula
             }
         }
 
+        private FlowLayoutPanel CrearColumna(int ancho, string estado, Color color)
+        {
+            var col = new FlowLayoutPanel
+            {
+                Width = ancho - 20,
+                Height = panelTablero.Height - 20,
+                BackColor = color,
+                FlowDirection = FlowDirection.TopDown,
+                WrapContents = false,
+                Padding = new Padding(10),
+                AutoScroll = true,
+                AllowDrop = true
+
+            };
+
+            col.DragEnter += (s, e) => e.Effect = DragDropEffects.Move;
+            col.DragDrop += (s, e) =>
+            {
+                var tarjeta = (Panel)e.Data.GetData(typeof(Panel));
+                var tarea = (Task)tarjeta.Tag;
+
+                if (Enum.TryParse(estado.Replace("", ""), true, out TaskState nuevoEstado))
+                {
+                    tarea.state = nuevoEstado;
+                }
+                else
+                {
+                    Console.WriteLine($"Error al asignar el estado: {estado}");
+                }
+
+                tarjeta.Parent.Controls.Remove(tarjeta);
+                col.Controls.Add(tarjeta);
+                GuardarProyecto(currentProject);
+            };
+
+            return col;
+
+        }
         private void CrearTarjetaTarea(Task tarea)
         {
-            Panel tarjeta = new Panel();
-            tarjeta.Size = new Size(200, 100);
-            tarjeta.BackColor = Color.LightBlue;
-            tarjeta.BorderStyle = BorderStyle.FixedSingle;
-            tarjeta.Tag = tarea;
+            Panel tarjeta = new Panel
+            {
+                Width = 320,
+                Height = 120,
+                Size = new Size(220, 100),
+                BackColor = Color.LightBlue,
+                BorderStyle = BorderStyle.FixedSingle,
+                Tag = tarea,
+                Margin = new Padding(5)
 
-            Label lblNombre = new Label();
-            lblNombre.Text = tarea.name;
-            lblNombre.Dock = DockStyle.Top;
-            lblNombre.Font = new Font("Rubik", 10, FontStyle.Bold);
+            };
+
+            Label lbl = new Label
+            {
+                Text = tarea.name,
+                Dock = DockStyle.Top,
+                Font = new Font("Rubik", 10, FontStyle.Bold),
+                Height = 25,
+            };
+
+            tarjeta.Controls.Add(lbl);
+
+            Point dragStart = Point.Empty;
+
+            tarjeta.MouseDown += (s, e) =>
+            {
+                dragStart = e.Location;
+            };
+
+            tarjeta.MouseMove += (s, e) =>
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    int dist = Math.Abs(e.X - dragStart.X) + Math.Abs(e.Y - dragStart.Y);
+                    if (dist > 10)
+                        {
+                        tarjeta.DoDragDrop(tarjeta, DragDropEffects.Move);
+                    }
+                }
+            };
+
+            buttonAgregar.Location = new Point(80, 60);
+            buttonAgregar.Click += (s, e) =>
+            {
+                CreateSubtask formSub = new CreateSubtask(tarea.users);
+                if (formSub.ShowDialog() == DialogResult.OK)
+                {
+                    SubTasks sub = formSub.SubTareaCreada as SubTasks;
+                    sub.parentTaskId = tarea.id;
+                    tarea.subTasks.Add(sub);
+
+                    GuardarProyecto(currentProject);
+
+                    Panel subTarjeta = new Panel
+                    {
+                        Width = tarjeta.Width - 20,
+                        Height = 60,
+                        BackColor = Color.LightCyan,
+                        BorderStyle = BorderStyle.FixedSingle,
+                        Tag = sub,
+                        Margin = new Padding(5)
+                    };
+
+                    Label lblSub = new Label
+                    {
+                        Text = sub.name,
+                        Dock = DockStyle.Top,
+                        Height = 20
+                    };
+                    subTarjeta.Controls.Add(lblSub);
+
+                    Button btnEditarSub = new Button { Text = "Editar", Width = 60, Height = 20, Top = 25, Left = 5 };
+                    btnEditarSub.Click += (sender2, e2) =>
+                    {
+                        CreateSubtask formEditar = new CreateSubtask(sub.users);
+                        formEditar.SubTareaEnEdicion = sub;
+                        if (formEditar.ShowDialog() == DialogResult.OK)
+                        {
+                            lblSub.Text = sub.name;
+                            GuardarProyecto(currentProject);
+                        }
+                    };
+                    subTarjeta.Controls.Add(btnEditarSub);
+
+                    Button btnEliminarSub = new Button { Text = "Eliminar", Width = 60, Height = 20, Top = 25, Left = 70 };
+                    btnEliminarSub.Click += (sender2, e2) =>
+                    {
+                        tarea.subTasks.Remove(sub);
+                        tarjeta.Controls.Remove(subTarjeta);
+                        GuardarProyecto(currentProject);
+                    };
+                    subTarjeta.Controls.Add(btnEliminarSub);
+
+                    tarjeta.Controls.Add(subTarjeta);
+                }
+            };
 
             buttonEditar.Location = new Point(120, 60);
             buttonEditar.FlatAppearance.BorderSize = 0;
@@ -164,11 +281,10 @@ namespace DesktopKalendula
                 CreateTask formEditar = new CreateTask(currentProject.users, tarea);
                 if (formEditar.ShowDialog() == DialogResult.OK)
                 {
-                    // Actualizar la tarjeta con la información editada
-                    Label lbl = tarjeta.Controls.OfType<Label>().First();
-                    lbl.Text = tarea.name;
 
-                    // Guardar cambios
+                    Label lblDatos = tarjeta.Controls.OfType<Label>().First();
+                    lblDatos.Text = tarea.name;
+
                     GuardarProyecto(currentProject);
                     MessageBox.Show("Tarea actualizada correctamente.");
                 }
@@ -177,60 +293,50 @@ namespace DesktopKalendula
 
             buttonEliminar.Location = new Point(160, 60);
             buttonEliminar.FlatAppearance.BorderSize = 0;
-
-            tarjeta.Controls.Add(buttonEditar);
-            tarjeta.Controls.Add(buttonEliminar);
-            tarjeta.Controls.Add(lblNombre);
-
-            tarjeta.Controls.Add(lblNombre);
-
-            tarjeta.MouseDown += (s, e) =>
+            buttonEliminar.Click += (s, e) =>
             {
-                tarjeta.DoDragDrop(tarjeta, DragDropEffects.Move);
+                DialogResult resultado = MessageBox.Show(
+                    $"Are you sure you want to delete this task" + tarea.name,
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                    );
+
+                if (resultado == DialogResult.Yes)
+                {
+                    bool eliminada = currentProject.tasks.Remove(tarea);
+
+                    if (eliminada)
+                    {
+                        tarjeta.Parent.Controls.Remove(tarjeta);
+                        GuardarProyecto(currentProject);
+
+                        MessageBox.Show("The task has been successfully deleted");
+                    }
+                    else
+                    {
+                        MessageBox.Show("The task couldn't be deleted", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             };
 
-            switch (tarea.state)
+            tarjeta.Controls.Add(buttonAgregar);
+            tarjeta.Controls.Add(buttonEditar);
+            tarjeta.Controls.Add(buttonEliminar);
+
+            switch(tarea.state)
             {
-                case "Pendiente":
-                    panelPendiente.Controls.Add(tarjeta);
+                case TaskState.ToDo:
+                    colPendiente.Controls.Add(tarjeta);
                     break;
-                case "En Progreso":
-                    panelEnProgreso.Controls.Add(tarjeta);
+                case TaskState.InProgress:
+                    colEnProgreso.Controls.Add(tarjeta);
                     break;
-                case "Completada":
-                    panelCompletada.Controls.Add(tarjeta);
+                case TaskState.Complete:
+                    colCompletada.Controls.Add(tarjeta);
                     break;
             }
         }
-            
-
-        private void ConfigurarDragDrop()
-        {
-            Panel[] columnas = { panelPendiente, panelEnProgreso, panelCompletada };
-
-            foreach (var col in columnas)
-            {
-                col.DragEnter += (s, e) => e.Effect = DragDropEffects.Move;
-
-                col.DragDrop += (s, e) =>
-                {
-                    Panel tarjeta = (Panel)e.Data.GetData(typeof(Panel));
-                    Panel destino = (Panel)s;
-
-                    Task tarea = (Task)tarjeta.Tag;
-
-                    if (destino == panelPendiente) tarea.state = "Pendiente";
-                    else if (destino == panelEnProgreso) tarea.state = "En Progreso";
-                    else if (destino == panelCompletada) tarea.state = "Completada";
-
-                    tarjeta.Parent.Controls.Remove(tarjeta);
-                    destino.Controls.Add(tarjeta);
-                    GuardarProyecto(currentProject);
-                };
-            }
-        }
-
-
 
         public void GuardarProyecto(Project proyectoActual)
         {
@@ -253,7 +359,15 @@ namespace DesktopKalendula
                 proyectos.Add(proyectoActual);
             }
 
-            string nuevoJson = JsonConvert.SerializeObject(proyectos, Formatting.Indented);
+            var dateConverter = new CustomDateTimeConverter2();
+
+            var settings = new JsonSerializerSettings
+            {
+                Formatting = Formatting.Indented,
+                Converters = new List<JsonConverter> { dateConverter }
+            };
+
+            string nuevoJson = JsonConvert.SerializeObject(proyectos, settings);
             File.WriteAllText(rutaJson, nuevoJson);
         }
 
@@ -271,6 +385,16 @@ namespace DesktopKalendula
         }
 
         private void buttonEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAgregar_Click(object sender, EventArgs e)
         {
 
         }

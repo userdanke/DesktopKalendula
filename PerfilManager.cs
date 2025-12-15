@@ -102,6 +102,13 @@ namespace DesktopKalendula
         {
             string ruta = @"Diseño\LogoUser.png";
 
+            InfoUser manager = SesionActual.UsuarioActual;
+
+            if(manager == null || manager.role.ToLower() != "manager") {
+                MessageBox.Show("You are trying to access the manager's profile.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; 
+            }
+
             Label lblTitulo = new Label();
             lblTitulo.Text = "Manager Profile";
             lblTitulo.Font = Fuentes.Calistoga(40);
@@ -202,6 +209,24 @@ namespace DesktopKalendula
 
         }
 
+        private void buttonEditarDatos_Click(object sender, EventArgs e)
+        {
+            InfoUser manager = SesionActual.UsuarioActual;
+
+            if (manager != null ) {
+                MessageBox.Show("No user information found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            mostrarPanelEdicion(manager);
+        }
+
+        private void mostrarPanelEdicion(InfoUser manager)
+        {
+
+
+
+        }
     }
 }
 
