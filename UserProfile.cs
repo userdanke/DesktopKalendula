@@ -133,8 +133,6 @@ namespace DesktopKalendula
             btnCerrar.Click += (s, e) => this.Close();
             this.Controls.Add(btnCerrar);
 
-
-
         }
 
         private void AgregarDato(Panel panel, String titulo, String valor, ref int yPos, int spacing)

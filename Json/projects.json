@@ -9,34 +9,7 @@
       "f0a0246d-2fc7-4294-a835-ed1e2c6eadc5",
       "2760bce0-6e4c-46ea-af8b-6770a3b2124f"
     ],
-    "tasks": [
-      {
-        "id": "a82972b9-da8e-4faa-94bf-5545502e164c",
-        "name": "Crear base de datos.",
-        "users": [
-          "f0a0246d-2fc7-4294-a835-ed1e2c6eadc5"
-        ],
-        "description": "Crear la base de datos en mySQL.",
-        "hoursDedicated": "00:00:00",
-        "startDate": "2025-12-23",
-        "deadline": "2025-12-25",
-        "state": 0,
-        "subTasks": []
-      },
-      {
-        "id": "249bb749-cb6d-4119-93c0-95dd50d2e98d",
-        "name": "Testear juego",
-        "users": [
-          "f0a0246d-2fc7-4294-a835-ed1e2c6eadc5"
-        ],
-        "description": "Probar que el juego funciona correctamente antes de ser presentado.",
-        "hoursDedicated": "00:00:00",
-        "startDate": "2025-12-22",
-        "deadline": "2025-12-26",
-        "state": 0,
-        "subTasks": []
-      }
-    ]
+    "tasks": []
   },
   {
     "id": "76f99841-4af8-4147-8cf0-bb4f37641a46",
@@ -48,21 +21,7 @@
       "f0a0246d-2fc7-4294-a835-ed1e2c6eadc5",
       "2760bce0-6e4c-46ea-af8b-6770a3b2124f"
     ],
-    "tasks": [
-      {
-        "id": "a2ef721a-840f-4ecb-8196-0fd33de13bc5",
-        "name": "Diseñar prototipo",
-        "users": [
-          "f0a0246d-2fc7-4294-a835-ed1e2c6eadc5"
-        ],
-        "description": "Crear el prototipo de la app para presentar al cliente.",
-        "hoursDedicated": "00:00:00",
-        "startDate": "2025-12-12",
-        "deadline": "2025-12-12",
-        "state": 0,
-        "subTasks": []
-      }
-    ]
+    "tasks": []
   },
   {
     "id": "6cd71b14-f844-4bc6-a8d1-a8c79cf136a0",
@@ -86,7 +45,19 @@
         "startDate": "2026-01-15",
         "deadline": "2026-01-18",
         "state": 0,
-        "subTasks": []
+        "subTasks": [
+          {
+            "parentTaskId": "d788a405-4d7e-4d54-8d51-957f4c9e1422",
+            "id": "a279c7cb-b7ab-49a1-841e-8f867311c3a0",
+            "name": "Crear UML",
+            "users": [],
+            "description": "Establecer las funcione y su flujo.",
+            "hoursDedicated": "00:00:00",
+            "startDate": "2026-01-30",
+            "deadline": "2026-01-31",
+            "state": 0
+          }
+        ]
       }
     ]
   },
@@ -112,8 +83,8 @@
         "description": "Definir la estructura del programa en java",
         "hoursDedicated": "00:00:00",
         "startDate": "2025-12-25",
-        "deadline": "2025-12-26",
-        "state": 0,
+        "deadline": "2025-12-27",
+        "state": 1,
         "subTasks": [
           {
             "parentTaskId": "5567eaa6-e952-407f-852c-75205f1d38f6",
@@ -124,7 +95,7 @@
             "hoursDedicated": "00:00:00",
             "startDate": "2025-12-25",
             "deadline": "2025-12-26",
-            "state": 0
+            "state": 1
           }
         ]
       }
