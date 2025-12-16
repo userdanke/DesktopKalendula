@@ -15,6 +15,8 @@ namespace DesktopKalendula.Diseño
         private Timer timerMenu;
         private Form formularioPadre;
         private bool menuAbierto = false;
+        private Label lblNombre;
+        private Label lblCorreo;
 
         private const int ANCHO_MENU = 300;
         private const int VELOCIDAD = 70;
@@ -79,9 +81,19 @@ namespace DesktopKalendula.Diseño
             fotoPerfil.SizeMode = PictureBoxSizeMode.StretchImage;
             fotoPerfil.Click += (s, e) =>
             {
+                if (SesionActual.UsuarioActual == null) return;
 
-                PerfilManager perfil = new PerfilManager();
-                perfil.ShowDialog();
+                if(SesionActual.UsuarioActual.role.ToLower() == "manager")
+                {
+                    PerfilManager perfil = new PerfilManager();
+                    perfil.Show();
+                }
+                else
+                {
+                    UserProfile perfil = new UserProfile();
+                    perfil.Show();
+                }
+
 
             };
 
@@ -226,6 +238,18 @@ namespace DesktopKalendula.Diseño
         public bool EstaAbierto()
         {
             return menuAbierto;
+        }
+
+        public void ActualizarDatosUsuario (string nombre, string correo)
+        {
+            NombreUsuario = nombre;
+            CorreoUsuario = correo;
+
+            if(lblNombre != null)
+                lblNombre.Text = nombre;
+
+            if (lblCorreo != null)
+                lblCorreo.Text = correo;
         }
     }
 }

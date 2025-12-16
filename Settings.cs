@@ -16,5 +16,10 @@ namespace DesktopKalendula
         {
             InitializeComponent();
         }
+
+        private void Settings_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

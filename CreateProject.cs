@@ -136,7 +136,7 @@ namespace DesktopKalendula
             buttonCancelar.BackColor = Color.FromArgb(211, 145, 109);
 
             panelFormulario.Controls.Add(listaUsuarios);
-            string rutaJson = Path.Combine(Application.StartupPath, "Json", "Usuarios.json");
+            string rutaJson = Path.Combine(Application.StartupPath, "Json", "users.json");
             usuariosRegistrados = CargarUsuariosDesdeJson(rutaJson);
 
 
@@ -286,6 +286,12 @@ namespace DesktopKalendula
             string nuevoJson = JsonConvert.SerializeObject(proyectos, settings);
             File.WriteAllText(rutaJson, nuevoJson);
 
+
+        }
+
+        private void GuardarUsuarios (List<InfoUser> usuarios)
+        {
+            string rutaJson = Path.Combine(Application.StartupPath, "Json", "Usuarios.Json");
 
         }
 
