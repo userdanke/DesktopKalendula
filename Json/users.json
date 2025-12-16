@@ -13,7 +13,9 @@
     "username": "Edith Miranda",
     "password": "1234",
     "email": "edith@gmail.com",
-    "projects": []
+    "projects": [
+      "295a178c-9ca0-434f-afa9-b6ec144014ba"
+    ]
   },
   {
     "id": "6d222881-43c3-4063-9d54-538a1f16c24f",
@@ -21,7 +23,9 @@
     "username": "Ledys Maradiaga",
     "password": "1234",
     "email": "ledys@gmail.com",
-    "projects": []
+    "projects": [
+      "295a178c-9ca0-434f-afa9-b6ec144014ba"
+    ]
   },
   {
     "id": "d6419933-2136-40d9-afa7-07032feb3a4e",
@@ -29,7 +33,9 @@
     "username": "Daniil Loktev",
     "password": "1234",
     "email": "daniil@gmail.com",
-    "projects": []
+    "projects": [
+      "295a178c-9ca0-434f-afa9-b6ec144014ba"
+    ]
   },
   {
     "id": "8c4268ca-2f08-40a2-a2b6-f9365149fd46",
@@ -37,6 +43,8 @@
     "username": "Júlia Schmid",
     "password": "1234",
     "email": "julia@gmail.com",
-    "projects": []
+    "projects": [
+      "295a178c-9ca0-434f-afa9-b6ec144014ba"
+    ]
   }
 ]

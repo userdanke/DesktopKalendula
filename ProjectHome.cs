@@ -38,6 +38,11 @@ namespace DesktopKalendula
 
         private void OpenProject_Load(object sender, EventArgs e)
         {
+            Logo.Size = new Size(250, 85);
+            Logo.Location = new Point((this.ClientSize.Width - Logo.Width) / 2, 60);
+
+            panelDetails.Size = new Size(1500, 200);
+            panelDetails.Location = new Point((this.ClientSize.Width - panelDetails.Width) / 2, 180);
 
         }
 
@@ -120,13 +125,13 @@ namespace DesktopKalendula
 
             int anchoColumna = panelTablero.Width / 3;
 
-            colPendiente = CrearColumna(anchoColumna, "Pendiente", Color.AliceBlue);
+            colPendiente = CrearColumna(anchoColumna, "To Do", Color.AliceBlue);
             colPendiente.Location = new Point(0, 0);
 
-            colEnProgreso = CrearColumna(anchoColumna, "En Progreso", Color.Black);
+            colEnProgreso = CrearColumna(anchoColumna, "In Progress", Color.Black);
             colEnProgreso.Location = new Point(anchoColumna, 0);
 
-            colCompletada = CrearColumna(anchoColumna, "Completada", Color.LightGreen);
+            colCompletada = CrearColumna(anchoColumna, "Completed", Color.LightGreen);
             colCompletada.Location = new Point(2 * anchoColumna, 0);
 
             panelTablero.Controls.Add(colPendiente);
@@ -298,7 +303,7 @@ namespace DesktopKalendula
             buttonEliminar.Click += (s, e) =>
             {
                 DialogResult resultado = MessageBox.Show(
-                    $"Are you sure you want to delete this task" + tarea.name,
+                    $"Are you sure you want to delete this task " + tarea.name,
                     "Confirm Delete",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning
@@ -342,7 +347,7 @@ namespace DesktopKalendula
 
         public void GuardarProyecto(Project proyectoActual)
         {
-            string rutaJson = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Json", "Proyectos.json");
+            string rutaJson = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Json", "projects.json");
 
             List<Project> proyectos = new List<Project>();
 

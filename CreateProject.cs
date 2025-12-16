@@ -27,8 +27,10 @@ namespace DesktopKalendula
         private void CreateProject_Load(object sender, EventArgs e)
         {
 
-            this.Size = new Size(900, 900);
-            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Size = new Size(650, 800);
+            this.Location = new Point(
+                (Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
+                (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2);
 
             btnCerrar = new Button();
             btnCerrar.Text = "✕";
@@ -56,17 +58,17 @@ namespace DesktopKalendula
             this.Controls.Add(btnCerrar);
             this.Controls.Add(btnMinimizar);
 
-            panelFormulario.Location = new Point((this.Width - panelFormulario.Width) / 2, 100);
-            labelTitulo.Font = Fuentes.RubikBold(25);
-            labelTitulo.Location = new Point((panelFormulario.Width - labelTitulo.Width) / 2, 20);
+            panelFormulario.Location = new Point((this.Width - panelFormulario.Width) / 2, 60);
+            labelTitulo.Font = Fuentes.Calistoga(40);
+            labelTitulo.Location = new Point((this.panelFormulario.Width - labelTitulo.Width) / 2, 5);
             labelTitulo.ForeColor = Color.FromArgb(92, 135, 153);
 
-            labelNombreProyecto.Font = Fuentes.RubikRegular(12);
-            labelNombreProyecto.Location = new Point(this.panelFormulario.Width / 10, 110);
-            labelNombreProyecto.ForeColor = Color.FromArgb(61, 23, 0);
+            labelNombreProyecto.Font = Fuentes.RubikBold(12);
+            labelNombreProyecto.Location = new Point(this.panelFormulario.Width / 8, 130);
+            labelNombreProyecto.ForeColor = Color.FromArgb(92, 135, 153);
             textBoxNombreProyecto.Font = Fuentes.RubikRegular(12);
             textBoxNombreProyecto.ForeColor = Color.FromArgb(61, 23, 0);
-            textBoxNombreProyecto.Location = new Point(this.panelFormulario.Width / 9, 140);
+            textBoxNombreProyecto.Location = new Point(this.panelFormulario.Width / 3, 130);
             textBoxNombreProyecto.Multiline = true;
             textBoxNombreProyecto.Height = 25;
             textBoxNombreProyecto.KeyPress += (s, i) => {
@@ -76,60 +78,68 @@ namespace DesktopKalendula
                 }
             };
 
-            labelDescripcionProyecto.Font = Fuentes.RubikRegular(12);
-            labelDescripcionProyecto.Location = new Point(this.panelFormulario.Width / 10, 180);
-            labelDescripcionProyecto.ForeColor = Color.FromArgb(61, 23, 0);
+            labelDescripcionProyecto.Font = Fuentes.RubikBold(12);
+            labelDescripcionProyecto.Location = new Point(this.panelFormulario.Width / 8, 175);
+            labelDescripcionProyecto.ForeColor = Color.FromArgb(92, 135, 153);
             textBoxDescripcionProyecto.Font = Fuentes.RubikRegular(12);
             textBoxDescripcionProyecto.ForeColor = Color.FromArgb(61, 23, 0);
-            textBoxDescripcionProyecto.Location = new Point(this.panelFormulario.Width / 9, 210);
+            textBoxDescripcionProyecto.Location = new Point(this.panelFormulario.Width / 3, 175);
             textBoxDescripcionProyecto.Multiline = true;
             textBoxDescripcionProyecto.Height = 85;
 
-            labelFechaInicio.Font = Fuentes.RubikRegular(12);
-            labelFechaInicio.Location = new Point(this.panelFormulario.Width / 10, 320);
-            labelFechaInicio.ForeColor = Color.FromArgb(61, 23, 0);
+            labelFechaInicio.Font = Fuentes.RubikBold(12);
+            labelFechaInicio.Location = new Point(this.panelFormulario.Width / 8, 285);
+            labelFechaInicio.ForeColor = Color.FromArgb(92, 135, 153);
             labelFechaInicio.BringToFront();
             dateTimePickerInicio.Font = Fuentes.RubikRegular(12);
-            dateTimePickerInicio.Location = new Point(this.panelFormulario.Width / 9, 350);
+            dateTimePickerInicio.Location = new Point(this.panelFormulario.Width / 3, 285);
 
 
-            labelFechaFin.Font = Fuentes.RubikRegular(12);
-            labelFechaFin.Location = new Point(this.panelFormulario.Width / 10, 390);
-            labelFechaFin.ForeColor = Color.FromArgb(61, 23, 0);
+            labelFechaFin.Font = Fuentes.RubikBold(12);
+            labelFechaFin.Location = new Point(this.panelFormulario.Width / 8, 325);
+            labelFechaFin.ForeColor = Color.FromArgb(92, 135, 153);
             dateTimePickerFin.Font = Fuentes.RubikRegular(12);
-            dateTimePickerFin.Location = new Point(this.panelFormulario.Width / 9, 420);
+            dateTimePickerFin.Location = new Point(this.panelFormulario.Width / 3, 325);
+
+            labelAñadirUsuarios.Font = Fuentes.RubikBold(20);
+            labelAñadirUsuarios.Location = new Point(this.panelFormulario.Width / 3, 375);
+            labelAñadirUsuarios.ForeColor = Color.FromArgb(92, 135, 153);
+
+            listaUsuarios = new ListView();
+            listaUsuarios.View = View.Details;
+            listaUsuarios.BackColor = Color.FromArgb(252, 250, 249);
+            listaUsuarios.ForeColor = Color.FromArgb(61, 23, 0);
+            listaUsuarios.Font = Fuentes.RubikRegular(12);
+            listaUsuarios.CheckBoxes = true;
+            listaUsuarios.GridLines = false;
+            listaUsuarios.FullRowSelect = true;
+            listaUsuarios.Size = new Size(panelFormulario.Width - 190, 180);
+            listaUsuarios.Location = new Point(this.panelFormulario.Width / 7, 420); 
+            listaUsuarios.Columns.Add("Users", 260);
+            listaUsuarios.Columns.Add("Rol", 180);
 
             int spacing = 20;
             int totalWidth = buttonCrearProyecto.Width + buttonCancelar.Width + spacing;
 
-            int startX = (panelFormulario.Width - totalWidth) / 5;
+            int startX = (panelFormulario.Width - totalWidth) / 4;
 
             buttonCrearProyecto.Font = Fuentes.RubikBold(15);
             buttonCrearProyecto.Size = new Size(210, 50);
-            buttonCrearProyecto.Location = new Point(startX, 480);
+            buttonCrearProyecto.Location = new Point(startX, 630);
             buttonCrearProyecto.ForeColor = Color.FromArgb(252, 250, 249);
             buttonCrearProyecto.BackColor = Color.FromArgb(204, 163, 193);
 
             buttonCancelar.Font = Fuentes.RubikBold(15);
             buttonCancelar.Size = new Size(210, 50);
-            buttonCancelar.Location = new Point(startX + buttonCrearProyecto.Width + spacing, 480);
+            buttonCancelar.Location = new Point(startX + buttonCrearProyecto.Width + spacing, 630);
             buttonCancelar.ForeColor = Color.FromArgb(252, 250, 249);
             buttonCancelar.BackColor = Color.FromArgb(211, 145, 109);
-
-            listaUsuarios = new ListView();
-            listaUsuarios.View = View.Details;
-            listaUsuarios.CheckBoxes = true;
-            listaUsuarios.FullRowSelect = true;
-            listaUsuarios.Size = new Size(panelFormulario.Width - 40, 180);
-            listaUsuarios.Location = new Point(20, 500); 
-            listaUsuarios.Columns.Add("Usuario", 150);
-            listaUsuarios.Columns.Add("Rol", 100);
-            listaUsuarios.Columns.Add("Email", 200);
 
             panelFormulario.Controls.Add(listaUsuarios);
             string rutaJson = Path.Combine(Application.StartupPath, "Json", "users.json");
             usuariosRegistrados = CargarUsuariosDesdeJson(rutaJson);
-            MostrarUsuariosEnLista();
+
+
             MostrarUsuariosEnLista();
         }
 
@@ -149,6 +159,7 @@ namespace DesktopKalendula
 
         private void MostrarUsuariosEnLista()
         {
+
             listaUsuarios.Items.Clear();
 
             foreach (var user in usuariosRegistrados)
@@ -156,21 +167,21 @@ namespace DesktopKalendula
                 ListViewItem item = new ListViewItem(user.username);
                 item.SubItems.Add(user.role);
                 item.SubItems.Add(user.email);
-                item.Tag = user; 
+                item.Tag = user;
                 listaUsuarios.Items.Add(item);
             }
         }
 
         private List<InfoUser> ObtenerUsuariosSeleccionados()
         {
-            List<InfoUser> seleccionados = new List<InfoUser>();
 
+            List<InfoUser> seleccionados = new List<InfoUser>();
             foreach (ListViewItem item in listaUsuarios.Items)
             {
                 if (item.Checked)
+
                     seleccionados.Add((InfoUser)item.Tag);
             }
-
             return seleccionados;
         }
 
@@ -179,14 +190,14 @@ namespace DesktopKalendula
 
             if (string.IsNullOrWhiteSpace(textBoxNombreProyecto.Text))
             {
-                MessageBox.Show("Por favor, ingrese un nombre para el proyecto.");
+                MessageBox.Show("Please enter a name for the project.");
                 textBoxNombreProyecto.Focus();
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(textBoxDescripcionProyecto.Text))
             {
-                MessageBox.Show("Por favor, ingrese una descripción para el proyecto.");
+                MessageBox.Show("Please enter a description for the project.");
                 textBoxDescripcionProyecto.Focus();
                 return;
             }
@@ -197,14 +208,14 @@ namespace DesktopKalendula
 
             if (end < start)
             {
-                MessageBox.Show("La fecha de fin no puede ser anterior a la fecha de inicio.");
+                MessageBox.Show("The end date cannot be earlier than the start date.");
                 return;
             }
 
             var miembros = ObtenerUsuariosSeleccionados();
             if (miembros.Count == 0)
             {
-                MessageBox.Show("Por favor, seleccione al menos un miembro para el proyecto.");
+                MessageBox.Show("Please select at least one member for the project.");
                 return;
             }
 
@@ -240,7 +251,7 @@ namespace DesktopKalendula
             UsuarioManager.GuardarUsuarios(usuariosGlobales);
 
             GuardarProyecto(proyecto);
-            MessageBox.Show("Proyecto creado exitosamente.");
+            MessageBox.Show("The project has been created successfully.");
             ProjectHome projectHome = new ProjectHome(proyecto);
             projectHome.Show();
 
@@ -248,7 +259,7 @@ namespace DesktopKalendula
 
         public void GuardarProyecto(Project proyecto)
         {
-            string rutaJson = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Json", "Proyectos.json");
+            string rutaJson = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Json", "projects.json");
             List<Project> proyectos = new List<Project>();
 
             if (File.Exists(rutaJson))
@@ -257,7 +268,7 @@ namespace DesktopKalendula
                 if (!string.IsNullOrWhiteSpace(contenido))
                 {
                     proyectos = JsonConvert.DeserializeObject<List<Project>>(contenido);
-                    proyectos = proyectos.Where(p => p.name !="Name").ToList();
+                    proyectos = proyectos.Where(p => p.name != "Name").ToList();
                 }
             }
 
@@ -280,10 +291,8 @@ namespace DesktopKalendula
 
         private void GuardarUsuarios (List<InfoUser> usuarios)
         {
-            string rutaJson = Path.Combine(Application.StartupPath, "Json", "users.Json");
+            string rutaJson = Path.Combine(Application.StartupPath, "Json", "Usuarios.Json");
 
-            string json = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
-            File.WriteAllText(rutaJson, json);
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
