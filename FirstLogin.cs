@@ -49,7 +49,7 @@ namespace DesktopKalendula
         {
             RegisterPage nuevo = new RegisterPage();
             nuevo.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnsignin_Click(object sender, EventArgs e)

@@ -46,5 +46,61 @@
     "projects": [
       "295a178c-9ca0-434f-afa9-b6ec144014ba"
     ]
+  },
+  {
+    "id": "91c172c2-6271-4574-a949-1deb6dae7c25",
+    "role": "Developer",
+    "username": "Jose Luis Garcia",
+    "password": "1234",
+    "email": "jl@gmail.com",
+    "projects": []
+  },
+  {
+    "id": "b5b9149b-f5c1-4934-ad47-732e6602efce",
+    "role": "Developer",
+    "username": "Marcos Jimenez",
+    "password": "1234",
+    "email": "marcos@gmail.com",
+    "projects": []
+  },
+  {
+    "id": "9875bab1-0564-486a-a2af-e0354d4ffc10",
+    "role": "Developer",
+    "username": "Paz Rueda",
+    "password": "1234",
+    "email": "paz@gmail.com",
+    "projects": []
+  },
+  {
+    "id": "c403f6e6-68d1-421a-8a2b-114ffafb1f65",
+    "role": "Developer",
+    "username": "Francisco  Fernandez",
+    "password": "1234",
+    "email": "francisco@gmail.com",
+    "projects": []
+  },
+  {
+    "id": "62459120-5b86-43aa-ac3b-41497043b4b3",
+    "role": "Developer",
+    "username": "Isaac Reixach",
+    "password": "1234",
+    "email": "isaac@gmail.com",
+    "projects": []
+  },
+  {
+    "id": "e020759d-09a4-48c2-bee1-2db0855f37a9",
+    "role": "Developer",
+    "username": "Hector Arranz",
+    "password": "1234",
+    "email": "hector@gmail.com",
+    "projects": []
+  },
+  {
+    "id": "f6d542a6-c684-4eb1-b6b1-5e93c387107b",
+    "role": "Developer",
+    "username": "usuario prueba",
+    "password": "1234",
+    "email": "prueba@gmail.com",
+    "projects": []
   }
 ]
