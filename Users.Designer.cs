@@ -77,7 +77,7 @@
             this.textBoxBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxBuscar.Location = new System.Drawing.Point(349, 78);
             this.textBoxBuscar.Name = "textBoxBuscar";
-            this.textBoxBuscar.Size = new System.Drawing.Size(740, 13);
+            this.textBoxBuscar.Size = new System.Drawing.Size(640, 13);
             this.textBoxBuscar.TabIndex = 6;
             // 
             // buttonBuscar
@@ -90,7 +90,7 @@
             this.buttonBuscar.Name = "buttonBuscar";
             this.buttonBuscar.Size = new System.Drawing.Size(150, 40);
             this.buttonBuscar.TabIndex = 7;
-            this.buttonBuscar.Text = "Buscar ⌕";
+            this.buttonBuscar.Text = "Search ⌕";
             this.buttonBuscar.UseVisualStyleBackColor = false;
             this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
@@ -112,9 +112,9 @@
             // 
             this.comboBoxFiltro.FormattingEnabled = true;
             this.comboBoxFiltro.Location = new System.Drawing.Point(641, 116);
-            this.comboBoxFiltro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxFiltro.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxFiltro.Name = "comboBoxFiltro";
-            this.comboBoxFiltro.Size = new System.Drawing.Size(164, 21);
+            this.comboBoxFiltro.Size = new System.Drawing.Size(175, 21);
             this.comboBoxFiltro.TabIndex = 9;
             this.comboBoxFiltro.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltro_SelectedIndexChanged);
             // 

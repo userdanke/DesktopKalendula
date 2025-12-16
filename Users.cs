@@ -31,11 +31,11 @@ namespace DesktopKalendula
             btnadd.Location = new Point(1450, 250);
             btnadd.Font = Fuentes.RubikSemiBold(15);
 
-            buttonBuscar.Location = new Point(450, 250);
+            buttonBuscar.Location = new Point(500, 250);
             buttonBuscar.Font = Fuentes.RubikBold(10);
             buttonBuscar.Click += buttonBuscar_Click;
 
-            textBoxBuscar.Location = new Point(580, 250);
+            textBoxBuscar.Location = new Point(660, 250);
             textBoxBuscar.Font = Fuentes.RubikBold(18);
 
             buttonOrderBy.Location = new Point(110,250);
@@ -89,15 +89,15 @@ namespace DesktopKalendula
             btnEliminar.Click += (s, args) =>
             {
 
-                DialogResult resultado = MessageBox.Show($"¿Estás seguro de eliminar a {usuario.username}?\nEsta acción no se puede deshacer.",
-                    "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult resultado = MessageBox.Show("Are you sure you want to delete {user.username}?\nThis action cannot be undone.",
+                    "Confirm deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (resultado == DialogResult.Yes)
                 {
                     if (UsuarioManager.EliminarUsuario(usuario.id))
                     {
                         panelTarjetas.Controls.Remove(tarjeta);
-                        MessageBox.Show("Usuario eliminado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("User successfully removed.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
                 }
@@ -383,9 +383,9 @@ namespace DesktopKalendula
             menu.AgregarOpcion("🏠", "Home", () => IrAInicio());
             if (SesionActual.UsuarioActual != null && SesionActual.UsuarioActual.role.ToLower() == "manager")
             {
-                menu.AgregarOpcion("👥", "Usuarios", () => IrAUsuarios());
+                menu.AgregarOpcion("👥", "Users", () => IrAUsuarios());
             }
-            menu.AgregarOpcion("🚪", "Cerrar Sesión", () => CerrarSesion());
+            menu.AgregarOpcion("🚪", "Log out", () => CerrarSesion());
 
             btnMenu.Text = "☰";
             btnMenu.Size = new Size(50, 1200);
@@ -418,8 +418,8 @@ namespace DesktopKalendula
         private void CerrarSesion()
         {
             DialogResult resultado = MessageBox.Show(
-                "¿Seguro que quieres cerrar sesión?",
-                "Confirmar",
+               "Are you sure you want to log out?",
+                "Confirm",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
             );

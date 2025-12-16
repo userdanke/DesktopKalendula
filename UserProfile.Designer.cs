@@ -28,13 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnMenu = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.btnMenu = new System.Windows.Forms.Button();
             this.pbAvatar = new System.Windows.Forms.PictureBox();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
+            this.buttonEditarDatos = new System.Windows.Forms.Button();
+            this.buttonPendientes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             this.SuspendLayout();
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.lblTitulo.Location = new System.Drawing.Point(0, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(52, 13);
+            this.lblTitulo.TabIndex = 1;
+            this.lblTitulo.Text = "My profile";
+            this.lblTitulo.Click += new System.EventHandler(this.lblTitulo_Click);
             // 
             // btnMenu
             // 
@@ -45,46 +56,42 @@
             this.btnMenu.Text = "button1";
             this.btnMenu.UseVisualStyleBackColor = true;
             // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(23)))), ((int)(((byte)(0)))));
-            this.lblTitulo.Location = new System.Drawing.Point(0, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(52, 13);
-            this.lblTitulo.TabIndex = 1;
-            this.lblTitulo.Text = "My profile";
-            // 
             // pbAvatar
             // 
             this.pbAvatar.Location = new System.Drawing.Point(3, 30);
             this.pbAvatar.Name = "pbAvatar";
             this.pbAvatar.Size = new System.Drawing.Size(200, 200);
-            this.pbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAvatar.TabIndex = 2;
             this.pbAvatar.TabStop = false;
             // 
-            // btnEditar
+            // buttonEditarDatos
             // 
-            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(145)))), ((int)(((byte)(109)))));
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(176, 1);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(200, 40);
-            this.btnEditar.TabIndex = 3;
-            this.btnEditar.Text = "Edit Info";
-            this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            this.buttonEditarDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
+            this.buttonEditarDatos.BackgroundImage = global::DesktopKalendula.Properties.Resources.editing;
+            this.buttonEditarDatos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonEditarDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditarDatos.ForeColor = System.Drawing.Color.Transparent;
+            this.buttonEditarDatos.Location = new System.Drawing.Point(351, 251);
+            this.buttonEditarDatos.Name = "buttonEditarDatos";
+            this.buttonEditarDatos.Size = new System.Drawing.Size(40, 43);
+            this.buttonEditarDatos.TabIndex = 11;
+            this.buttonEditarDatos.UseVisualStyleBackColor = false;
+            this.buttonEditarDatos.Click += new System.EventHandler(this.buttonEditarDatos_Click);
             // 
-            // btnCerrar
+            // buttonPendientes
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(81, 1);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(100, 40);
-            this.btnCerrar.TabIndex = 4;
-            this.btnCerrar.Text = "Close";
-            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.buttonPendientes.AutoSize = true;
+            this.buttonPendientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(122)))), ((int)(((byte)(122)))));
+            this.buttonPendientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPendientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            this.buttonPendientes.Location = new System.Drawing.Point(209, 96);
+            this.buttonPendientes.Name = "buttonPendientes";
+            this.buttonPendientes.Size = new System.Drawing.Size(150, 50);
+            this.buttonPendientes.TabIndex = 12;
+            this.buttonPendientes.Text = "To do";
+            this.buttonPendientes.UseVisualStyleBackColor = false;
+            this.buttonPendientes.Click += new System.EventHandler(this.buttonPendientes_Click);
             // 
             // UserProfile
             // 
@@ -92,8 +99,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.buttonPendientes);
+            this.Controls.Add(this.buttonEditarDatos);
             this.Controls.Add(this.pbAvatar);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnMenu);
@@ -110,10 +117,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.PictureBox pbAvatar;
-        private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button buttonEditarDatos;
+        private System.Windows.Forms.Button buttonPendientes;
     }
 }

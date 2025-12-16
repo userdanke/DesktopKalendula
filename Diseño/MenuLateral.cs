@@ -25,8 +25,8 @@ namespace DesktopKalendula.Diseño
         public Color ColorTexto { get; set; } = Color.FromArgb(61, 23, 0);
         public Color ColorHover { get; set; } = Color.FromArgb(168, 184, 197);
 
-        public string NombreUsuario { get; set; } = "Usuario";
-        public string CorreoUsuario { get; set; } = "correo@ejemplo.com";
+        public string NombreUsuario { get; set; } = "User";
+        public string CorreoUsuario { get; set; } = "email@example.com";
         public Image FotoUsuario { get; set; } = null;
 
 

@@ -106,9 +106,9 @@ namespace DesktopKalendula
 
             if(SesionActual.UsuarioActual != null && SesionActual.UsuarioActual.role.ToLower() == "manager")
             {
-                menu.AgregarOpcion("👥", "Usuarios", () => IrAUsuarios());
+                menu.AgregarOpcion("👥", "Users", () => IrAUsuarios());
             }
-            menu.AgregarOpcion("🚪", "Cerrar Sesión", () => CerrarSesion());
+            menu.AgregarOpcion("🚪", "Log out", () => CerrarSesion());
 
             btnMenu.Text = "☰";
             btnMenu.Size = new Size(50, 1200);
@@ -140,8 +140,8 @@ namespace DesktopKalendula
         private void CerrarSesion()
         {
             DialogResult resultado = MessageBox.Show(
-                "¿Seguro que quieres cerrar sesión?",
-                "Confirmar",
+                "Are you sure you want to log out?",
+                "Confirm",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
             );
