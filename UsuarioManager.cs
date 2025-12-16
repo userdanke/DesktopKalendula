@@ -30,7 +30,7 @@ namespace DesktopKalendula
             catch (Exception ex)
             {
                 // Manejar errores si no se puede crear la carpeta (ej. permisos)
-                MessageBox.Show($"Error al crear la carpeta de datos: {ex.Message}", "Error Fatal");
+                MessageBox.Show($"Error creating data folder: {ex.Message}", "Fatal Error");
             }
         }
 
@@ -62,7 +62,7 @@ namespace DesktopKalendula
                 return usuarios ?? new List<InfoUser>();
             } catch (Exception ex)
             {
-                MessageBox.Show($"Error al leer usuarios: {ex.Message} en la ruta: {rutaArchivo}", "Error de Lectura JSON");
+                MessageBox.Show($"Error reading users: {ex.Message} on the route: {rutaArchivo}", "JSON Read Error");
                 return new List<InfoUser>();
             }
         }
@@ -77,7 +77,7 @@ namespace DesktopKalendula
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al guardar usuarios: {ex.Message} en la ruta: {rutaArchivo}", "Error de Escritura JSON");
+                MessageBox.Show($"Error saving users: {ex.Message} in the path: {rutaArchivo}", "JSON Write Error");
             }
 
         }
@@ -113,7 +113,7 @@ namespace DesktopKalendula
             catch (Exception ex)
             {
                 // Ver el error real
-                MessageBox.Show($"Error: {ex.Message}", "Error al registrar");
+                MessageBox.Show($"Error: {ex.Message}", "Error registering");
                 return null;
             }
         }
@@ -134,7 +134,7 @@ namespace DesktopKalendula
                 string rutaCompleta = rutaArchivo;
 
                 if (!File.Exists(rutaCompleta))
-                    return "El archivo no existe.";
+                    return "The file does not exist.";
 
                 string json = File.ReadAllText(rutaCompleta);
 
@@ -148,7 +148,7 @@ namespace DesktopKalendula
             }
             catch (Exception ex)
             {
-                return $"Error al leer el archivo: {ex.Message}";
+                return $"Error reading the file: {ex.Message}";
             }
         }
 
@@ -162,7 +162,7 @@ namespace DesktopKalendula
 
                 if (usuarioAEliminar == null)
                 {
-                    MessageBox.Show("Usuario no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("User not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
 
@@ -171,7 +171,7 @@ namespace DesktopKalendula
                     int cantidadManager = usuarios.Count(u => u.role.ToLower() == "manager");
                     if (cantidadManager <= 1)
                     {
-                        MessageBox.Show("No puedes eliminar al único Manager del sistema.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("You cannot delete the only Manager in the system.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return false;
 
                     }
@@ -184,7 +184,7 @@ namespace DesktopKalendula
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al eliminar usuario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error deleting user: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -198,7 +198,7 @@ namespace DesktopKalendula
 
                 if (usuarioAEditar == null)
                 {
-                    MessageBox.Show("Usuario no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("User not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
 
@@ -206,7 +206,7 @@ namespace DesktopKalendula
                 {
                     if (usuarios.Any(u => u.email.ToLower() == nuevoEmail.ToLower() && u.id != id))
                     {
-                        MessageBox.Show("El email ya está en uso por otro usuario.", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("This email address is already in use by another user.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
                 }
@@ -231,7 +231,7 @@ namespace DesktopKalendula
             }
 
             catch (Exception ex) {
-                MessageBox.Show($"Error al editar usuario: {ex.Message}", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error editing user: {ex.Message}", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

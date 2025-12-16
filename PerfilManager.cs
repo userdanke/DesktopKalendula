@@ -35,12 +35,9 @@ namespace DesktopKalendula
                 this.Close();
                 return;
             }
-            pictureBoxLogo.Image = Resources.Logo;
-            pictureBoxLogo.Location = new Point(850, 950);
 
-            buttonEditarDatos.Location = new Point(1600,900);
-
-            buttonPendientes.Location = new Point(1600,200);
+            buttonPendientes.Location = new Point(1150,800);
+            buttonPendientes.Font = Fuentes.RubikBold(15);
 
 
 
@@ -65,9 +62,9 @@ namespace DesktopKalendula
             menu.AgregarOpcion("🏠", "Home", () => IrAInicio());
             if (SesionActual.UsuarioActual != null && SesionActual.UsuarioActual.role.ToLower() == "manager")
             {
-                menu.AgregarOpcion("👥", "Usuarios", () => IrAUsuarios());
+                menu.AgregarOpcion("👥", "Users", () => IrAUsuarios());
             }
-            menu.AgregarOpcion("🚪", "Cerrar Sesión", () => CerrarSesion());
+            menu.AgregarOpcion("🚪", "Log out", () => CerrarSesion());
 
             btnMenu.Text = "☰";
             btnMenu.Size = new Size(50, 1200);
@@ -100,8 +97,8 @@ namespace DesktopKalendula
         private void CerrarSesion()
         {
             DialogResult resultado = MessageBox.Show(
-                "¿Seguro que quieres cerrar sesión?",
-                "Confirmar",
+                "Are you sure you want to log out?",
+                "Confirm",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
             );
@@ -114,7 +111,7 @@ namespace DesktopKalendula
 
         private void ConfigurarInterfazPerfil()
         {
-            string ruta = @"Diseño\LogoUser.png";
+            string ruta = @"Diseño\AvatarMarron.png";
 
             InfoUser manager = SesionActual.UsuarioActual;
 
@@ -125,15 +122,15 @@ namespace DesktopKalendula
             Label lblTitulo = new Label();
             lblTitulo.Text = "Manager Profile";
             lblTitulo.Font = Fuentes.Calistoga(40);
-            lblTitulo.ForeColor = Color.FromArgb(61, 23, 0);
-            lblTitulo.Location = new Point(80, 80);
+            lblTitulo.ForeColor = Color.FromArgb(211, 145, 109);
+            lblTitulo.Location = new Point(300, 200);
             lblTitulo.AutoSize = true;
             this.Controls.Add(lblTitulo);
 
             PictureBox pbAvatar = new PictureBox();
             pbAvatar.Size = new Size(200, 200);
-            pbAvatar.Location = new Point(150, 200);
-            pbAvatar.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbAvatar.Location = new Point(350, 350);
+            pbAvatar.SizeMode = PictureBoxSizeMode.CenterImage;
             pbAvatar.Image = Image.FromFile( ruta );
             pbAvatar.BackColor = Color.White;
             this.Controls.Add(pbAvatar);
@@ -141,17 +138,19 @@ namespace DesktopKalendula
             Button btnEditarFoto = new Button();
             btnEditarFoto.Text = "Change Photo";
             btnEditarFoto.Size = new Size(200, 40);
-            btnEditarFoto.Location = new Point(150, 450);
+            btnEditarFoto.Font = Fuentes.RubikBold(15);
+            btnEditarFoto.Location = new Point(350, 550);
             btnEditarFoto.BackColor = Color.FromArgb(211, 145, 109);
             btnEditarFoto.ForeColor = Color.White;
             btnEditarFoto.FlatStyle = FlatStyle.Flat;
             btnEditarFoto.FlatAppearance.BorderSize = 0;
             this.Controls.Add(btnEditarFoto);
 
-            Panel panelInfo = new Panel();
-            panelInfo.Location = new Point(600, 400);
-            panelInfo.Size = new Size(800, 400);
-            panelInfo.BackColor = Color.White;
+            Panel panelInfo = new Panel();  
+            panelInfo.Left = (this.ClientSize.Width - panelInfo.Width);
+            panelInfo.Top = (this.ClientSize.Height - panelInfo.Height);
+            panelInfo.Size = new Size(700, 400);
+            panelInfo.BackColor = Color.FromArgb(224,182,159);
             panelInfo.BorderStyle = BorderStyle.None;
             this.Controls.Add(panelInfo);
 
@@ -160,17 +159,17 @@ namespace DesktopKalendula
 
             Label lblNombreTitulo = new Label();
             lblNombreTitulo.Text = "Name:";
-            lblNombreTitulo.Font = Fuentes.RubikBold(14);
-            lblNombreTitulo.ForeColor = Color.FromArgb(92, 135, 153);
+            lblNombreTitulo.Font = Fuentes.RubikBold(15);
+            lblNombreTitulo.ForeColor = Color.White;
             lblNombreTitulo.Location = new Point(30, yPos);
             lblNombreTitulo.AutoSize = true;
             panelInfo.Controls.Add(lblNombreTitulo);
 
             Label lblNombreValor = new Label();
             lblNombreValor.Text = manager.username;
-            lblNombreValor.Font = Fuentes.RubikRegular(14);
-            lblNombreValor.ForeColor = Color.FromArgb(61, 23, 0);
-            lblNombreValor.Location = new Point(30, yPos + 30);
+            lblNombreValor.Font = Fuentes.RubikMedium(15);
+            lblNombreValor.ForeColor = Color.White;
+            lblNombreValor.Location = new Point(100, yPos);
             lblNombreValor.AutoSize = true;
             lblNombreValor.Tag = "nombre";
             panelInfo.Controls.Add(lblNombreValor);
@@ -180,17 +179,17 @@ namespace DesktopKalendula
 
             Label lblEmailTitulo = new Label();
             lblEmailTitulo.Text = "Email:";
-            lblEmailTitulo.Font = Fuentes.RubikBold(14);
-            lblEmailTitulo.ForeColor = Color.FromArgb(92, 135, 153);
+            lblEmailTitulo.Font = Fuentes.RubikBold(15);
+            lblEmailTitulo.ForeColor = Color.White;
             lblEmailTitulo.Location = new Point(30, yPos);
             lblEmailTitulo.AutoSize = true;
             panelInfo.Controls.Add(lblEmailTitulo);
 
             Label lblEmailValor = new Label();
             lblEmailValor.Text = manager.email;
-            lblEmailValor.Font = Fuentes.RubikRegular(14);
-            lblEmailValor.ForeColor = Color.FromArgb(61, 23, 0);
-            lblEmailValor.Location = new Point(30, yPos + 30);
+            lblEmailValor.Font = Fuentes.RubikMedium(15);
+            lblEmailValor.ForeColor = Color.White;
+            lblEmailValor.Location = new Point(100, yPos);
             lblEmailValor.AutoSize = true;
             lblEmailValor.Tag = "email";
             panelInfo.Controls.Add(lblEmailValor);
@@ -200,20 +199,24 @@ namespace DesktopKalendula
             // Role
             Label lblRolTitulo = new Label();
             lblRolTitulo.Text = "Role:";
-            lblRolTitulo.Font = Fuentes.RubikBold(14);
-            lblRolTitulo.ForeColor = Color.FromArgb(92, 135, 153);
+            lblRolTitulo.Font = Fuentes.RubikBold(15);
+            lblRolTitulo.ForeColor = Color.White;
             lblRolTitulo.Location = new Point(30, yPos);
             lblRolTitulo.AutoSize = true;
             panelInfo.Controls.Add(lblRolTitulo);
 
             Label lblRolValor = new Label();
             lblRolValor.Text = manager.role;
-            lblRolValor.Font = Fuentes.RubikRegular(14);
-            lblRolValor.ForeColor = Color.FromArgb(204, 163, 193);
-            lblRolValor.Location = new Point(30, yPos + 30);
+            lblRolValor.Font = Fuentes.RubikMedium(15);
+            lblRolValor.ForeColor = Color.White;
+            lblRolValor.Location = new Point(100, yPos );
             lblRolValor.AutoSize = true;
             lblRolValor.Tag = "role";
             panelInfo.Controls.Add(lblRolValor);
+
+            buttonEditarDatos.Location = new Point(630, 330);
+            buttonEditarDatos.FlatAppearance.BorderSize = 0;
+            panelInfo.Controls.Add(buttonEditarDatos);
 
             yPos += spacing;
 
@@ -221,19 +224,6 @@ namespace DesktopKalendula
 
 
         }
-
-        private void buttonEditarDatos_Click(object sender, EventArgs e)
-        {
-            InfoUser manager = SesionActual.UsuarioActual;
-
-            if (manager == null ) {
-                MessageBox.Show("No user information found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            mostrarPanelEdicion(manager);
-        }
-
         private void mostrarPanelEdicion(InfoUser manager)
         {
             Panel panelEditar = new Panel();
@@ -388,7 +378,21 @@ namespace DesktopKalendula
 
         private void buttonPendientes_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Navegando hacia sus pendientes....");
+            MessageBox.Show("Navigating to your tasks....");
+        }
+
+        private void buttonEditarDatos_Click_1(object sender, EventArgs e)
+        {
+            InfoUser manager = SesionActual.UsuarioActual;
+
+            if (manager == null)
+            {
+                MessageBox.Show("No user information found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            mostrarPanelEdicion(manager);
+
         }
     }
 }

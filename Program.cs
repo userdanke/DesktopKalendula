@@ -24,20 +24,20 @@ namespace DesktopKalendula
             Fuentes.CargarDesdeDirectorio(rutaFuentes);
 
 
-            //Form formInicial;
-            //if (UsuarioManager.ExisteMananger())
-            //{
-            //    formInicial = new SignIn();
+            Form formInicial;
+            if (UsuarioManager.ExisteMananger())
+            {
+                formInicial = new SignIn();
 
-            //}
-            //else
-            //{
-            //    formInicial = new FirstLogin();
-            //}
+            }
+            else
+            {
+                formInicial = new FirstLogin();
+            }
 
-            //Application.Run(formInicial);
+            Application.Run(formInicial);
 
-            Application.Run(new Home());
+            //Application.Run(new Users());
 
 
         }

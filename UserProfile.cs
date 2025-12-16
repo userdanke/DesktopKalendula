@@ -25,6 +25,8 @@ namespace DesktopKalendula
 
         private void UserProfile_Load(object sender, EventArgs e)
         {
+            buttonPendientes.Location = new Point(1150, 800);
+            buttonPendientes.Font = Fuentes.RubikBold(15);
 
         }
 
@@ -48,9 +50,9 @@ namespace DesktopKalendula
             menu.AgregarOpcion("🏠", "Home", () => IrAInicio());
             if (SesionActual.UsuarioActual != null && SesionActual.UsuarioActual.role.ToLower() == "manager")
             {
-                menu.AgregarOpcion("👥", "Usuarios", () => IrAUsuarios());
+                menu.AgregarOpcion("👥", "Users", () => IrAUsuarios());
             }
-            menu.AgregarOpcion("🚪", "Cerrar Sesión", () => CerrarSesion());
+            menu.AgregarOpcion("🚪", "Log out", () => CerrarSesion());
 
             btnMenu.Text = "☰";
             btnMenu.Size = new Size(50, 1200);
@@ -83,8 +85,8 @@ namespace DesktopKalendula
         private void CerrarSesion()
         {
             DialogResult resultado = MessageBox.Show(
-                "¿Seguro que quieres cerrar sesión?",
-                "Confirmar",
+                "Are you sure you want to log out?",
+                "Confirm",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
             );
@@ -93,81 +95,6 @@ namespace DesktopKalendula
             {
                 SesionActual.CerrarSesionYReiniciar();
             }
-        }
-
-        private void ConfigurarInterfaz()
-        {
-            InfoUser usuario = SesionActual.UsuarioActual;
-            string ruta = @"Diseño\LogoUser.png";
-
-            lblTitulo.Font = Fuentes.Calistoga(40);
-            lblTitulo.Location = new Point(80, 80);
-            this.Controls.Add(lblTitulo);
-
-            pbAvatar.Location = new Point(150, 200);
-            if (System.IO.File.Exists(ruta))
-                pbAvatar.Image = Image.FromFile(ruta);
-
-            pbAvatar.BackColor = Color.White;
-            this.Controls.Add(pbAvatar);
-
-            btnEditar.Location = new Point(150, 450);
-            this.Controls.Add(btnEditar);
-
-            Panel panelInfo = new Panel();
-            panelInfo.Location = new Point(600, 300);
-            panelInfo.Size = new Size(600, 400);
-            panelInfo.BackColor = Color.White;
-            this.Controls.Add(panelInfo);
-
-            int yPos = 0;
-            int spacing = 80;
-
-            AgregarDato(panelInfo, "Name:", usuario.username, ref yPos, spacing);
-
-            AgregarDato(panelInfo, "Email:", usuario.email, ref yPos, spacing);
-
-            AgregarDato(panelInfo, "Role:", usuario.role, ref yPos, spacing);
-
-            btnCerrar.Location = new Point(1200,50);
-            btnCerrar.Click += (s, e) => this.Close();
-            this.Controls.Add(btnCerrar);
-
-        }
-
-        private void AgregarDato(Panel panel, String titulo, String valor, ref int yPos, int spacing)
-        {
-            Label lblTitulo = new Label();
-            lblTitulo.Text = titulo;
-            lblTitulo.Font = Fuentes.RubikBold(14);
-            lblTitulo.ForeColor = Color.FromArgb(92, 135, 153);
-            lblTitulo.Location = new Point(30, yPos);
-            lblTitulo.AutoSize = true;
-            panel.Controls.Add(lblTitulo);
-
-            Label lblValor = new Label();
-            lblValor.Text = valor;
-            lblValor.Font = Fuentes.RubikRegular(14);
-            lblValor.ForeColor = Color.FromArgb(61, 23, 0);
-            lblValor.Location = new Point(30, yPos + 30);
-            lblValor.AutoSize = true;
-            panel.Controls.Add(lblValor);
-
-            yPos += spacing;
-
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            InfoUser usuario = SesionActual.UsuarioActual;
-
-            if (usuario == null)
-            {
-                MessageBox.Show("No user information found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            mostrarPanelEdicion(usuario);
         }
 
         private void mostrarPanelEdicion(InfoUser usuario)
@@ -297,6 +224,89 @@ namespace DesktopKalendula
             panelEditar.BringToFront();
         }
 
+        private void AgregarDato(Panel panel, String titulo, String valor, ref int yPos, int spacing)
+        {
+            Label lblTitulo = new Label();
+            lblTitulo.Text = titulo;
+            lblTitulo.Font = Fuentes.RubikBold(15);
+            lblTitulo.ForeColor = Color.FromArgb(227, 133, 133); 
+            lblTitulo.Location = new Point(30, yPos);
+            lblTitulo.AutoSize = true;
+            panel.Controls.Add(lblTitulo);
+
+            Label lblValor = new Label();
+            lblValor.Text = valor;
+            lblValor.Font = Fuentes.RubikMedium(15);
+            lblValor.ForeColor = Color.FromArgb(227, 133, 133);
+            lblValor.Location = new Point(150, yPos);
+            lblValor.AutoSize = true;
+            panel.Controls.Add(lblValor);
+
+            yPos += spacing;
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            InfoUser usuario = SesionActual.UsuarioActual;
+
+            if (usuario == null)
+            {
+                MessageBox.Show("No user information found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            mostrarPanelEdicion(usuario);
+        }
+        private void ConfigurarInterfaz()
+        {
+            InfoUser usuario = SesionActual.UsuarioActual;
+            string ruta = @"Diseño\avatarRosa.png";
+
+            lblTitulo.Font = Fuentes.Calistoga(40);
+            lblTitulo.Location = new Point(300, 200);
+            this.Controls.Add(lblTitulo);
+
+            pbAvatar.Location = new Point(350, 350);
+            pbAvatar.BackColor = Color.White;
+            if (System.IO.File.Exists(ruta))
+                pbAvatar.Image = Image.FromFile(ruta);
+            this.Controls.Add(pbAvatar);
+
+            Button btnEditarFoto = new Button();
+            btnEditarFoto.Text = "Change Photo";
+            btnEditarFoto.Size = new Size(200, 40);
+            btnEditarFoto.Font = Fuentes.RubikBold(15);
+            btnEditarFoto.Location = new Point(350, 550);
+            btnEditarFoto.BackColor = Color.FromArgb(229, 122, 122);
+            btnEditarFoto.ForeColor = Color.White;
+            btnEditarFoto.FlatStyle = FlatStyle.Flat;
+            btnEditarFoto.FlatAppearance.BorderSize = 0;
+            this.Controls.Add(btnEditarFoto);
+
+            Panel panelInfo = new Panel();
+            panelInfo.Left = (this.ClientSize.Width - panelInfo.Width);
+            panelInfo.Top = (this.ClientSize.Height - panelInfo.Height);
+            panelInfo.Size = new Size(700, 400);
+            panelInfo.BackColor = Color.FromArgb(245, 211, 211);
+            panelInfo.BorderStyle = BorderStyle.None;
+            this.Controls.Add(panelInfo);
+
+            buttonEditarDatos.Location = new Point(630, 330);
+            buttonEditarDatos.FlatAppearance.BorderSize = 0;
+            panelInfo.Controls.Add(buttonEditarDatos);
+
+            int yPos = 30;
+            int spacing = 80;
+
+            AgregarDato(panelInfo, "Name:", usuario.username, ref yPos, spacing);
+
+            AgregarDato(panelInfo, "Email:", usuario.email, ref yPos, spacing);
+
+            AgregarDato(panelInfo, "Role:", usuario.role, ref yPos, spacing);
+
+        }
+
         private void ActualizarDatosPerfil()
         {
             InfoUser usuario = SesionActual.UsuarioActual;
@@ -322,6 +332,30 @@ namespace DesktopKalendula
             if (lblRol != null)
                 lblRol.Text = usuario.role;
 
+        }
+
+        private void lblTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEditarDatos_Click(object sender, EventArgs e)
+        {
+            InfoUser usuario = SesionActual.UsuarioActual;
+
+            if (usuario == null)
+            {
+                MessageBox.Show("No user information found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            mostrarPanelEdicion(usuario);
+
+        }
+
+        private void buttonPendientes_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Navigating to your tasks......");
         }
     }
 }

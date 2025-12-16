@@ -19,10 +19,6 @@ namespace DesktopKalendula
         private void RegisterPage_Load(object sender, EventArgs e)
         {
 
-            //// Mostrar la ruta completa
-            //string rutaCompleta = Path.GetFullPath("Usuarios.json");
-            //MessageBox.Show($"El archivo está en:\n{rutaCompleta}", "Ubicación");
-
             lblsignup.Font = Fuentes.Calistoga(50);
             lblsignup.Left = (this.ClientSize.Width - lblsignup.Width) / 2;
             lblsignup.Top = 80;
@@ -101,13 +97,11 @@ namespace DesktopKalendula
 
                 string fullName = $"{txtFirstName.Text} {txtLastName.Text}";
 
-                string rolPorDefecto ="Desarrollador";
+                string rolPorDefecto ="Developer";
 
                 InfoUser registroExistoso = UsuarioManager.RegistrarUsuario(
                     fullName, txtPassword.Text, txtEmail.Text, rolPorDefecto
                     );
-
-                //MessageBox.Show($"Resultado del registro: {registroExistoso}", "Debug");
 
                 if (registroExistoso != null)
                 {
