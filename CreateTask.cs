@@ -54,8 +54,8 @@ namespace DesktopKalendula
                 textBoxDescripcionTarea.Text = TareaEnEdicion.description;
                 mtbHoursDedicated.Text = TareaEnEdicion.hoursDedicated.ToString(@"hh\:mm");
 
-                dateTimePickerInicio.Value = TareaEnEdicion.deadline.Date;
-                dateTimePickerFin.Value = TareaEnEdicion.startDate.Date;
+                dateTimePickerInicio.Value = TareaEnEdicion.startDate.Date;
+                dateTimePickerFin.Value = TareaEnEdicion.deadline.Date;
 
                 comboBoxEstado.SelectedItem = TareaEnEdicion.state.ToString();
 

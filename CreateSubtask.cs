@@ -17,9 +17,11 @@ namespace DesktopKalendula
         public SubTasks SubTareaCreada { get; private set; }
         public SubTasks SubTareaEnEdicion;
 
-        public CreateSubtask(List<string> users)
+        public CreateSubtask(List<string> users, SubTasks subTaskEdit = null)
         {
             InitializeComponent();
+
+            SubTareaEnEdicion = subTaskEdit;
         }
 
         private void CreateSubtask_Load(object sender, EventArgs e)
