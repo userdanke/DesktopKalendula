@@ -56,6 +56,64 @@
             "startDate": "2026-01-30",
             "deadline": "2026-01-31",
             "state": 0
+          },
+          {
+            "parentTaskId": "d788a405-4d7e-4d54-8d51-957f4c9e1422",
+            "id": "8783ce3d-94b9-448d-be9b-849181c8afca",
+            "name": "Definir metodos y clases principales",
+            "users": [],
+            "description": "Crear los metodos en sus respectivas clases que manejaran la logica de las partes más importantes.",
+            "hoursDedicated": "00:00:00",
+            "startDate": "2026-02-02",
+            "deadline": "2026-02-05",
+            "state": 0
+          },
+          {
+            "parentTaskId": "d788a405-4d7e-4d54-8d51-957f4c9e1422",
+            "id": "83501eb9-7900-4a09-aa19-fc36995e1c0c",
+            "name": "Diseñar wireFrame",
+            "users": [],
+            "description": "Crear el primer borrador de la apliación.",
+            "hoursDedicated": "00:00:00",
+            "startDate": "2026-02-12",
+            "deadline": "2026-02-13",
+            "state": 1
+          }
+        ]
+      },
+      {
+        "id": "5dffe5d3-067f-430f-84b3-ce45e3cd5da6",
+        "name": "Manual de identidad",
+        "users": [
+          "f0a0246d-2fc7-4294-a835-ed1e2c6eadc5"
+        ],
+        "description": "Diseñar el manual de identidad de nuestra aplicacion.",
+        "hoursDedicated": "00:00:00",
+        "startDate": "2026-02-26",
+        "deadline": "2026-02-28",
+        "state": 0,
+        "subTasks": [
+          {
+            "parentTaskId": "5dffe5d3-067f-430f-84b3-ce45e3cd5da6",
+            "id": "9a497131-cc01-48e8-8137-c4bbdc995e3e",
+            "name": "Definir los colores de la marca",
+            "users": [],
+            "description": "Elegir los colores para nuestra aplicación.",
+            "hoursDedicated": "00:00:00",
+            "startDate": "2026-02-18",
+            "deadline": "2026-02-23",
+            "state": 0
+          },
+          {
+            "parentTaskId": "5dffe5d3-067f-430f-84b3-ce45e3cd5da6",
+            "id": "6b0a732d-c23f-4d10-a8a9-aa841cffbbf6",
+            "name": "Crear moodboard",
+            "users": [],
+            "description": "Elegir elementos que inspiran a la aplicacion.",
+            "hoursDedicated": "00:00:00",
+            "startDate": "2026-02-19",
+            "deadline": "2026-03-23",
+            "state": 0
           }
         ]
       }
@@ -98,6 +156,34 @@
             "state": 1
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "67959ca9-427b-45d9-ac66-34a8fd9c325c",
+    "name": "juegos",
+    "description": "Creacion de juegos para niños",
+    "startDate": "2025-12-18",
+    "endDate": "2025-12-31",
+    "users": [
+      "6458876e-105f-4943-bc3a-67492f07afc4",
+      "6d222881-43c3-4063-9d54-538a1f16c24f",
+      "62459120-5b86-43aa-ac3b-41497043b4b3",
+      "e020759d-09a4-48c2-bee1-2db0855f37a9"
+    ],
+    "tasks": [
+      {
+        "id": "8fe70469-cbf6-47f3-a29f-d97c20a80d7d",
+        "name": "hfjhff",
+        "users": [
+          "6d222881-43c3-4063-9d54-538a1f16c24f"
+        ],
+        "description": "ddfhdzfhdhdh",
+        "hoursDedicated": "00:00:00",
+        "startDate": "2025-12-18",
+        "deadline": "2025-12-20",
+        "state": 0,
+        "subTasks": []
       }
     ]
   }

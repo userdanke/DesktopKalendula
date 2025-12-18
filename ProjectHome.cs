@@ -357,6 +357,8 @@ namespace DesktopKalendula
                 Height = 0,
                 FlowDirection = FlowDirection.TopDown,
                 WrapContents = false,
+                AutoSize = true,
+                AutoSizeMode = AutoSizeMode.GrowAndShrink,
                 AutoScroll = true,
                 Visible = false,
                 Dock = DockStyle.Top
@@ -366,8 +368,11 @@ namespace DesktopKalendula
             {
                 Width = tarjeta.Width,
                 Height = 100,
+                MinimumSize = new Size(tarjeta.Width, 50),
                 BackColor = Color.Transparent,
-                Dock = DockStyle.Top
+                Dock = DockStyle.Top,
+                AutoSize = true,
+                AutoSizeMode = AutoSizeMode.GrowAndShrink
             };
 
             Button ver = new Button
@@ -398,9 +403,7 @@ namespace DesktopKalendula
             Button btnEliminarTarea = new Button { Text = "✕", Size = new Size(30, 30), Font = Fuentes.RubikRegular(15), Location = new Point(panelCabecera.Width - 30, 3), FlatStyle = FlatStyle.Flat, ForeColor = Color.FromArgb(229, 122, 122), FlatAppearance = { BorderSize = 0 } };
 
             btnAgregarSub.Click += (s, e) => buttonAgregar_Click(s, e, tarea, flpSubTareas);
-
             btnEditarTarea.Click += (s, e) => buttonEditar_Click(s, e, tarea, labelNombre, tarjeta);
-
             btnEliminarTarea.Click += (s, e) => buttonEliminar_Click(s, e, tarea, tarjeta);
             
             panelCabecera.Controls.Add(ver);
@@ -421,6 +424,8 @@ namespace DesktopKalendula
             panelCabecera.MouseMove += mouseMoveHandler;
             labelNombre.MouseDown += mouseDownHandler;
             labelNombre.MouseMove += mouseMoveHandler;
+
+            panelCabecera.BringToFront();
 
             foreach (var subTarea in tarea.subTasks)
             {
@@ -549,11 +554,11 @@ namespace DesktopKalendula
             Panel subTarjeta = new Panel
             {
                 Width = contenedorSubTask.Width - 5,
-                Height = 40,
+                Height = 60,
                 BackColor = Color.FromArgb(252, 250, 249),
-                BorderStyle = BorderStyle.FixedSingle,
+                BorderStyle = BorderStyle.None,
                 Tag = sub,
-                Margin = new Padding(5)
+                Margin = new Padding(5),
             };
 
             Label labelNombre = new Label
@@ -563,13 +568,14 @@ namespace DesktopKalendula
                 Height = 20,
                 Font = Fuentes.RubikRegular(15),
                 ForeColor = Color.FromArgb(61, 23, 0),
-                Location = new Point(10, 10),
+                Location = new Point(10, 15),
                 AutoSize = true,
+                MaximumSize = new Size(330, 0)
             };
             subTarjeta.Controls.Add(labelNombre);
 
-            Button btnEditSub = new Button { Text = "✎", Size = new Size(25, 20), Font = Fuentes.RubikRegular(15), Location = new Point(subTarjeta.Width - 60, 5), FlatStyle = FlatStyle.Flat, FlatAppearance = { BorderSize = 0 }, ForeColor = Color.FromArgb(61, 23, 0) };
-            Button btnDeleteSub = new Button { Text = "✕", Size = new Size(25, 20), Font = Fuentes.RubikRegular(15), Location = new Point(subTarjeta.Width - 30, 5), FlatStyle = FlatStyle.Flat, ForeColor = Color.FromArgb(229, 122, 122), FlatAppearance = { BorderSize = 0 } };
+            Button btnEditSub = new Button { Text = "✎", Size = new Size(30, 30), Font = Fuentes.RubikRegular(15), Location = new Point(subTarjeta.Width - 60, 2), FlatStyle = FlatStyle.Flat, FlatAppearance = { BorderSize = 0 }, ForeColor = Color.FromArgb(61, 23, 0) };
+            Button btnDeleteSub = new Button { Text = "✕", Size = new Size(30, 30), Font = Fuentes.RubikRegular(15), Location = new Point(subTarjeta.Width - 30, 2), FlatStyle = FlatStyle.Flat, ForeColor = Color.FromArgb(229, 122, 122), FlatAppearance = { BorderSize = 0 } };
 
             btnEditSub.Click += (s, e) => buttonEditSub_Click(s, e, sub, labelNombre, task);
 
@@ -642,10 +648,7 @@ namespace DesktopKalendula
         {
             bool isExpanded = (bool)btnExpandir.Tag;
 
-            int targetHeight = isExpanded ? 0 : 150;
-
             flpSubtareas.Visible = !isExpanded;
-            flpSubtareas.Height = targetHeight;
             btnExpandir.Text = isExpanded ? "▼" : "▲";
             btnExpandir.Tag = !isExpanded;
 

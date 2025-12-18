@@ -66,6 +66,7 @@ namespace DesktopKalendula
             labelNombreProyecto.Font = Fuentes.RubikBold(12);
             labelNombreProyecto.Location = new Point(this.panelFormulario.Width / 8, 130);
             labelNombreProyecto.ForeColor = Color.FromArgb(92, 135, 153);
+
             textBoxNombreProyecto.Font = Fuentes.RubikRegular(12);
             textBoxNombreProyecto.ForeColor = Color.FromArgb(61, 23, 0);
             textBoxNombreProyecto.Location = new Point(this.panelFormulario.Width / 3, 130);
@@ -81,6 +82,7 @@ namespace DesktopKalendula
             labelDescripcionProyecto.Font = Fuentes.RubikBold(12);
             labelDescripcionProyecto.Location = new Point(this.panelFormulario.Width / 8, 175);
             labelDescripcionProyecto.ForeColor = Color.FromArgb(92, 135, 153);
+
             textBoxDescripcionProyecto.Font = Fuentes.RubikRegular(12);
             textBoxDescripcionProyecto.ForeColor = Color.FromArgb(61, 23, 0);
             textBoxDescripcionProyecto.Location = new Point(this.panelFormulario.Width / 3, 175);
