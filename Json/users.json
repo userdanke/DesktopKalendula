@@ -14,7 +14,8 @@
     "password": "1234",
     "email": "edith@gmail.com",
     "projects": [
-      "295a178c-9ca0-434f-afa9-b6ec144014ba"
+      "295a178c-9ca0-434f-afa9-b6ec144014ba",
+      "67959ca9-427b-45d9-ac66-34a8fd9c325c"
     ]
   },
   {
@@ -24,7 +25,8 @@
     "password": "1234",
     "email": "ledys@gmail.com",
     "projects": [
-      "295a178c-9ca0-434f-afa9-b6ec144014ba"
+      "295a178c-9ca0-434f-afa9-b6ec144014ba",
+      "67959ca9-427b-45d9-ac66-34a8fd9c325c"
     ]
   },
   {
@@ -85,7 +87,9 @@
     "username": "Isaac Reixach",
     "password": "1234",
     "email": "isaac@gmail.com",
-    "projects": []
+    "projects": [
+      "67959ca9-427b-45d9-ac66-34a8fd9c325c"
+    ]
   },
   {
     "id": "e020759d-09a4-48c2-bee1-2db0855f37a9",
@@ -93,7 +97,9 @@
     "username": "Hector Arranz",
     "password": "1234",
     "email": "hector@gmail.com",
-    "projects": []
+    "projects": [
+      "67959ca9-427b-45d9-ac66-34a8fd9c325c"
+    ]
   },
   {
     "id": "f6d542a6-c684-4eb1-b6b1-5e93c387107b",

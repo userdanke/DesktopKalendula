@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panelFormulario = new System.Windows.Forms.Panel();
+            this.mtbHoursDedicated = new System.Windows.Forms.MaskedTextBox();
             this.labelHoursDedicated = new System.Windows.Forms.Label();
             this.comboBoxEstado = new System.Windows.Forms.ComboBox();
-            this.checkedListBoxUsuarios = new System.Windows.Forms.CheckedListBox();
             this.labelEstado = new System.Windows.Forms.Label();
             this.labelUsuarios = new System.Windows.Forms.Label();
             this.labelAñadirUsuarios = new System.Windows.Forms.Label();
@@ -46,7 +46,6 @@
             this.labelDescripcionTarea = new System.Windows.Forms.Label();
             this.labelNombreTarea = new System.Windows.Forms.Label();
             this.labelTitulo = new System.Windows.Forms.Label();
-            this.mtbHoursDedicated = new System.Windows.Forms.MaskedTextBox();
             this.panelFormulario.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +55,6 @@
             this.panelFormulario.Controls.Add(this.mtbHoursDedicated);
             this.panelFormulario.Controls.Add(this.labelHoursDedicated);
             this.panelFormulario.Controls.Add(this.comboBoxEstado);
-            this.panelFormulario.Controls.Add(this.checkedListBoxUsuarios);
             this.panelFormulario.Controls.Add(this.labelEstado);
             this.panelFormulario.Controls.Add(this.labelUsuarios);
             this.panelFormulario.Controls.Add(this.labelAñadirUsuarios);
@@ -76,6 +74,15 @@
             this.panelFormulario.Size = new System.Drawing.Size(871, 830);
             this.panelFormulario.TabIndex = 1;
             // 
+            // mtbHoursDedicated
+            // 
+            this.mtbHoursDedicated.Location = new System.Drawing.Point(95, 602);
+            this.mtbHoursDedicated.Mask = "00:00";
+            this.mtbHoursDedicated.Name = "mtbHoursDedicated";
+            this.mtbHoursDedicated.Size = new System.Drawing.Size(51, 20);
+            this.mtbHoursDedicated.TabIndex = 19;
+            this.mtbHoursDedicated.ValidatingType = typeof(System.DateTime);
+            // 
             // labelHoursDedicated
             // 
             this.labelHoursDedicated.AutoSize = true;
@@ -94,14 +101,6 @@
             this.comboBoxEstado.Size = new System.Drawing.Size(121, 21);
             this.comboBoxEstado.TabIndex = 15;
             this.comboBoxEstado.SelectedIndexChanged += new System.EventHandler(this.comboBoxEstado_SelectedIndexChanged);
-            // 
-            // checkedListBoxUsuarios
-            // 
-            this.checkedListBoxUsuarios.FormattingEnabled = true;
-            this.checkedListBoxUsuarios.Location = new System.Drawing.Point(92, 486);
-            this.checkedListBoxUsuarios.Name = "checkedListBoxUsuarios";
-            this.checkedListBoxUsuarios.Size = new System.Drawing.Size(453, 94);
-            this.checkedListBoxUsuarios.TabIndex = 14;
             // 
             // labelEstado
             // 
@@ -157,7 +156,7 @@
             this.dateTimePickerFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerFin.Location = new System.Drawing.Point(94, 373);
             this.dateTimePickerFin.Name = "dateTimePickerFin";
-            this.dateTimePickerFin.Size = new System.Drawing.Size(451, 20);
+            this.dateTimePickerFin.Size = new System.Drawing.Size(343, 20);
             this.dateTimePickerFin.TabIndex = 8;
             // 
             // dateTimePickerInicio
@@ -166,7 +165,7 @@
             this.dateTimePickerInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerInicio.Location = new System.Drawing.Point(94, 305);
             this.dateTimePickerInicio.Name = "dateTimePickerInicio";
-            this.dateTimePickerInicio.Size = new System.Drawing.Size(451, 20);
+            this.dateTimePickerInicio.Size = new System.Drawing.Size(343, 20);
             this.dateTimePickerInicio.TabIndex = 7;
             // 
             // textBoxDescripcionTarea
@@ -176,7 +175,7 @@
             this.textBoxDescripcionTarea.Location = new System.Drawing.Point(94, 191);
             this.textBoxDescripcionTarea.Multiline = true;
             this.textBoxDescripcionTarea.Name = "textBoxDescripcionTarea";
-            this.textBoxDescripcionTarea.Size = new System.Drawing.Size(449, 78);
+            this.textBoxDescripcionTarea.Size = new System.Drawing.Size(343, 78);
             this.textBoxDescripcionTarea.TabIndex = 6;
             // 
             // textBoxNombreTarea
@@ -185,7 +184,7 @@
             this.textBoxNombreTarea.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNombreTarea.Location = new System.Drawing.Point(92, 147);
             this.textBoxNombreTarea.Name = "textBoxNombreTarea";
-            this.textBoxNombreTarea.Size = new System.Drawing.Size(451, 13);
+            this.textBoxNombreTarea.Size = new System.Drawing.Size(343, 13);
             this.textBoxNombreTarea.TabIndex = 5;
             // 
             // labelFechaFin
@@ -233,15 +232,6 @@
             this.labelTitulo.TabIndex = 0;
             this.labelTitulo.Text = "Add a new task";
             // 
-            // mtbHoursDedicated
-            // 
-            this.mtbHoursDedicated.Location = new System.Drawing.Point(95, 602);
-            this.mtbHoursDedicated.Mask = "00:00";
-            this.mtbHoursDedicated.Name = "mtbHoursDedicated";
-            this.mtbHoursDedicated.Size = new System.Drawing.Size(51, 20);
-            this.mtbHoursDedicated.TabIndex = 19;
-            this.mtbHoursDedicated.ValidatingType = typeof(System.DateTime);
-            // 
             // CreateTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,7 +266,6 @@
         private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.Label labelUsuarios;
         private System.Windows.Forms.Label labelEstado;
-        private System.Windows.Forms.CheckedListBox checkedListBoxUsuarios;
         private System.Windows.Forms.ComboBox comboBoxEstado;
         private System.Windows.Forms.Label labelHoursDedicated;
         private System.Windows.Forms.MaskedTextBox mtbHoursDedicated;
