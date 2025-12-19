@@ -27,6 +27,8 @@ namespace DesktopKalendula
             InitializeComponent();
             usuariosDisponibles = userId;
             TareaEnEdicion = tareaEditar;
+
+            this.Load += CreateTask_Load;
         }
 
         private void CreateTask_Load(object sender, EventArgs e)
@@ -106,9 +108,24 @@ namespace DesktopKalendula
             dateTimePickerFin.Font = Fuentes.RubikRegular(12);
             dateTimePickerFin.Location = new Point(this.panelFormulario.Width / 3, 325);
 
-            labelAñadirUsuarios.Font = Fuentes.RubikBold(20);
-            labelAñadirUsuarios.Location = new Point(this.panelFormulario.Width / 3, 375);
-            labelAñadirUsuarios.ForeColor = Color.FromArgb(92, 135, 153);
+            labelEstado.Font = Fuentes.RubikBold(12);
+            labelEstado.Location = new Point(this.panelFormulario.Width / 8, 365);
+            labelEstado.ForeColor = Color.FromArgb(92, 135, 153);
+            comboBoxEstado.Font = Fuentes.RubikRegular(12);
+            comboBoxEstado.Items.Clear();
+            comboBoxEstado.Items.AddRange(Enum.GetNames(typeof(TaskState)));
+            comboBoxEstado.SelectedIndex = 0;
+            comboBoxEstado.Location = new Point(this.panelFormulario.Width / 3, 365);
+
+            labelHoursDedicated.Font = Fuentes.RubikBold(12);
+            labelHoursDedicated.Location = new Point(this.panelFormulario.Width / 8, 415);
+            labelHoursDedicated.ForeColor = Color.FromArgb(92, 135, 153);
+            mtbHoursDedicated.Font = Fuentes.RubikRegular(12);
+            mtbHoursDedicated.Location = new Point(this.panelFormulario.Width / 2, 415);
+
+            labelUsuarios.Font = Fuentes.RubikBold(20);
+            labelUsuarios.Location = new Point(this.panelFormulario.Width / 3, 455);
+            labelUsuarios.ForeColor = Color.FromArgb(92, 135, 153);
 
             listaUsuarios = new ListView();
             listaUsuarios.View = View.Details;
@@ -119,9 +136,11 @@ namespace DesktopKalendula
             listaUsuarios.GridLines = false;
             listaUsuarios.FullRowSelect = true;
             listaUsuarios.Size = new Size(panelFormulario.Width - 190, 180);
-            listaUsuarios.Location = new Point(this.panelFormulario.Width / 7, 420);
+            listaUsuarios.Location = new Point(this.panelFormulario.Width / 7, 500);
             listaUsuarios.Columns.Add("Users", 260);
             listaUsuarios.Columns.Add("Rol", 180);
+
+            this.panelFormulario.Controls.Add(listaUsuarios);
 
             int spacing = 20;
             int totalWidth = buttonCrear.Width + buttonCancelar.Width + spacing;
@@ -130,61 +149,83 @@ namespace DesktopKalendula
 
             buttonCrear.Font = Fuentes.RubikBold(15);
             buttonCrear.Size = new Size(210, 50);
-            buttonCrear.Location = new Point(startX, 630);
+            buttonCrear.Location = new Point(startX, 680);
             buttonCrear.ForeColor = Color.FromArgb(252, 250, 249);
             buttonCrear.BackColor = Color.FromArgb(204, 163, 193);
 
             buttonCancelar.Font = Fuentes.RubikBold(15);
             buttonCancelar.Size = new Size(210, 50);
-            buttonCancelar.Location = new Point(startX + buttonCrear.Width + spacing, 630);
+            buttonCancelar.Location = new Point(startX + buttonCrear.Width + spacing, 680);
             buttonCancelar.ForeColor = Color.FromArgb(252, 250, 249);
             buttonCancelar.BackColor = Color.FromArgb(211, 145, 109);
 
             string rutaJson = Path.Combine(Application.StartupPath, "Json", "users.json");
             usuariosRegistrados = CargarUsuariosDesdeJson(rutaJson);
 
-            //checkedListBoxUsuarios.Items.Clear();
+            MostrarUsuariosEnLista();
 
-            //foreach (var idDisponible in usuariosDisponibles)
-            //{
-            //    var user = usuariosRegistrados.FirstOrDefault(u => u.id == idDisponible);
+            if (TareaEnEdicion != null)
+            {
+                textBoxNombreTarea.Text = TareaEnEdicion.name;
+                textBoxDescripcionTarea.Text = TareaEnEdicion.description;
+                mtbHoursDedicated.Text = TareaEnEdicion.hoursDedicated.ToString(@"hh\:mm");
 
-            //    if (user != null)
-            //    {
-            //        checkedListBoxUsuarios.Items.Add(user.username);
-            //    }
-            //}
+                dateTimePickerInicio.Value = TareaEnEdicion.startDate.Date;
+                dateTimePickerFin.Value = TareaEnEdicion.deadline.Date;
 
-            //comboBoxEstado.Items.Clear();
-            //comboBoxEstado.Items.AddRange(Enum.GetNames(typeof(TaskState)));
-            //comboBoxEstado.SelectedIndex = 0;
+                if (comboBoxEstado.Items.Contains(TareaEnEdicion.state.ToString()))
+                {
+                    comboBoxEstado.SelectedItem = TareaEnEdicion.state.ToString();
+                }
 
-            //if (TareaEnEdicion != null)
-            //{
-            //    textBoxNombreTarea.Text = TareaEnEdicion.name;
-            //    textBoxDescripcionTarea.Text = TareaEnEdicion.description;
-            //    mtbHoursDedicated.Text = TareaEnEdicion.hoursDedicated.ToString(@"hh\:mm");
+                foreach (ListViewItem item in listaUsuarios.Items)
+                {
+                    InfoUser u = (InfoUser)item.Tag;
+                    if (TareaEnEdicion.users.Contains(u.id))
+                    {
+                        item.Checked = true;
+                    }
+                }
+            }
+        }
 
-            //    dateTimePickerInicio.Value = TareaEnEdicion.startDate.Date;
-            //    dateTimePickerFin.Value = TareaEnEdicion.deadline.Date;
+        public List<InfoUser> CargarUsuariosDesdeJson(string ruta)
+        {
+            if (!File.Exists(ruta))
+                return new List<InfoUser>();
 
-            //    comboBoxEstado.SelectedItem = TareaEnEdicion.state.ToString();
+            string json = File.ReadAllText(ruta);
+            return JsonConvert.DeserializeObject<List<InfoUser>>(json);
+        }
 
-            //    foreach(string idAsignado in TareaEnEdicion.users)
-            //    {
-            //        var usuario = usuariosRegistrados.FirstOrDefault(u => u.id == idAsignado);
+        private void MostrarUsuariosEnLista()
+        {
+            listaUsuarios.Items.Clear();
+            foreach (var idDisponible in usuariosDisponibles)
+            {
+                var user = usuariosRegistrados.FirstOrDefault(u => u.id == idDisponible);
+                if (user != null)
+                {
+                    ListViewItem item = new ListViewItem(user.username);
+                    item.SubItems.Add(user.role);
+                    item.Tag = user;
+                    listaUsuarios.Items.Add(item);
+                }
+            }
+        }
 
-            //        if (usuario != null) 
-            //        {
-            //            int index = checkedListBoxUsuarios.Items.IndexOf(usuario.username);
-            //            if (index >= 0)
-            //            {
-            //                checkedListBoxUsuarios.SetItemChecked(index, true);
-            //            }
-            //        }
-            //    }
-            //}
-
+        private List<string> ObtenerIdsSeleccionados()
+        {
+            List<string> ids = new List<string>();
+            foreach (ListViewItem item in listaUsuarios.Items)
+            {
+                if (item.Checked)
+                {
+                    InfoUser u = (InfoUser)item.Tag;
+                    ids.Add(u.id);
+                }
+            }
+            return ids;
         }
 
         private void buttonCrear_Click(object sender, EventArgs e)
@@ -211,48 +252,31 @@ namespace DesktopKalendula
                 return;
             }
 
-            //List<string> usuariosSeleccionados = checkedListBoxUsuarios.CheckedItems.Cast<string>().ToList();
-
-            //if (usuariosSeleccionados.Count == 0)
-            //{
-            //    MessageBox.Show("Debes seleccionar al menos un usuario para la tarea.");
-            //    return;
-            //}
-
-            //List<string> idSeleccionados = new List<string>();
-            //foreach (string nombre in usuariosSeleccionados)
-            //{
-            //    var usuario = usuariosRegistrados.FirstOrDefault(u => u.username == nombre);
-            //    if (usuario != null)
-            //    {
-            //        idSeleccionados.Add(usuario.id);
-            //    }
-            //}
-
-            //if (idSeleccionados.Count == 0)
-            //{
-            //    MessageBox.Show("Error al mapear usuarios a IDs. Revisar archivo de usuarios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-
             DateTime start = dateTimePickerInicio.Value.Date;
             DateTime end = dateTimePickerFin.Value.Date;
 
             if (end < start)
             {
-                MessageBox.Show("La fecha de fin no puede ser anterior a la fecha de inicio.");
+                MessageBox.Show("The end date cannot be earlier than the start date.");
                 return;
             }
 
-            TaskState estadoSeleccionado = (TaskState)Enum.Parse(typeof(TaskState),
-                comboBoxEstado.SelectedItem.ToString());
+            List<string> idsSeleccionados = ObtenerIdsSeleccionados();
+
+            if (idsSeleccionados.Count == 0)
+            {
+                MessageBox.Show("Debes seleccionar al menos un usuario.");
+                return;
+            }
+
+            TaskState estadoSeleccionado = (TaskState)Enum.Parse(typeof(TaskState), comboBoxEstado.SelectedItem.ToString());
 
             if (TareaEnEdicion != null) 
             { 
                 TareaCreada = TareaEnEdicion;
                 TareaCreada.name = textBoxNombreTarea.Text;
                 TareaCreada.description = textBoxDescripcionTarea.Text;
-                //TareaCreada.users = idSeleccionados;
+                TareaCreada.users = idsSeleccionados;
                 TareaCreada.hoursDedicated = horasDedicadas;
                 TareaCreada.startDate = start;
                 TareaCreada.deadline = end;
@@ -265,7 +289,7 @@ namespace DesktopKalendula
                     id = Guid.NewGuid().ToString(),
                     name = textBoxNombreTarea.Text,
                     description = textBoxDescripcionTarea.Text,
-                    //users = idSeleccionados,
+                    users = idsSeleccionados,
                     hoursDedicated = horasDedicadas,
                     startDate = start,
                     deadline = end,
@@ -287,15 +311,6 @@ namespace DesktopKalendula
         private void label1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        public List<InfoUser> CargarUsuariosDesdeJson(string ruta)
-        {
-            if (!File.Exists(ruta))
-                return new List<InfoUser>();
-
-            string json = File.ReadAllText(ruta);
-            return JsonConvert.DeserializeObject<List<InfoUser>>(json);
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
@@ -333,6 +348,16 @@ namespace DesktopKalendula
                 MessageBox.Show("El formato de hora no es válido o está incompleto (ejemplo: 23:59).",
                                 "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void panelFormulario_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void mtbHoursDedicated_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }
