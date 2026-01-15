@@ -89,7 +89,7 @@ namespace DesktopKalendula
             btnEliminar.Click += (s, args) =>
             {
 
-                DialogResult resultado = MessageBox.Show("Are you sure you want to delete {user.username}?\nThis action cannot be undone.",
+                DialogResult resultado = MessageBox.Show($"Are you sure you want to delete {usuario.username}?\nThis action cannot be undone.",
                     "Confirm deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (resultado == DialogResult.Yes)

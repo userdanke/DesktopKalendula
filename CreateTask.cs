@@ -27,6 +27,8 @@ namespace DesktopKalendula
             InitializeComponent();
             usuariosDisponibles = userId;
             TareaEnEdicion = tareaEditar;
+
+            this.Load += CreateTask_Load;
         }
 
         private void CreateTask_Load(object sender, EventArgs e)
@@ -126,6 +128,8 @@ namespace DesktopKalendula
             mtbHoursDedicated.Font = Fuentes.RubikRegular(12);
             mtbHoursDedicated.Location = new Point(this.panelFormulario.Width / 3, 590);
 
+            this.panelFormulario.Controls.Add(listaUsuarios);
+
             int spacing = 20;
             int totalWidth = buttonCrear.Width + buttonCancelar.Width + spacing;
 
@@ -133,13 +137,13 @@ namespace DesktopKalendula
 
             buttonCrear.Font = Fuentes.RubikBold(15);
             buttonCrear.Size = new Size(210, 50);
-            buttonCrear.Location = new Point(startX, 630);
+            buttonCrear.Location = new Point(startX, 680);
             buttonCrear.ForeColor = Color.FromArgb(252, 250, 249);
             buttonCrear.BackColor = Color.FromArgb(204, 163, 193);
 
             buttonCancelar.Font = Fuentes.RubikBold(15);
             buttonCancelar.Size = new Size(210, 50);
-            buttonCancelar.Location = new Point(startX + buttonCrear.Width + spacing, 630);
+            buttonCancelar.Location = new Point(startX + buttonCrear.Width + spacing, 680);
             buttonCancelar.ForeColor = Color.FromArgb(252, 250, 249);
             buttonCancelar.BackColor = Color.FromArgb(211, 145, 109);
 
@@ -188,6 +192,18 @@ namespace DesktopKalendula
                 }
             }
 
+        private List<string> ObtenerIdsSeleccionados()
+        {
+            List<string> ids = new List<string>();
+            foreach (ListViewItem item in listaUsuarios.Items)
+            {
+                if (item.Checked)
+                {
+                    InfoUser u = (InfoUser)item.Tag;
+                    ids.Add(u.id);
+                }
+            }
+            return ids;
         }
 
         private void buttonCrear_Click(object sender, EventArgs e)
@@ -243,12 +259,19 @@ namespace DesktopKalendula
 
             if (end < start)
             {
-                MessageBox.Show("La fecha de fin no puede ser anterior a la fecha de inicio.");
+                MessageBox.Show("The end date cannot be earlier than the start date.");
                 return;
             }
 
-            TaskState estadoSeleccionado = (TaskState)Enum.Parse(typeof(TaskState),
-                comboBoxEstado.SelectedItem.ToString());
+            List<string> idsSeleccionados = ObtenerIdsSeleccionados();
+
+            if (idsSeleccionados.Count == 0)
+            {
+                MessageBox.Show("Debes seleccionar al menos un usuario.");
+                return;
+            }
+
+            TaskState estadoSeleccionado = (TaskState)Enum.Parse(typeof(TaskState), comboBoxEstado.SelectedItem.ToString());
 
             if (TareaEnEdicion != null) 
             { 
@@ -292,15 +315,6 @@ namespace DesktopKalendula
 
         }
 
-        public List<InfoUser> CargarUsuariosDesdeJson(string ruta)
-        {
-            if (!File.Exists(ruta))
-                return new List<InfoUser>();
-
-            string json = File.ReadAllText(ruta);
-            return JsonConvert.DeserializeObject<List<InfoUser>>(json);
-        }
-
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
@@ -336,6 +350,16 @@ namespace DesktopKalendula
                 MessageBox.Show("El formato de hora no es válido o está incompleto (ejemplo: 23:59).",
                                 "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void panelFormulario_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void mtbHoursDedicated_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }
