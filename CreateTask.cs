@@ -77,7 +77,8 @@ namespace DesktopKalendula
             textBoxNombreTarea.ForeColor = Color.FromArgb(61, 23, 0);
             textBoxNombreTarea.Location = new Point(this.panelFormulario.Width / 3, 130);
             textBoxNombreTarea.Height = 25;
-            textBoxNombreTarea.KeyPress += (s, i) => {
+            textBoxNombreTarea.KeyPress += (s, i) =>
+            {
                 if (i.KeyChar == (char)Keys.Enter)
                 {
                     i.Handled = true;
@@ -126,9 +127,7 @@ namespace DesktopKalendula
             labelHoursDedicated.Location = new Point(this.panelFormulario.Width / 6, 590);
             labelHoursDedicated.ForeColor = Color.FromArgb(92, 135, 153);
             mtbHoursDedicated.Font = Fuentes.RubikRegular(12);
-            mtbHoursDedicated.Location = new Point(this.panelFormulario.Width / 3, 590);
-
-            this.panelFormulario.Controls.Add(listaUsuarios);
+            mtbHoursDedicated.Location = new Point(this.panelFormulario.Width / 5, 590);
 
             int spacing = 20;
             int totalWidth = buttonCrear.Width + buttonCancelar.Width + spacing;
@@ -191,19 +190,15 @@ namespace DesktopKalendula
                     }
                 }
             }
+        }
 
-        private List<string> ObtenerIdsSeleccionados()
+        public List<InfoUser> CargarUsuariosDesdeJson(string ruta)
         {
-            List<string> ids = new List<string>();
-            foreach (ListViewItem item in listaUsuarios.Items)
-            {
-                if (item.Checked)
-                {
-                    InfoUser u = (InfoUser)item.Tag;
-                    ids.Add(u.id);
-                }
-            }
-            return ids;
+            if (!File.Exists(ruta))
+                return new List<InfoUser>();
+
+            string json = File.ReadAllText(ruta);
+            return JsonConvert.DeserializeObject<List<InfoUser>>(json);
         }
 
         private void buttonCrear_Click(object sender, EventArgs e)
@@ -230,27 +225,17 @@ namespace DesktopKalendula
                 return;
             }
 
-            List<string> usuariosSeleccionados = checkedListBoxUsuarios.CheckedItems.Cast<string>().ToList();
-
-            if (usuariosSeleccionados.Count == 0)
-            {
-                MessageBox.Show("Debes seleccionar al menos un usuario para la tarea.");
-                return;
-            }
-
             List<string> idSeleccionados = new List<string>();
-            foreach (string nombre in usuariosSeleccionados)
+            foreach (var item in checkedListBoxUsuarios.CheckedItems)
             {
+                string nombre = item.ToString();
                 var usuario = usuariosRegistrados.FirstOrDefault(u => u.username == nombre);
-                if (usuario != null)
-                {
-                    idSeleccionados.Add(usuario.id);
-                }
+                if (usuario != null) idSeleccionados.Add(usuario.id);
             }
 
             if (idSeleccionados.Count == 0)
             {
-                MessageBox.Show("Error al mapear usuarios a IDs. Revisar archivo de usuarios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debes seleccionar al menos un usuario.");
                 return;
             }
 
@@ -260,14 +245,6 @@ namespace DesktopKalendula
             if (end < start)
             {
                 MessageBox.Show("The end date cannot be earlier than the start date.");
-                return;
-            }
-
-            List<string> idsSeleccionados = ObtenerIdsSeleccionados();
-
-            if (idsSeleccionados.Count == 0)
-            {
-                MessageBox.Show("Debes seleccionar al menos un usuario.");
                 return;
             }
 

@@ -183,6 +183,19 @@
         "deadline": "2026-01-17",
         "state": 0,
         "subTasks": []
+      },
+      {
+        "id": "41875b1a-c61a-4d66-b412-997f08d27fec",
+        "name": "TEST APP",
+        "users": [
+          "6d222881-43c3-4063-9d54-538a1f16c24f"
+        ],
+        "description": "efhjhjwrjfnjsfjsdjbhfdhsfbsdfdhsfbdsfh",
+        "hoursDedicated": "00:00:00",
+        "startDate": "2026-01-15",
+        "deadline": "2026-01-25",
+        "state": 0,
+        "subTasks": []
       }
     ]
   },
@@ -211,6 +224,57 @@
         "deadline": "2025-12-20",
         "state": 0,
         "subTasks": []
+      }
+    ]
+  },
+  {
+    "id": "031ac0b7-8cb8-4ba1-8f07-bee2a21176a3",
+    "name": "TETRIS",
+    "description": "hnfhsjbfhbhbdbfnfbsmnb",
+    "startDate": "2026-01-15",
+    "endDate": "2026-02-22",
+    "users": [
+      "6458876e-105f-4943-bc3a-67492f07afc4",
+      "d6419933-2136-40d9-afa7-07032feb3a4e",
+      "e020759d-09a4-48c2-bee1-2db0855f37a9",
+      "f6d542a6-c684-4eb1-b6b1-5e93c387107b"
+    ],
+    "tasks": [
+      {
+        "id": "98f8c345-09be-41cc-b559-2db740d6c354",
+        "name": "CREAR FIGMA",
+        "users": [
+          "e020759d-09a4-48c2-bee1-2db0855f37a9"
+        ],
+        "description": "lihdjddmn msdnmdnas",
+        "hoursDedicated": "02:00:00",
+        "startDate": "2026-01-16",
+        "deadline": "2026-01-17",
+        "state": 0,
+        "subTasks": [
+          {
+            "parentTaskId": "98f8c345-09be-41cc-b559-2db740d6c354",
+            "id": "7a49df2d-4675-4887-89f0-19adabe590d8",
+            "name": "Crear botones",
+            "users": [],
+            "description": "perfujdsfjdnskfmndfndfmj",
+            "hoursDedicated": "00:00:00",
+            "startDate": "2026-01-17",
+            "deadline": "2026-01-18",
+            "state": 1
+          },
+          {
+            "parentTaskId": "98f8c345-09be-41cc-b559-2db740d6c354",
+            "id": "ee41d890-ad18-4146-a8c0-2c0236dc4fa7",
+            "name": "erogidkgldg",
+            "users": [],
+            "description": "dgfdfpgijdfgijdfkjdgkdgjml",
+            "hoursDedicated": "02:00:00",
+            "startDate": "2026-01-15",
+            "deadline": "2026-01-17",
+            "state": 0
+          }
+        ]
       }
     ]
   }

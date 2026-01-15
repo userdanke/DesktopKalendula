@@ -15,7 +15,8 @@
     "email": "edith@gmail.com",
     "projects": [
       "295a178c-9ca0-434f-afa9-b6ec144014ba",
-      "67959ca9-427b-45d9-ac66-34a8fd9c325c"
+      "67959ca9-427b-45d9-ac66-34a8fd9c325c",
+      "031ac0b7-8cb8-4ba1-8f07-bee2a21176a3"
     ]
   },
   {
@@ -36,7 +37,8 @@
     "password": "1234",
     "email": "daniil@gmail.com",
     "projects": [
-      "295a178c-9ca0-434f-afa9-b6ec144014ba"
+      "295a178c-9ca0-434f-afa9-b6ec144014ba",
+      "031ac0b7-8cb8-4ba1-8f07-bee2a21176a3"
     ]
   },
   {
@@ -98,7 +100,8 @@
     "password": "1234",
     "email": "hector@gmail.com",
     "projects": [
-      "67959ca9-427b-45d9-ac66-34a8fd9c325c"
+      "67959ca9-427b-45d9-ac66-34a8fd9c325c",
+      "031ac0b7-8cb8-4ba1-8f07-bee2a21176a3"
     ]
   },
   {
@@ -107,6 +110,8 @@
     "username": "usuario prueba",
     "password": "1234",
     "email": "prueba@gmail.com",
-    "projects": []
+    "projects": [
+      "031ac0b7-8cb8-4ba1-8f07-bee2a21176a3"
+    ]
   }
 ]
