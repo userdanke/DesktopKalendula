@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelFormulario = new System.Windows.Forms.Panel();
+            this.checkedListBoxUsuarios = new System.Windows.Forms.CheckedListBox();
             this.mtbHoursDedicated = new System.Windows.Forms.MaskedTextBox();
             this.labelHoursDedicated = new System.Windows.Forms.Label();
             this.comboBoxEstado = new System.Windows.Forms.ComboBox();
@@ -52,6 +53,7 @@
             // panelFormulario
             // 
             this.panelFormulario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(235)))), ((int)(((byte)(241)))));
+            this.panelFormulario.Controls.Add(this.checkedListBoxUsuarios);
             this.panelFormulario.Controls.Add(this.mtbHoursDedicated);
             this.panelFormulario.Controls.Add(this.labelHoursDedicated);
             this.panelFormulario.Controls.Add(this.comboBoxEstado);
@@ -74,8 +76,20 @@
             this.panelFormulario.Size = new System.Drawing.Size(871, 830);
             this.panelFormulario.TabIndex = 1;
             // 
+            // checkedListBoxUsuarios
+            // 
+            this.checkedListBoxUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            this.checkedListBoxUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.checkedListBoxUsuarios.FormattingEnabled = true;
+            this.checkedListBoxUsuarios.Location = new System.Drawing.Point(95, 485);
+            this.checkedListBoxUsuarios.Name = "checkedListBoxUsuarios";
+            this.checkedListBoxUsuarios.Size = new System.Drawing.Size(342, 92);
+            this.checkedListBoxUsuarios.TabIndex = 20;
+            // 
             // mtbHoursDedicated
             // 
+            this.mtbHoursDedicated.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
+            this.mtbHoursDedicated.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mtbHoursDedicated.Location = new System.Drawing.Point(95, 602);
             this.mtbHoursDedicated.Mask = "00:00";
             this.mtbHoursDedicated.Name = "mtbHoursDedicated";
@@ -95,6 +109,7 @@
             // 
             // comboBoxEstado
             // 
+            this.comboBoxEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.comboBoxEstado.FormattingEnabled = true;
             this.comboBoxEstado.Location = new System.Drawing.Point(94, 424);
             this.comboBoxEstado.Name = "comboBoxEstado";
@@ -269,5 +284,6 @@
         private System.Windows.Forms.ComboBox comboBoxEstado;
         private System.Windows.Forms.Label labelHoursDedicated;
         private System.Windows.Forms.MaskedTextBox mtbHoursDedicated;
+        private System.Windows.Forms.CheckedListBox checkedListBoxUsuarios;
     }
 }

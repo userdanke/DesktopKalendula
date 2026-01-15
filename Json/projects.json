@@ -156,6 +156,33 @@
             "state": 1
           }
         ]
+      },
+      {
+        "id": "1f6d5e55-3a42-416b-aa7a-030ae1ecaf2b",
+        "name": "ghkjhjkhj",
+        "users": [
+          "6458876e-105f-4943-bc3a-67492f07afc4",
+          "6d222881-43c3-4063-9d54-538a1f16c24f"
+        ],
+        "description": "khjkgkkhjkghk",
+        "hoursDedicated": "00:00:00",
+        "startDate": "2026-01-14",
+        "deadline": "2026-01-16",
+        "state": 0,
+        "subTasks": []
+      },
+      {
+        "id": "8972fb0d-c6ab-412e-9494-76b1e41cd970",
+        "name": "TAREA PRUEBA FINAL",
+        "users": [
+          "6458876e-105f-4943-bc3a-67492f07afc4"
+        ],
+        "description": "kljdsfjbmbdgnfmsngnmgnmngds",
+        "hoursDedicated": "00:00:00",
+        "startDate": "2026-01-15",
+        "deadline": "2026-01-17",
+        "state": 0,
+        "subTasks": []
       }
     ]
   },
